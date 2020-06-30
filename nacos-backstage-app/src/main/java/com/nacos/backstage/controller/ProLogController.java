@@ -1,4 +1,5 @@
 package com.nacos.backstage.controller;
+import com.alibaba.csp.sentinel.annotation.SentinelResource;
 import com.nacos.backstage.vo.ProLogVo;
 import com.nacos.common.annotation.Log;
 import com.nacos.common.method.ProParameter;
@@ -37,6 +38,7 @@ public class ProLogController {
 
     @PostMapping(value = "/getPageList")
     @ApiOperation(value = "分页查询列表")
+    @SentinelResource(value = "proLog/getPageList")
     public ServiceResponse<List<ProLogVo>> getPageList(@RequestBody ProLogRequest request) {
         return new ServiceResponse<List<ProLogVo>>()
                 .run(serviceResponse -> {
@@ -72,6 +74,7 @@ public class ProLogController {
 
     @PostMapping(value = "/get")
     @ApiOperation(value = "获取单条信息")
+    @SentinelResource(value = "proLog/get")
     public ServiceResponse<ProLogVo> get(@RequestBody ProLogRequest request) {
         return new ServiceResponse<ProLogVo>()
                 .run(serviceResponse -> {
@@ -94,6 +97,7 @@ public class ProLogController {
     @PostMapping(value = "/save")
     @ApiOperation(value = "保存")
     //@GlobalTransactional
+    @SentinelResource(value = "proLog/save")
     @Log(name = "操作日志", value = "保存", source = "admin-app")
     public ServiceResponse<ProLogVo> save(@RequestBody ProLogRequest request) {
         return new ServiceResponse<ProLogVo>()
@@ -122,6 +126,7 @@ public class ProLogController {
     @PostMapping(value = "/idsDelete")
     @ApiOperation(value = "批量删除")
     //@GlobalTransactional
+    @SentinelResource(value = "proLog/idsDelete")
     public ServiceResponse<Integer> idsDelete(@RequestBody ProLogRequest request) {
         return new ServiceResponse<Integer>()
                 .run(serviceResponse -> {
@@ -144,6 +149,7 @@ public class ProLogController {
     @PostMapping(value = "/delete")
     @ApiOperation(value = "删除")
     //@GlobalTransactional
+    @SentinelResource(value = "proLog/delete")
     public ServiceResponse<Integer> delete(@RequestBody ProLogRequest request) {
         return new ServiceResponse<Integer>()
                 .run(serviceResponse -> {
@@ -163,6 +169,7 @@ public class ProLogController {
     @PostMapping(value = "/update")
     @ApiOperation(value = "修改")
     //@GlobalTransactional
+    @SentinelResource(value = "proLog/update")
     public ServiceResponse<Integer> update(@RequestBody ProLogRequest request) {
         return new ServiceResponse<Integer>()
                 .run(serviceResponse -> {

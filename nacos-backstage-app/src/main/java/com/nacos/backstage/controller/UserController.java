@@ -1,4 +1,5 @@
 package com.nacos.backstage.controller;
+import com.alibaba.csp.sentinel.annotation.SentinelResource;
 import com.nacos.backstage.vo.UserVo;
 import com.nacos.common.annotation.Authority;
 import com.nacos.common.annotation.Log;
@@ -39,6 +40,7 @@ public class UserController {
     @ApiOperation(value = "分页查询管理员列表")
     @Log(name = "管理员日志", value = "分页查询管理员列表", source = "system-app")
     @Authority(values = {"admin_select"})
+    @SentinelResource(value = "user/userPageList")
     public ServiceResponse<List<UserVo>> getUsers(@RequestBody User user) {
         return new ServiceResponse<List<UserVo>>()
                 .run(serviceResponse -> {
@@ -94,6 +96,7 @@ public class UserController {
     @Log(name = "管理员日志", value = "删除用户", source = "system-app")
     //@GlobalTransactional
     @Authority(values = {"admin_del"})
+    @SentinelResource(value = "user/delete")
     public ServiceResponse<Integer> delete(@RequestBody User user) {
         return new ServiceResponse<Integer>()
                 .run(serviceResponse -> {
@@ -108,6 +111,7 @@ public class UserController {
     @Authority(values = {"addadmin"})
     @Log(name = "管理员日志", value = "添加", source = "system-app")
     //@GlobalTransactional(rollbackFor = Exception.class)
+    @SentinelResource(value = "user/save")
     public ServiceResponse<Integer> save(@RequestBody User user) {
         return new ServiceResponse<Integer>()
                 .run(serviceResponse -> {
@@ -132,6 +136,7 @@ public class UserController {
     @Log(name = "管理员日志", value = "修改用户状态", source = "system-app")
     @Authority(values = {"admin_edit"})
     //@GlobalTransactional
+    @SentinelResource(value = "user/updateStats")
     public ServiceResponse<Integer> updateStats(@RequestBody User user) {
         return new ServiceResponse<Integer>()
                 .run(serviceResponse -> {
@@ -145,6 +150,7 @@ public class UserController {
     @Log(name = "管理员日志", value = "修改用户", source = "system-app")
     //@GlobalTransactional
     @Authority(values = {"admin_edit"})
+    @SentinelResource(value = "user/update")
     public ServiceResponse<Integer> update(@RequestBody User user) {
         return new ServiceResponse<Integer>()
                 .run(serviceResponse -> {

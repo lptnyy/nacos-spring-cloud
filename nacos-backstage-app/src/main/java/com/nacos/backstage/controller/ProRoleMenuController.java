@@ -1,4 +1,5 @@
 package com.nacos.backstage.controller;
+import com.alibaba.csp.sentinel.annotation.SentinelResource;
 import com.nacos.backstage.vo.ProRoleMenuVo;
 import com.nacos.common.annotation.Log;
 import com.nacos.common.method.ProParameter;
@@ -36,6 +37,7 @@ public class ProRoleMenuController {
 
     @PostMapping(value = "/getPageList")
     @ApiOperation(value = "分页查询列表")
+    @SentinelResource(value = "proRoleMenu/getPageList")
     @Log(name = "角色菜单关系表", value = "分页查询列表", source = "admin-app")
     public ServiceResponse<List<ProRoleMenuVo>> getPageList(@RequestBody ProRoleMenuRequest request) {
         return new ServiceResponse<List<ProRoleMenuVo>>()
@@ -68,6 +70,7 @@ public class ProRoleMenuController {
 
     @PostMapping(value = "/get")
     @ApiOperation(value = "获取单条信息")
+    @SentinelResource(value = "proRoleMenu/get")
     @Log(name = "角色菜单关系表", value = "获取单条信息", source = "admin-app")
     public ServiceResponse<ProRoleMenuVo> get(@RequestBody ProRoleMenuRequest request) {
         return new ServiceResponse<ProRoleMenuVo>()
@@ -90,6 +93,7 @@ public class ProRoleMenuController {
 
     @PostMapping(value = "/save")
     @ApiOperation(value = "保存")
+    @SentinelResource(value = "proRoleMenu/save")
     @Log(name = "角色菜单关系表", value = "保存", source = "admin-app")
     //@GlobalTransactional
     public ServiceResponse<Integer> save(@RequestBody ProRoleMenuRequest request) {
@@ -120,6 +124,7 @@ public class ProRoleMenuController {
 
     @PostMapping(value = "/idsDelete")
     @ApiOperation(value = "批量删除")
+    @SentinelResource(value = "proRoleMenu/idsDelete")
     @Log(name = "角色菜单关系表", value = "批量删除", source = "admin-app")
     //@GlobalTransactional
     public ServiceResponse<Integer> idsDelete(@RequestBody ProRoleMenuRequest request) {
@@ -140,6 +145,7 @@ public class ProRoleMenuController {
 
     @PostMapping(value = "/delete")
     @ApiOperation(value = "删除")
+    @SentinelResource(value = "proRoleMenu/delete")
     @Log(name = "角色菜单关系表", value = "删除", source = "admin-app")
     //@GlobalTransactional
     public ServiceResponse<Integer> delete(@RequestBody ProRoleMenuRequest request) {
@@ -160,6 +166,7 @@ public class ProRoleMenuController {
 
     @PostMapping(value = "/update")
     @ApiOperation(value = "修改")
+    @SentinelResource(value = "proRoleMenu/update")
     @Log(name = "角色菜单关系表", value = "修改", source = "admin-app")
     //@GlobalTransactional
     public ServiceResponse<Integer> update(@RequestBody ProRoleMenuRequest request) {

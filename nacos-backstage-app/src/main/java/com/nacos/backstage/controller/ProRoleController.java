@@ -1,4 +1,5 @@
 package com.nacos.backstage.controller;
+import com.alibaba.csp.sentinel.annotation.SentinelResource;
 import com.nacos.backstage.vo.ProRoleMenuVo;
 import com.nacos.backstage.vo.ProRoleVo;
 import com.nacos.common.annotation.Log;
@@ -48,6 +49,7 @@ public class ProRoleController {
     @PostMapping(value = "/getPageList")
     @ApiOperation(value = "分页查询列表")
     @Log(name = "系统角色表", value = "分页查询列表", source = "admin-app")
+    @SentinelResource(value = "proRole/getPageList")
     public ServiceResponse<List<ProRoleVo>> getPageList(@RequestBody ProRoleRequest request) {
         return new ServiceResponse<List<ProRoleVo>>()
                 .run(serviceResponse -> {
@@ -103,6 +105,7 @@ public class ProRoleController {
     @PostMapping(value = "/get")
     @ApiOperation(value = "获取单条信息")
     @Log(name = "系统角色表", value = "获取单条信息", source = "admin-app")
+    @SentinelResource(value = "proRole/get")
     public ServiceResponse<ProRoleVo> get(@RequestBody ProRoleRequest request) {
         return new ServiceResponse<ProRoleVo>()
                 .run(serviceResponse -> {
@@ -125,6 +128,7 @@ public class ProRoleController {
     @PostMapping(value = "/getList")
     @ApiOperation(value = "获取所有角色信息")
     @Log(name = "系统角色表", value = "获取所有角色信息", source = "admin-app")
+    @SentinelResource(value = "proRole/getList")
     public ServiceResponse<List<ProRole>> getList(@RequestBody ProRoleRequest request) {
         return new ServiceResponse<List<ProRole>>()
                 .run(serviceResponse -> {
@@ -143,6 +147,7 @@ public class ProRoleController {
     @PostMapping(value = "/save")
     @ApiOperation(value = "保存")
     //@GlobalTransactional
+    @SentinelResource(value = "proRole/save")
     @Log(name = "系统角色表", value = "保存", source = "admin-apps")
     public ServiceResponse<ProRoleVo> save(@RequestBody ProRoleRequest request) {
         return new ServiceResponse<ProRoleVo>()
@@ -171,6 +176,7 @@ public class ProRoleController {
     @PostMapping(value = "/idsDelete")
     @ApiOperation(value = "批量删除")
     //@GlobalTransactional
+    @SentinelResource(value = "proRole/idsDelete")
     @Log(name = "系统角色表", value = "批量删除", source = "admin-app")
     public ServiceResponse<Integer> idsDelete(@RequestBody ProRoleRequest request) {
         return new ServiceResponse<Integer>()
@@ -191,6 +197,7 @@ public class ProRoleController {
     @PostMapping(value = "/delete")
     @ApiOperation(value = "删除")
     //@GlobalTransactional
+    @SentinelResource(value = "proRole/delete")
     @Log(name = "系统角色表", value = "删除", source = "admin-app")
     public ServiceResponse<Integer> delete(@RequestBody ProRoleRequest request) {
         return new ServiceResponse<Integer>()
@@ -216,6 +223,7 @@ public class ProRoleController {
     @PostMapping(value = "/update")
     @ApiOperation(value = "修改")
     //@GlobalTransactional
+    @SentinelResource(value = "proRole/update")
     @Log(name = "系统角色表", value = "修改", source = "admin-app")
     public ServiceResponse<Integer> update(@RequestBody ProRoleRequest request) {
         return new ServiceResponse<Integer>()

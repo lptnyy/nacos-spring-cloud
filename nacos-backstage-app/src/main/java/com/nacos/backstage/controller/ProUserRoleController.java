@@ -1,4 +1,5 @@
 package com.nacos.backstage.controller;
+import com.alibaba.csp.sentinel.annotation.SentinelResource;
 import com.nacos.backstage.vo.ProUserRoleVo;
 import com.nacos.common.annotation.Log;
 import com.nacos.common.method.ProParameter;
@@ -37,6 +38,7 @@ public class ProUserRoleController {
     @PostMapping(value = "/getPageList")
     @ApiOperation(value = "分页查询列表")
     @Log(name = "用户角色关系表", value = "分页查询列表", source = "admin-app")
+    @SentinelResource(value = "proUserRole/getPageList")
     public ServiceResponse<List<ProUserRoleVo>> getPageList(@RequestBody ProUserRoleRequest request) {
         return new ServiceResponse<List<ProUserRoleVo>>()
                 .run(serviceResponse -> {
@@ -72,6 +74,7 @@ public class ProUserRoleController {
     @PostMapping(value = "/get")
     @ApiOperation(value = "获取单条信息")
     @Log(name = "用户角色关系表", value = "获取单条信息", source = "admin-app")
+    @SentinelResource(value = "proUserRole/get")
     public ServiceResponse<ProUserRoleVo> get(@RequestBody ProUserRoleRequest request) {
         return new ServiceResponse<ProUserRoleVo>()
                 .run(serviceResponse -> {
@@ -93,6 +96,7 @@ public class ProUserRoleController {
     @ApiOperation(value = "保存")
     //@GlobalTransactional
     @Log(name = "用户角色关系表", value = "保存", source = "admin-app")
+    @SentinelResource(value = "proUserRole/save")
     public ServiceResponse<List<ProUserRole>> save(@RequestBody ProUserRoleRequest request) {
         return new ServiceResponse<List<ProUserRole>>()
                 .run(serviceResponse -> {
@@ -134,6 +138,7 @@ public class ProUserRoleController {
     @ApiOperation(value = "批量删除")
     //@GlobalTransactional
     @Log(name = "用户角色关系表", value = "批量删除", source = "admin-app")
+    @SentinelResource(value = "proUserRole/idsDelete")
     public ServiceResponse<Integer> idsDelete(@RequestBody ProUserRoleRequest request) {
         return new ServiceResponse<Integer>()
                 .run(serviceResponse -> {
@@ -154,6 +159,7 @@ public class ProUserRoleController {
     @ApiOperation(value = "删除")
     //@GlobalTransactional
     @Log(name = "用户角色关系表", value = "删除", source = "admin-app")
+    @SentinelResource(value = "proUserRole/delete")
     public ServiceResponse<Integer> delete(@RequestBody ProUserRoleRequest request) {
         return new ServiceResponse<Integer>()
                 .run(serviceResponse -> {
@@ -174,6 +180,7 @@ public class ProUserRoleController {
     @ApiOperation(value = "修改")
     //@GlobalTransactional
     @Log(name = "用户角色关系表", value = "修改", source = "admin-app")
+    @SentinelResource(value = "proUserRole/update")
     public ServiceResponse<Integer> update(@RequestBody ProUserRoleRequest request) {
         return new ServiceResponse<Integer>()
                 .run(serviceResponse -> {
