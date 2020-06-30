@@ -8,10 +8,22 @@
   <packaging>pom</packaging>
   <version>1.0-SNAPSHOT</version>
   <modules>
-    <module>nacos-config</module>
+    <module>nacos-common</module>
+    <module>nacos-system-server-fegin</module>
+    <module>nacos-system-server</module>
+    <module>nacos-oauth-server</module>
+    <module>nacos-gateway</module>
+    <module>nacos-backstage-app</module>
+    <module>nacos-oss-server</module>
+    <module>nacos-oss-server-fegin</module>
+    <module>nacos-generator-server</module>
   </modules>
-
   <properties>
+    <mysql-connector-java.version>8.0.20</mysql-connector-java.version>
+    <mybatis-plus-boot-starter.version>3.3.2</mybatis-plus-boot-starter.version>
+    <druid-spring-boot-starter.version>1.1.23</druid-spring-boot-starter.version>
+    <lombok.version>1.18.12</lombok.version>
+    <dynamic.datasource.boot.version>3.1.1</dynamic.datasource.boot.version>
     <revision>2.2.1.RELEASE</revision>
     <spring-cloud-commons.version>2.2.2.RELEASE</spring-cloud-commons.version>
     <spring-cloud-netflix.version>2.2.2.RELEASE</spring-cloud-netflix.version>
@@ -37,6 +49,7 @@
     <flatten-maven-plugin.version>1.1.0</flatten-maven-plugin.version>
     <gmavenplus-plugin.version>1.6</gmavenplus-plugin.version>
     <jacoco.version>0.8.3</jacoco.version>
+    <swagger2.version>2.9.2</swagger2.version>
   </properties>
 
   <dependencyManagement>
@@ -48,18 +61,17 @@
         <type>pom</type>
         <scope>import</scope>
       </dependency>
-      <!-- Override Spring Data release train provided by Spring Boot -->
       <dependency>
-        <groupId>org.springframework.data</groupId>
-        <artifactId>spring-data-releasetrain</artifactId>
-        <version>Fowler-SR2</version>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-dependencies</artifactId>
+        <version>2.2.1.RELEASE</version>
         <type>pom</type>
         <scope>import</scope>
       </dependency>
       <dependency>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-dependencies</artifactId>
-        <version>2.2.2.RELEASE</version>
+        <groupId>org.springframework.cloud</groupId>
+        <artifactId>spring-cloud-dependencies</artifactId>
+        <version>Hoxton.RELEASE</version>
         <type>pom</type>
         <scope>import</scope>
       </dependency>
@@ -69,8 +81,13 @@
   <build>
     <plugins>
       <plugin>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-maven-plugin</artifactId>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <configuration>
+          <source>1.8</source>
+          <target>1.8</target>
+          <encoding>UTF-8</encoding>
+        </configuration>
       </plugin>
     </plugins>
   </build>

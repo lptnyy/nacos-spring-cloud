@@ -1,0 +1,15 @@
+package com.nacos.system.mapper;
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.nacos.system.dto.ProMenu;
+
+/**
+ * <p>
+    * 菜单表   Mapper 接口
+    * </p>
+ *
+ * @author 王振宇
+ * @since 2020-04-12
+ */
+public interface ProMenuMapper extends BaseMapper<ProMenu> {
+
+}
