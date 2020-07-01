@@ -170,7 +170,7 @@ public class ${className}ServiceImpl implements I${className}Service {
     }
 
     @Override
-    @GlobalTransactional
+    @Transactional
     public ServiceResponse<Integer> update(ProParameter<${className}Request> proParameter) {
         return new ServiceResponse<Integer>()
                 .run(serviceResponse -> {
@@ -181,7 +181,7 @@ public class ${className}ServiceImpl implements I${className}Service {
     }
 
     @Override
-    @GlobalTransactional
+    @Transactional
     public ServiceResponse<${className}> save(ProParameter<${className}Request> proParameter) {
         return new ServiceResponse<${className}>()
                 .run(serviceResponse -> {
@@ -193,7 +193,7 @@ public class ${className}ServiceImpl implements I${className}Service {
     }
 
     @Override
-    @GlobalTransactional
+    @Transactional
     public ServiceResponse<List<${className}>> batchSave(ProParameter<List<${className}Request>> proParameter) {
        return new ServiceResponse<List<${className}>>()
                .run(serviceResponse -> {
@@ -210,7 +210,7 @@ public class ${className}ServiceImpl implements I${className}Service {
      }
 
     @Override
-    @GlobalTransactional
+    @Transactional
     public ServiceResponse<Integer> delete(ProParameter<${className}Request> proParameter) {
         return new ServiceResponse<Integer>()
                 .run(serviceResponse -> {
@@ -232,7 +232,7 @@ public class ${className}ServiceImpl implements I${className}Service {
     }
 
     @Override
-    @GlobalTransactional
+    @Transactional
     public ServiceResponse<Integer> idsDelete(ProParameter<${className}Request> proParameter) {
         return new ServiceResponse<Integer>()
                 .run(serviceResponse -> {
