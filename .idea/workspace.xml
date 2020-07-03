@@ -1,10 +1,72 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="326b5f61-d461-4689-b4fb-098651784ec8" name="Default Changelist" comment="" />
+    <list default="true" id="326b5f61-d461-4689-b4fb-098651784ec8" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/nacos-activiti-server/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/nacos-activiti-server/src/main/resources/bootstrap.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/nacos-admin-app/src/main/java/com/nacos/backstage/configuration/aspect/ProAferConfiguration.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/nacos-admin-app/src/main/java/com/nacos/backstage/configuration/oauth/ResourceServerConfigurer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/nacos-admin-app/src/main/java/com/nacos/backstage/configuration/swagger/Swagger2.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nacos-backstage-app/nacos-backstage-app.iml" beforeDir="false" afterPath="$PROJECT_DIR$/nacos-admin-app/nacos-admin-app.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nacos-backstage-app/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/nacos-admin-app/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nacos-backstage-app/src/main/java/com/nacos/backstage/BackstageApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/nacos-admin-app/src/main/java/com/nacos/backstage/BackstageApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nacos-backstage-app/src/main/java/com/nacos/backstage/configuration/aspect/ProAferConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/nacos-activiti-server/src/main/java/com/nacos/activiti/configuration/aspect/ProAferConfiguration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nacos-backstage-app/src/main/java/com/nacos/backstage/configuration/oauth/ResourceServerConfigurer.java" beforeDir="false" afterPath="$PROJECT_DIR$/nacos-activiti-server/src/main/java/com/nacos/activiti/configuration/oauth/ResourceServerConfigurer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nacos-backstage-app/src/main/java/com/nacos/backstage/configuration/swagger/Swagger2.java" beforeDir="false" afterPath="$PROJECT_DIR$/nacos-activiti-server/src/main/java/com/nacos/activiti/configuration/swagger/Swagger2.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nacos-backstage-app/src/main/java/com/nacos/backstage/controller/MenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/nacos-admin-app/src/main/java/com/nacos/backstage/controller/MenuController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nacos-backstage-app/src/main/java/com/nacos/backstage/controller/ProEnumController.java" beforeDir="false" afterPath="$PROJECT_DIR$/nacos-admin-app/src/main/java/com/nacos/backstage/controller/ProEnumController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nacos-backstage-app/src/main/java/com/nacos/backstage/controller/ProLogController.java" beforeDir="false" afterPath="$PROJECT_DIR$/nacos-admin-app/src/main/java/com/nacos/backstage/controller/ProLogController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nacos-backstage-app/src/main/java/com/nacos/backstage/controller/ProResourceFileController.java" beforeDir="false" afterPath="$PROJECT_DIR$/nacos-admin-app/src/main/java/com/nacos/backstage/controller/ProResourceFileController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nacos-backstage-app/src/main/java/com/nacos/backstage/controller/ProRoleController.java" beforeDir="false" afterPath="$PROJECT_DIR$/nacos-admin-app/src/main/java/com/nacos/backstage/controller/ProRoleController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nacos-backstage-app/src/main/java/com/nacos/backstage/controller/ProRoleMenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/nacos-admin-app/src/main/java/com/nacos/backstage/controller/ProRoleMenuController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nacos-backstage-app/src/main/java/com/nacos/backstage/controller/ProUserRoleController.java" beforeDir="false" afterPath="$PROJECT_DIR$/nacos-admin-app/src/main/java/com/nacos/backstage/controller/ProUserRoleController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nacos-backstage-app/src/main/java/com/nacos/backstage/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/nacos-admin-app/src/main/java/com/nacos/backstage/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nacos-backstage-app/src/main/java/com/nacos/backstage/vo/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/nacos-admin-app/src/main/java/com/nacos/backstage/vo/Menu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nacos-backstage-app/src/main/java/com/nacos/backstage/vo/MenuMeta.java" beforeDir="false" afterPath="$PROJECT_DIR$/nacos-admin-app/src/main/java/com/nacos/backstage/vo/MenuMeta.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nacos-backstage-app/src/main/java/com/nacos/backstage/vo/ProEnumVo.java" beforeDir="false" afterPath="$PROJECT_DIR$/nacos-admin-app/src/main/java/com/nacos/backstage/vo/ProEnumVo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nacos-backstage-app/src/main/java/com/nacos/backstage/vo/ProLogVo.java" beforeDir="false" afterPath="$PROJECT_DIR$/nacos-admin-app/src/main/java/com/nacos/backstage/vo/ProLogVo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nacos-backstage-app/src/main/java/com/nacos/backstage/vo/ProMenuVo.java" beforeDir="false" afterPath="$PROJECT_DIR$/nacos-admin-app/src/main/java/com/nacos/backstage/vo/ProMenuVo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nacos-backstage-app/src/main/java/com/nacos/backstage/vo/ProMerchantVo.java" beforeDir="false" afterPath="$PROJECT_DIR$/nacos-admin-app/src/main/java/com/nacos/backstage/vo/ProMerchantVo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nacos-backstage-app/src/main/java/com/nacos/backstage/vo/ProResourceFileVo.java" beforeDir="false" afterPath="$PROJECT_DIR$/nacos-admin-app/src/main/java/com/nacos/backstage/vo/ProResourceFileVo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nacos-backstage-app/src/main/java/com/nacos/backstage/vo/ProRoleMenuVo.java" beforeDir="false" afterPath="$PROJECT_DIR$/nacos-admin-app/src/main/java/com/nacos/backstage/vo/ProRoleMenuVo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nacos-backstage-app/src/main/java/com/nacos/backstage/vo/ProRoleVo.java" beforeDir="false" afterPath="$PROJECT_DIR$/nacos-admin-app/src/main/java/com/nacos/backstage/vo/ProRoleVo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nacos-backstage-app/src/main/java/com/nacos/backstage/vo/ProUserRoleVo.java" beforeDir="false" afterPath="$PROJECT_DIR$/nacos-admin-app/src/main/java/com/nacos/backstage/vo/ProUserRoleVo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nacos-backstage-app/src/main/java/com/nacos/backstage/vo/UserVo.java" beforeDir="false" afterPath="$PROJECT_DIR$/nacos-admin-app/src/main/java/com/nacos/backstage/vo/UserVo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nacos-backstage-app/src/main/resources/bootstrap.properties" beforeDir="false" afterPath="$PROJECT_DIR$/nacos-admin-app/src/main/resources/bootstrap.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nacos-gateway/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/nacos-gateway-server/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nacos-gateway/src/main/java/com/nacos/gateway/GateWayApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/nacos-gateway-server/src/main/java/com/nacos/gateway/GateWayApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nacos-gateway/src/main/java/com/nacos/gateway/comfiguration/SwaggerHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/nacos-gateway-server/src/main/java/com/nacos/gateway/comfiguration/SwaggerHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nacos-gateway/src/main/java/com/nacos/gateway/comfiguration/SwaggerProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/nacos-gateway-server/src/main/java/com/nacos/gateway/comfiguration/SwaggerProvider.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nacos-gateway/src/main/java/com/nacos/gateway/cors/CorsConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/nacos-gateway-server/src/main/java/com/nacos/gateway/cors/CorsConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nacos-gateway/src/main/java/com/nacos/gateway/currentlimiting/RateLimiterConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/nacos-gateway-server/src/main/java/com/nacos/gateway/currentlimiting/RateLimiterConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nacos-gateway/src/main/java/com/nacos/gateway/hystrix/DefaultHystrixController.java" beforeDir="false" afterPath="$PROJECT_DIR$/nacos-gateway-server/src/main/java/com/nacos/gateway/hystrix/DefaultHystrixController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nacos-gateway/src/main/resources/bootstrap.properties" beforeDir="false" afterPath="$PROJECT_DIR$/nacos-gateway-server/src/main/resources/bootstrap.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nacos-generator-server/src/main/resources/bootstrap.properties" beforeDir="false" afterPath="$PROJECT_DIR$/nacos-generator-server/src/main/resources/bootstrap.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nacos-oauth-server/src/main/resources/bootstrap.properties" beforeDir="false" afterPath="$PROJECT_DIR$/nacos-oauth-server/src/main/resources/bootstrap.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nacos-oss-server/src/main/resources/bootstrap.properties" beforeDir="false" afterPath="$PROJECT_DIR$/nacos-oss-server/src/main/resources/bootstrap.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nacos-system-server/src/main/resources/bootstrap.properties" beforeDir="false" afterPath="$PROJECT_DIR$/nacos-system-server/src/main/resources/bootstrap.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
     <ignored path="$PROJECT_DIR$/nacos-config/target/" />
+    <ignored path="$PROJECT_DIR$/nacos-business/target/" />
+    <ignored path="$PROJECT_DIR$/nacos-system-server-fegin/target/" />
+    <ignored path="$PROJECT_DIR$/nacos-system-server/target/" />
+    <ignored path="$PROJECT_DIR$/nacos-common/target/" />
+    <ignored path="$PROJECT_DIR$/nacos-oauth-server/target/" />
+    <ignored path="$PROJECT_DIR$/nacos-gateway/target/" />
+    <ignored path="$PROJECT_DIR$/nacos-backstage-app/target/" />
+    <ignored path="$PROJECT_DIR$/nacos-oss-server/target/" />
+    <ignored path="$PROJECT_DIR$/nacos-oss-server-fegin/target/" />
+    <ignored path="$PROJECT_DIR$/nacos-generator-server/target/" />
+    <ignored path="$PROJECT_DIR$/nacos-activiti-server/target/" />
+    <ignored path="$PROJECT_DIR$/nacos-admin-app/target/" />
+    <ignored path="$PROJECT_DIR$/nacos-gateway-server/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -15,95 +77,56 @@
     <session id="-1061679333">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="2" />
-          <entry key="project.open.time.1" value="1" />
-          <entry key="project.open.time.5" value="2" />
-          <entry key="project.opened" value="3" />
+          <entry key="project.closed" value="9" />
+          <entry key="project.open.time.1" value="2" />
+          <entry key="project.open.time.2" value="1" />
+          <entry key="project.open.time.3" value="1" />
+          <entry key="project.open.time.4" value="1" />
+          <entry key="project.open.time.49" value="1" />
+          <entry key="project.open.time.5" value="5" />
+          <entry key="project.open.time.7" value="1" />
+          <entry key="project.opened" value="12" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="java" value="3" />
-          <entry key="properties" value="29" />
-          <entry key="xml" value="62" />
+          <entry key="dummy" value="16" />
+          <entry key="java" value="484" />
+          <entry key="properties" value="640" />
+          <entry key="txt" value="26" />
+          <entry key="xml" value="523" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="3" />
-          <entry key="Properties" value="29" />
-          <entry key="XML" value="62" />
+          <entry key="JAVA" value="484" />
+          <entry key="PLAIN_TEXT" value="42" />
+          <entry key="Properties" value="640" />
+          <entry key="XML" value="523" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="java" value="1" />
-          <entry key="properties" value="2" />
-          <entry key="xml" value="10" />
+          <entry key="class" value="4" />
+          <entry key="ftl" value="2" />
+          <entry key="java" value="353" />
+          <entry key="properties" value="120" />
+          <entry key="xml" value="119" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="JAVA" value="1" />
-          <entry key="Properties" value="2" />
-          <entry key="XML" value="10" />
+          <entry key="CLASS" value="4" />
+          <entry key="FTL" value="2" />
+          <entry key="JAVA" value="353" />
+          <entry key="Properties" value="120" />
+          <entry key="XML" value="119" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/nacos-config/pom.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="481">
-              <caret line="31" selection-start-line="31" selection-end-line="31" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/nacos-config/src/main/resources/application.properties">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="74">
-              <caret line="2" column="31" selection-start-line="2" selection-start-column="31" selection-end-line="2" selection-end-column="31" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/nacos-config/src/main/resources/bootstrap.properties">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="13">
-              <caret line="2" lean-forward="true" selection-start-line="2" selection-end-line="2" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pom.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1117">
-              <caret line="66" column="16" selection-start-line="66" selection-start-column="16" selection-end-line="66" selection-end-column="16" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/nacos-config/src/main/java/com/nacos/config/ConfigApplication.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="368">
-              <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#194#195#0" expanded="true" />
-                <element signature="e#250#251#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -115,16 +138,70 @@
   <component name="FindInProjectRecents">
     <findStrings>
       <find>project.version</find>
+      <find>com.wzy</find>
+      <find>spring-cloud.version</find>
     </findStrings>
+    <dirStrings>
+      <dir>D:\pro\nacos-spring-cloud</dir>
+    </dirStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/nacos-config/pom.xml" />
+        <option value="$PROJECT_DIR$/nacos-oss-server-fegin/src/main/java/com/nacos/oss/hystrix/OssServiceHystrix.java" />
+        <option value="$PROJECT_DIR$/nacos-oss-server-fegin/src/main/java/com/nacos/oss/OssService.java" />
+        <option value="$PROJECT_DIR$/nacos-oss-server-fegin/pom.xml" />
+        <option value="$PROJECT_DIR$/nacos-oss-server/src/main/java/com/nacos/oss/service/OssServiceImpl.java" />
+        <option value="$PROJECT_DIR$/nacos-oss-server/src/main/java/com/nacos/oss/base/Oss.java" />
+        <option value="$PROJECT_DIR$/nacos-oss-server/src/main/java/com/nacos/oss/base/util/FIleUtil.java" />
+        <option value="$PROJECT_DIR$/nacos-oss-server/src/main/java/com/nacos/oss/OSSApplication.java" />
+        <option value="$PROJECT_DIR$/nacos-oss-server/src/main/java/com/nacos/oss/base/FileOss.java" />
+        <option value="$PROJECT_DIR$/nacos-oss-server/src/main/java/com/nacos/oss/base/OssFactory.java" />
+        <option value="$PROJECT_DIR$/nacos-oss-server/pom.xml" />
+        <option value="$PROJECT_DIR$/nacos-oss-server/src/main/java/com/nacos/oss/base/AliOss.java" />
+        <option value="$PROJECT_DIR$/nacos-generator-server/pom.xml" />
+        <option value="$PROJECT_DIR$/nacos-generator-server/src/main/java/com/nacos/generator/service/GeneratorService.java" />
+        <option value="$PROJECT_DIR$/nacos-generator-server/src/main/java/com/nacos/generator/util/SqlUtil.java" />
+        <option value="$PROJECT_DIR$/nacos-generator-server/src/main/java/com/nacos/generator/util/Freemarker.java" />
+        <option value="$PROJECT_DIR$/nacos-generator-server/src/main/java/com/nacos/generator/controller/GeneratorController.java" />
+        <option value="$PROJECT_DIR$/nacos-generator-server/src/main/java/com/nacos/generator/request/ProGeneratorRequest.java" />
+        <option value="$PROJECT_DIR$/nacos-generator-server/src/main/java/com/nacos/generator/mapper/ProGeneratorMapper.java" />
+        <option value="$PROJECT_DIR$/nacos-generator-server/src/main/java/com/nacos/generator/controller/ProGeneratorController.java" />
+        <option value="$PROJECT_DIR$/nacos-generator-server/src/main/java/com/nacos/generator/service/IProGeneratorService.java" />
+        <option value="$PROJECT_DIR$/nacos-generator-server/src/main/java/com/nacos/generator/GeneratorApplication.java" />
+        <option value="$PROJECT_DIR$/nacos-generator-server/src/main/java/com/nacos/generator/service/ProGeneratorServiceImpl.java" />
+        <option value="$PROJECT_DIR$/nacos-generator-server/src/main/java/com/nacos/generator/configuration/swagger/Swagger2.java" />
+        <option value="$PROJECT_DIR$/nacos-backstage-app/src/main/java/com/nacos/backstage/controller/MenuController.java" />
+        <option value="$PROJECT_DIR$/nacos-backstage-app/src/main/java/com/nacos/backstage/controller/ProLogController.java" />
+        <option value="$PROJECT_DIR$/nacos-backstage-app/src/main/java/com/nacos/backstage/controller/ProResourceFileController.java" />
+        <option value="$PROJECT_DIR$/nacos-backstage-app/src/main/java/com/nacos/backstage/controller/ProRoleController.java" />
+        <option value="$PROJECT_DIR$/nacos-backstage-app/src/main/java/com/nacos/backstage/controller/ProRoleMenuController.java" />
+        <option value="$PROJECT_DIR$/nacos-backstage-app/src/main/java/com/nacos/backstage/controller/ProUserRoleController.java" />
+        <option value="$PROJECT_DIR$/nacos-backstage-app/src/main/java/com/nacos/backstage/controller/UserController.java" />
+        <option value="$PROJECT_DIR$/nacos-system-server/src/main/java/com/nacos/system/SystemApplication.java" />
+        <option value="$PROJECT_DIR$/nacos-system-server/pom.xml" />
+        <option value="$PROJECT_DIR$/nacos-system-server/src/main/java/com/nacos/system/configuration/mybitsplus/MybatisPlusConfig.java" />
+        <option value="$PROJECT_DIR$/nacos-generator-server/src/main/resources/templates/serviceimpl.ftl" />
+        <option value="$PROJECT_DIR$/nacos-backstage-app/pom.xml" />
+        <option value="$PROJECT_DIR$/nacos-activiti-server/pom.xml" />
+        <option value="$PROJECT_DIR$/nacos-activiti-server/src/main/java/com/nacos/activiti/configuration/aspect/ProAferConfiguration.java" />
+        <option value="$PROJECT_DIR$/nacos-activiti-server/src/main/java/com/nacos/activiti/ActivitiApplication.java" />
+        <option value="$PROJECT_DIR$/nacos-backstage-app/src/main/java/com/nacos/backstage/controller/ProEnumController.java" />
+        <option value="$PROJECT_DIR$/nacos-gateway/pom.xml" />
+        <option value="$PROJECT_DIR$/nacos-gateway/src/main/resources/bootstrap.properties" />
+        <option value="$PROJECT_DIR$/nacos-backstage-app/src/main/resources/bootstrap.properties" />
+        <option value="$PROJECT_DIR$/nacos-admin-app/pom.xml" />
         <option value="$PROJECT_DIR$/pom.xml" />
-        <option value="$PROJECT_DIR$/nacos-config/src/main/java/com/nacos/config/ConfigApplication.java" />
-        <option value="$PROJECT_DIR$/nacos-config/src/main/resources/application.properties" />
-        <option value="$PROJECT_DIR$/nacos-config/src/main/resources/bootstrap.properties" />
+        <option value="$PROJECT_DIR$/nacos-activiti-server/src/main/resources/bootstrap.properties" />
+        <option value="$PROJECT_DIR$/nacos-admin-app/src/main/resources/bootstrap.properties" />
+        <option value="$PROJECT_DIR$/nacos-gateway-server/src/main/resources/bootstrap.properties" />
+        <option value="$PROJECT_DIR$/nacos-generator-server/src/main/resources/bootstrap.properties" />
+        <option value="$PROJECT_DIR$/nacos-oauth-server/src/main/resources/bootstrap.properties" />
+        <option value="$PROJECT_DIR$/nacos-oss-server/src/main/resources/bootstrap.properties" />
+        <option value="$PROJECT_DIR$/nacos-system-server/src/main/resources/bootstrap.properties" />
       </list>
     </option>
   </component>
@@ -146,23 +223,24 @@
       <expand>
         <path>
           <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
-          <item name="nacos-config" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+          <item name="nacos-spring-cloud" type="9519ce18:MavenProjectsStructure$ProjectNode" />
         </path>
         <path>
           <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
-          <item name="nacos-config" type="9519ce18:MavenProjectsStructure$ProjectNode" />
-          <item name="Dependencies" type="f4be9f2a:MavenProjectsStructure$DependenciesNode" />
+          <item name="nacos-spring-cloud" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+          <item name="Lifecycle" type="58874e2:MavenProjectsStructure$LifecycleNode" />
         </path>
       </expand>
       <select />
     </treeState>
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="421" />
-    <option name="y" value="30" />
-    <option name="width" value="1479" />
-    <option name="height" value="953" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="359" />
+    <option name="y" value="58" />
+    <option name="width" value="1493" />
+    <option name="height" value="934" />
   </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
@@ -184,17 +262,40 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
+    <property name="GO_FMT" value="true" />
     <property name="RequestMappingsPanelOrder0" value="0" />
     <property name="RequestMappingsPanelOrder1" value="1" />
     <property name="RequestMappingsPanelWidth0" value="75" />
     <property name="RequestMappingsPanelWidth1" value="75" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1592989227994" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1593767871079" />
     <property name="go.gopath.indexing.explicitly.defined" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../spring-cloud-project" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
     <property name="settings.editor.selected.configurable" value="fileTemplates" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\pro\nacos-spring-cloud\nacos-activiti-server\src\main\java\com\nacos\activiti" />
+      <recent name="D:\pro\nacos-spring-cloud\nacos-activiti-server\src\main\resources" />
+      <recent name="D:\pro\nacos-spring-cloud\nacos-generator-server\src\main\java\com\nacos\generator" />
+      <recent name="D:\pro\nacos-spring-cloud\nacos-generator-server\src\main\resources" />
+      <recent name="D:\pro\nacos-spring-cloud\nacos-oss-server-fegin\src\main\java\com\nacos\oss" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.nacos.oauth.service" />
+      <recent name="com.nacos.oauth" />
+      <recent name="com.nacos.system.configuration.swagger" />
+      <recent name="com.nacos.system" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\pro\nacos-spring-cloud\nacos-system-server\src\main\resources\mapper" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -208,23 +309,307 @@
       </list>
     </option>
   </component>
-  <component name="RunManager">
-    <configuration name="ConfigApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
-      <module name="nacos-config" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.nacos.config.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="SPRING_BOOT_MAIN_CLASS" value="com.nacos.config.ConfigApplication" />
+  <component name="RunManager" selected="Spring Boot.OSSApplication">
+    <configuration default="true" type="DjangoTestsConfigurationType" factoryName="Django tests">
+      <module name="nacos-gateway-server" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="TARGET" value="" />
+      <option name="SETTINGS_FILE" value="" />
+      <option name="CUSTOM_SETTINGS" value="false" />
+      <option name="USE_OPTIONS" value="false" />
+      <option name="OPTIONS" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="JetRunConfigurationType" factoryName="Kotlin">
+      <module name="nacos-gateway-server" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="WORKING_DIRECTORY" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType" factoryName="Kotlin script">
+      <module name="nacos-gateway-server" />
+      <option name="filePath" />
+      <option name="vmParameters" />
+      <option name="alternativeJrePath" />
+      <option name="programParameters" />
+      <option name="passParentEnvs" value="true" />
+      <option name="workingDirectory" />
+      <option name="isAlternativeJrePathEnabled" value="false" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="WORKING_DIRECTORY" />
+      <option name="filePath" />
+      <option name="vmParameters" />
+      <option name="alternativeJrePath" />
+      <option name="programParameters" />
+      <option name="passParentEnvs" value="true" />
+      <option name="workingDirectory" />
+      <option name="isAlternativeJrePathEnabled" value="false" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="WORKING_DIRECTORY" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="PyBehaveRunConfigurationType" factoryName="Behave">
+      <module name="nacos-gateway-server" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="ADDITIONAL_ARGS" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="PyLettuceRunConfigurationType" factoryName="Lettuce">
+      <module name="nacos-gateway-server" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="ADDITIONAL_ARGS" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="PythonConfigurationType" factoryName="Python">
+      <module name="nacos-gateway-server" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="Python.FlaskServer" factoryName="Flask server">
+      <module name="nacos-gateway-server" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="launchJavascriptDebuger" value="false" />
+      <method v="2" />
+    </configuration>
+    <configuration name="ActivitiApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <module name="nacos-activiti-server" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.nacos.activiti.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.nacos.activiti.ActivitiApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="BackstageApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <module name="nacos-admin-app" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.nacos.backstage.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.nacos.backstage.BackstageApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="GateWayApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <module name="nacos-gateway-server" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.nacos.gateway.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.nacos.gateway.GateWayApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="OSSApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <module name="nacos-oss-server" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.nacos.oss.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.nacos.oss.OSSApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="OauthApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <module name="nacos-oauth-server" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.nacos.oauth.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.nacos.oauth.OauthApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="Tox" factoryName="Tox">
+      <module name="nacos-gateway-server" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="tests" factoryName="Doctests">
+      <module name="nacos-gateway-server" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="FOLDER_NAME" value="" />
+      <option name="TEST_TYPE" value="TEST_SCRIPT" />
+      <option name="PATTERN" value="" />
+      <option name="USE_PATTERN" value="false" />
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="tests" factoryName="Nosetests">
+      <module name="nacos-gateway-server" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="_new_regexPattern" value="&quot;&quot;" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;&quot;" />
+      <option name="_new_targetType" value="&quot;PATH&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="tests" factoryName="Twisted Trial">
+      <module name="nacos-gateway-server" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;&quot;" />
+      <option name="_new_targetType" value="&quot;PATH&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="tests" factoryName="Unittests">
+      <module name="nacos-gateway-server" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;&quot;" />
+      <option name="_new_targetType" value="&quot;PATH&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="tests" factoryName="py.test">
+      <module name="nacos-gateway-server" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="_new_keywords" value="&quot;&quot;" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;&quot;" />
+      <option name="_new_targetType" value="&quot;PATH&quot;" />
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Spring Boot.ActivitiApplication" />
+      <item itemvalue="Spring Boot.OauthApplication" />
+      <item itemvalue="Spring Boot.GateWayApplication" />
+      <item itemvalue="Spring Boot.BackstageApplication" />
+      <item itemvalue="Spring Boot.OSSApplication" />
+    </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Spring Boot.ConfigApplication" />
+        <item itemvalue="Spring Boot.OSSApplication" />
+        <item itemvalue="Spring Boot.BackstageApplication" />
+        <item itemvalue="Spring Boot.GateWayApplication" />
+        <item itemvalue="Spring Boot.OauthApplication" />
+        <item itemvalue="Spring Boot.ActivitiApplication" />
       </list>
     </recent_temporary>
   </component>
@@ -240,52 +625,121 @@
       <updated>1592977494429</updated>
       <workItem from="1592977495820" duration="1061000" />
       <workItem from="1592978583723" duration="4992000" />
-      <workItem from="1592986336370" duration="2895000" />
+      <workItem from="1592986336370" duration="8831000" />
+      <workItem from="1593311866646" duration="22934000" />
+      <workItem from="1593435113862" duration="6549000" />
+      <workItem from="1593484146444" duration="3049000" />
+      <workItem from="1593488821026" duration="81000" />
+      <workItem from="1593493566267" duration="14876000" />
+      <workItem from="1593567736119" duration="8783000" />
+      <workItem from="1593603899444" duration="8843000" />
+      <workItem from="1593683534148" duration="11000" />
+      <workItem from="1593759778246" duration="5968000" />
     </task>
+    <task id="LOCAL-00001" summary="nacos 版本spring-cloud">
+      <created>1593501159272</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1593501159272</updated>
+    </task>
+    <task id="LOCAL-00002" summary="nacos 版本spring-cloud">
+      <created>1593506723493</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1593506723493</updated>
+    </task>
+    <task id="LOCAL-00003" summary="nacos 版本spring-cloud">
+      <created>1593590715006</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1593590715006</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="8948000" />
+    <option name="totallyTimeSpent" value="85978000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="421" y="30" width="1479" height="953" extended-state="0" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <layout>
-      <window_info id="Web" side_tool="true" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.13037351" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.12260128" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
       <window_info id="Capture Tool" order="4" />
       <window_info id="UI Designer" order="5" />
       <window_info id="Favorites" order="6" side_tool="true" />
-      <window_info anchor="bottom" id="Spring" />
-      <window_info anchor="bottom" id="Messages" weight="0.329718" />
-      <window_info anchor="bottom" id="Java Enterprise" />
+      <window_info id="Web" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.27106228" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.4723127" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.37785017" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="GraphQL" order="7" />
-      <window_info anchor="bottom" id="Terminal" order="8" />
+      <window_info anchor="bottom" id="Terminal" order="8" weight="0.32899022" />
+      <window_info anchor="bottom" id="Docker" order="9" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
+      <window_info anchor="bottom" id="Database Changes" order="11" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="12" weight="0.46579805" />
+      <window_info anchor="bottom" id="Spring" order="13" />
+      <window_info anchor="bottom" id="Java Enterprise" order="14" />
+      <window_info anchor="bottom" id="Messages" order="15" weight="0.35396308" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.09968017" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Palette" order="3" />
+      <window_info anchor="right" id="Capture Analysis" order="4" />
+      <window_info anchor="right" id="Maven Projects" order="5" visible="true" weight="0.1401919" />
+      <window_info anchor="right" id="SciView" order="6" weight="0.32995737" />
+      <window_info anchor="right" id="Database" order="7" />
+      <window_info anchor="right" id="Palette&#9;" order="8" />
+      <window_info anchor="right" id="Theme Preview" order="9" />
+      <window_info anchor="right" id="Bean Validation" order="10" />
+      <window_info anchor="right" id="BPMNPalette" order="11" />
+    </layout>
+    <layout-to-restore>
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.124430954" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Designer" order="2" />
+      <window_info id="Image Layers" order="3" />
+      <window_info id="Capture Tool" order="4" />
+      <window_info id="UI Designer" order="5" />
+      <window_info id="Favorites" order="6" side_tool="true" />
+      <window_info id="Web" order="7" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.0" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.3984799" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="GraphQL" order="7" />
+      <window_info anchor="bottom" id="Terminal" order="8" weight="0.32899022" />
       <window_info anchor="bottom" id="Docker" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
       <window_info anchor="bottom" id="Database Changes" order="11" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="12" show_stripe_button="false" />
-      <window_info anchor="right" id="Bean Validation" />
+      <window_info anchor="bottom" id="Spring" order="13" />
+      <window_info anchor="bottom" id="Java Enterprise" order="14" />
+      <window_info anchor="bottom" id="Messages" order="15" weight="0.47014114" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="right" id="Capture Analysis" order="4" />
-      <window_info anchor="right" id="Maven Projects" order="5" visible="true" weight="0.0" />
+      <window_info anchor="right" id="Maven Projects" order="5" visible="true" weight="0.09003541" />
       <window_info anchor="right" id="SciView" order="6" weight="0.32995737" />
       <window_info anchor="right" id="Database" order="7" />
       <window_info anchor="right" id="Palette&#9;" order="8" />
       <window_info anchor="right" id="Theme Preview" order="9" />
-    </layout>
+      <window_info anchor="right" id="Bean Validation" order="10" />
+    </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
@@ -293,53 +747,469 @@
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="nacos 版本spring-cloud" />
+    <option name="LAST_COMMIT_MESSAGE" value="nacos 版本spring-cloud" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/nacos-oauth-server/src/main/java/com/nacos/oauth/service/OAuth2UserService.java</url>
+          <line>45</line>
+          <properties />
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="antWorkspaceConfiguration">
+    <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
+    <option name="FILTER_TARGETS" value="false" />
+  </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/pom.xml">
+    <entry file="file://$PROJECT_DIR$/nacos-common/src/main/java/com/nacos/common/method/ProParameter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1117">
-          <caret line="66" column="16" selection-start-line="66" selection-start-column="16" selection-end-line="66" selection-end-column="16" />
+        <state relative-caret-position="1517">
+          <caret line="47" column="28" selection-start-line="47" selection-start-column="28" selection-end-line="47" selection-end-column="28" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/nacos-config/src/main/java/com/nacos/config/ConfigApplication.java">
+    <entry file="file://$PROJECT_DIR$/nacos-generator-server/src/main/java/com/nacos/generator/dto/ProGenerator.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="368">
+        <state relative-caret-position="225">
+          <caret line="25" column="13" selection-start-line="25" selection-start-column="13" selection-end-line="25" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nacos-generator-server/src/main/java/com/nacos/generator/util/entity/GenDto.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="185">
+          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nacos-generator-server/src/main/java/com/nacos/generator/util/DtoUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nacos-generator-server/src/main/java/com/nacos/generator/util/Freemarker.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1480">
+          <caret line="40" column="16" selection-start-line="40" selection-start-column="16" selection-end-line="40" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nacos-generator-server/src/main/java/com/nacos/generator/util/SqlUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="217">
+          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nacos-generator-server/src/main/java/com/nacos/generator/util/StringUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="37">
+          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nacos-generator-server/src/main/java/com/nacos/generator/request/ProGeneratorRequest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-3552">
+          <caret line="9" column="6" lean-forward="true" selection-start-line="9" selection-start-column="6" selection-end-line="9" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nacos-generator-server/src/main/java/com/nacos/generator/mapper/ProGeneratorMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="111">
+          <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nacos-generator-server/src/main/java/com/nacos/generator/vo/ProGeneratorVo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="592">
+          <caret line="21" column="13" selection-start-line="21" selection-start-column="13" selection-end-line="21" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nacos-generator-server/src/main/java/com/nacos/generator/service/IProGeneratorService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1925">
+          <caret line="27" column="7" lean-forward="true" selection-start-line="27" selection-start-column="7" selection-end-line="27" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nacos-generator-server/src/main/java/com/nacos/generator/controller/ProGeneratorController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="259">
+          <caret line="43" column="94" lean-forward="true" selection-start-line="43" selection-start-column="94" selection-end-line="43" selection-end-column="94" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nacos-generator-server/src/main/java/com/nacos/generator/service/ProGeneratorServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="348">
+          <caret line="440" lean-forward="true" selection-start-line="440" selection-end-line="440" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nacos-generator-server/src/main/java/com/nacos/generator/GeneratorApplication.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="464">
+          <caret line="15" column="35" selection-start-line="15" selection-start-column="35" selection-end-line="15" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nacos-generator-server/src/main/java/com/nacos/generator/configuration/swagger/Swagger2.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-354">
+          <caret line="23" column="19" lean-forward="true" selection-start-line="23" selection-start-column="19" selection-end-line="23" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nacos-system-server-fegin/src/main/java/com/nacos/system/dto/ProEnum.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-825">
+          <caret line="24" column="13" selection-start-line="24" selection-start-column="13" selection-end-line="24" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nacos-admin-app/src/main/java/com/nacos/backstage/controller/ProResourceFileController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="6512">
+          <caret line="194" column="4" selection-start-line="194" selection-start-column="4" selection-end-line="194" selection-end-column="55" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nacos-admin-app/src/main/java/com/nacos/backstage/controller/ProRoleController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="7511">
+          <caret line="225" column="4" selection-start-line="225" selection-start-column="4" selection-end-line="225" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nacos-admin-app/src/main/java/com/nacos/backstage/controller/ProRoleMenuController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="5587">
+          <caret line="168" column="4" selection-start-line="168" selection-start-column="4" selection-end-line="168" selection-end-column="51" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nacos-admin-app/src/main/java/com/nacos/backstage/controller/ProUserRoleController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="6105">
+          <caret line="182" column="4" selection-start-line="182" selection-start-column="4" selection-end-line="182" selection-end-column="51" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nacos-admin-app/src/main/java/com/nacos/backstage/controller/UserController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="185">
+          <caret line="51" column="29" selection-start-line="51" selection-start-column="29" selection-end-line="51" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nacos-system-server/src/main/java/com/nacos/system/SystemApplication.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="292">
+          <caret line="15" column="2" selection-start-line="15" selection-start-column="2" selection-end-line="15" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nacos-system-server/src/main/java/com/nacos/system/configuration/mybitsplus/MybatisPlusConfig.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="399">
+          <caret line="31" column="1" lean-forward="true" selection-start-line="31" selection-start-column="1" selection-end-line="31" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/com/netflix/hystrix/hystrix-core/1.5.12/hystrix-core-1.5.12.jar!/com/netflix/hystrix/strategy/concurrency/HystrixConcurrencyStrategy.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1813">
+          <caret line="22" column="22" selection-start-line="22" selection-start-column="22" selection-end-line="22" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nacos-common/src/main/java/com/nacos/common/feign/RequestAttributeHystrixConcurrencyStrategy.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2146">
+          <caret line="32" column="40" selection-start-line="32" selection-start-column="30" selection-end-line="32" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nacos-generator-server/src/main/resources/templates/serviceimpl.ftl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="489">
+          <caret line="236" column="17" selection-start-line="236" selection-start-column="17" selection-end-line="236" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nacos-system-server/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="518">
+          <caret line="104" column="10" lean-forward="true" selection-start-line="92" selection-start-column="1" selection-end-line="104" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nacos-oss-server/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="333">
+          <caret line="93" column="17" selection-start-line="12" selection-start-column="3" selection-end-line="93" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nacos-activiti-server/src/main/java/com/nacos/activiti/configuration/oauth/ResourceServerConfigurer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="333">
+          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nacos-activiti-server/src/main/java/com/nacos/activiti/configuration/aspect/ProAferConfiguration.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2802">
+          <caret column="48" selection-start-column="48" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nacos-activiti-server/src/main/java/com/nacos/activiti/configuration/swagger/Swagger2.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nacos-activiti-server/src/main/java/com/nacos/activiti/ActivitiApplication.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="538">
+          <caret line="21" column="45" selection-start-line="21" selection-start-column="45" selection-end-line="21" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nacos-gateway-server/src/main/java/com/nacos/gateway/GateWayApplication.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="333">
           <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nacos-oauth-server/src/main/java/com/nacos/oauth/OauthApplication.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="111">
+          <caret line="17" column="2" lean-forward="true" selection-start-line="17" selection-start-column="2" selection-end-line="17" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nacos-admin-app/src/main/java/com/nacos/backstage/controller/ProLogController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="130">
+          <caret line="180" column="31" lean-forward="true" selection-start-line="180" selection-start-column="31" selection-end-line="180" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nacos-activiti-server/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-174">
+          <caret line="100" selection-start-line="100" selection-end-line="100" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nacos-generator-server/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2301">
+          <caret line="95" column="17" selection-start-line="95" selection-start-column="17" selection-end-line="95" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nacos-gateway-server/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="248">
+          <caret line="74" selection-start-line="74" selection-end-line="78" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nacos-admin-app/src/main/java/com/nacos/backstage/BackstageApplication.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="73">
+          <caret line="18" column="2" lean-forward="true" selection-start-line="18" selection-start-column="2" selection-end-line="18" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nacos-admin-app/src/main/java/com/nacos/backstage/controller/MenuController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-3967">
+          <caret line="215" column="35" lean-forward="true" selection-start-line="215" selection-start-column="35" selection-end-line="215" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nacos-admin-app/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="370">
+          <caret line="13" column="41" selection-start-line="13" selection-start-column="41" selection-end-line="13" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="454">
+          <caret line="19" column="42" lean-forward="true" selection-start-line="19" selection-start-column="42" selection-end-line="19" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nacos-oss-server/src/main/java/com/nacos/oss/OSSApplication.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="47">
+          <caret line="6" selection-start-line="6" selection-end-line="6" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#194#195#0" expanded="true" />
-            <element signature="e#250#251#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/nacos-config/pom.xml">
+    <entry file="file://$PROJECT_DIR$/nacos-admin-app/src/main/java/com/nacos/backstage/controller/ProEnumController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="481">
-          <caret line="31" selection-start-line="31" selection-end-line="31" />
+        <state relative-caret-position="7215">
+          <caret line="195" selection-start-line="195" selection-end-line="195" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/nacos-config/src/main/resources/application.properties">
+    <entry file="file://$PROJECT_DIR$/nacos-admin-app/src/main/resources/bootstrap.properties">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="74">
-          <caret line="2" column="31" selection-start-line="2" selection-start-column="31" selection-end-line="2" selection-end-column="31" />
+        <state relative-caret-position="248">
+          <caret line="18" selection-start-line="18" selection-end-line="18" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/nacos-config/src/main/resources/bootstrap.properties">
+    <entry file="file://$PROJECT_DIR$/nacos-generator-server/src/main/resources/bootstrap.properties">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="13">
-          <caret line="2" lean-forward="true" selection-start-line="2" selection-end-line="2" />
+        <state relative-caret-position="433">
+          <caret line="17" column="24" selection-start-line="17" selection-start-column="24" selection-end-line="17" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nacos-oauth-server/src/main/resources/bootstrap.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="359">
+          <caret line="18" selection-start-line="18" selection-end-line="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nacos-oss-server/src/main/resources/bootstrap.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="470">
+          <caret line="17" selection-start-line="17" selection-end-line="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nacos-system-server/src/main/resources/bootstrap.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="592">
+          <caret line="16" column="25" selection-start-line="16" selection-start-column="25" selection-end-line="16" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nacos-activiti-server/src/main/resources/bootstrap.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="518">
+          <caret line="14" column="6" selection-start-line="14" selection-start-column="6" selection-end-line="14" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nacos-gateway-server/src/main/resources/bootstrap.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="666">
+          <caret line="18" column="27" selection-start-line="18" selection-start-column="27" selection-end-line="18" selection-end-column="27" />
         </state>
       </provider>
     </entry>
   </component>
   <component name="masterDetails">
     <states>
+      <state key="ArtifactsStructureConfigurable.UI">
+        <settings>
+          <artifact-editor />
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="FacetStructureConfigurable.UI">
+        <settings>
+          <last-edited>Spring</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="GlobalLibrariesConfigurable.UI">
+        <settings>
+          <last-edited>Python 3.7 (oss) interpreter library</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="JdkListConfigurable.UI">
+        <settings>
+          <last-edited>1.8</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ModuleStructureConfigurable.UI">
+        <settings>
+          <last-edited>nacos-oauth-server</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+                <option value="0.6" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
       <state key="ProjectJDKs.UI">
         <settings>
           <last-edited>1.8</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectLibrariesConfigurable.UI">
+        <settings>
+          <last-edited>Maven: aopalliance:aopalliance:1.0</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
