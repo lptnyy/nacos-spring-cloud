@@ -8,26 +8,42 @@
     <version>1.0-SNAPSHOT</version>
   </parent>
   <modelVersion>4.0.0</modelVersion>
-  <artifactId>nacos-backstage-app</artifactId>
+  <artifactId>nacos-activiti-server</artifactId>
   <dependencies>
     <dependency>
-      <groupId>com.nacos.common</groupId>
-      <artifactId>nacos-common</artifactId>
+      <groupId>org.activiti</groupId>
+      <artifactId>activiti-spring-boot-starter</artifactId>
+      <version>7.1.0.M6</version>
+    </dependency>
+    <dependency>
+      <groupId>com.nacos</groupId>
+      <artifactId>nacos-oss-server-fegin</artifactId>
       <version>1.0-SNAPSHOT</version>
     </dependency>
     <dependency>
-      <groupId>io.github.openfeign</groupId>
-      <artifactId>feign-httpclient</artifactId>
+      <groupId>com.baomidou</groupId>
+      <artifactId>dynamic-datasource-spring-boot-starter</artifactId>
+      <version>${dynamic.datasource.boot.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>com.alibaba</groupId>
+      <artifactId>druid-spring-boot-starter</artifactId>
+      <version>${druid-spring-boot-starter.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>com.baomidou</groupId>
+      <artifactId>mybatis-plus-boot-starter</artifactId>
+      <version>${mybatis-plus-boot-starter.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>mysql</groupId>
+      <artifactId>mysql-connector-java</artifactId>
+      <version>${mysql-connector-java.version}</version>
     </dependency>
     <dependency>
       <groupId>org.projectlombok</groupId>
       <artifactId>lombok</artifactId>
       <version>${lombok.version}</version>
-    </dependency>
-    <dependency>
-      <groupId>com.nacos.system</groupId>
-      <artifactId>nacos-system-server-fegin</artifactId>
-      <version>1.0-SNAPSHOT</version>
     </dependency>
     <dependency>
       <groupId>com.alibaba.cloud</groupId>
@@ -38,16 +54,16 @@
       <artifactId>spring-boot-starter-web</artifactId>
     </dependency>
     <dependency>
-      <groupId>org.springframework.boot</groupId>
-      <artifactId>spring-boot-starter-data-redis</artifactId>
-    </dependency>
-    <dependency>
       <groupId>com.alibaba.cloud</groupId>
       <artifactId>spring-cloud-starter-alibaba-nacos-config</artifactId>
     </dependency>
     <dependency>
       <groupId>com.alibaba.cloud</groupId>
       <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>io.github.openfeign</groupId>
+      <artifactId>feign-httpclient</artifactId>
     </dependency>
     <dependency>
       <groupId>org.springframework.boot</groupId>
@@ -77,8 +93,9 @@
       <artifactId>spring-cloud-starter-oauth2</artifactId>
     </dependency>
     <dependency>
-      <groupId>com.alibaba.cloud</groupId>
-      <artifactId>spring-cloud-starter-alibaba-sentinel</artifactId>
+      <groupId>com.nacos.system</groupId>
+      <artifactId>nacos-system-server-fegin</artifactId>
+      <version>1.0-SNAPSHOT</version>
     </dependency>
   </dependencies>
 
