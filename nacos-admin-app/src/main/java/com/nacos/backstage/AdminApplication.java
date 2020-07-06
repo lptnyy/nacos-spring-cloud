@@ -17,8 +17,8 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 		@ComponentScan("com.nacos.common.aspect"),
 		@ComponentScan("com.nacos.system")
 })
-public class BackstageApplication {
+public class AdminApplication {
     public static void main(String[] args) {
-		SpringApplication.run(BackstageApplication.class, args);
+		SpringApplication.run(AdminApplication.class, args);
 	}
 }
