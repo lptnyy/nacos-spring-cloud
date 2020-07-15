@@ -5,7 +5,7 @@
   <groupId>com.nacos</groupId>
   <version>1.0-SNAPSHOT</version>
   <modelVersion>4.0.0</modelVersion>
-  <artifactId>nacos-oss-server-fegin</artifactId>
+  <artifactId>nacos-oss-fegin</artifactId>
 
   <dependencies>
     <dependency>

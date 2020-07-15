@@ -12,7 +12,7 @@
   <dependencies>
     <dependency>
       <groupId>com.nacos</groupId>
-      <artifactId>nacos-oss-server-fegin</artifactId>
+      <artifactId>nacos-oss-fegin</artifactId>
       <version>1.0-SNAPSHOT</version>
     </dependency>
     <dependency>

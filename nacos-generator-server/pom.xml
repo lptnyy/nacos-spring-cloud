@@ -39,7 +39,7 @@
     </dependency>
     <dependency>
       <groupId>com.nacos.system</groupId>
-      <artifactId>nacos-system-server-fegin</artifactId>
+      <artifactId>nacos-system-fegin</artifactId>
       <version>1.0-SNAPSHOT</version>
     </dependency>
     <dependency>
