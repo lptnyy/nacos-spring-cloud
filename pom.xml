@@ -20,6 +20,7 @@
     <module>nacos-activiti-server</module>
     <module>nacos-xiaoshuo-server</module>
     <module>nacos-xiaoshuo-fegin</module>
+    <module>nacos-xiaoshuo-app</module>
   </modules>
   <properties>
     <mysql-connector-java.version>8.0.20</mysql-connector-java.version>
