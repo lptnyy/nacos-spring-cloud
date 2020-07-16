@@ -27,7 +27,7 @@
               <DatePicker type="datetime" v-model="${field.fieldName}" placeholder="${field.comment}"></DatePicker>
               </#if>
               </#list>
-              <Button @click="search" :disabled="!isRetrieve">查询</Button>
+              <Button class="add_button" @click="search" :disabled="!isRetrieve">查询</Button>
               <Button class="add_button" :disabled="!isRetrieve" @click="reset">重置</Button>
               <Button class="add_button" :disabled="!isDelete" @click="deleteBathBtnClick" type="warning">删除</Button>
               <Button class="add_button" :disabled="!isCreate" @click="addBtnClick" type="primary">添加</Button>
@@ -267,7 +267,11 @@ export default {
       var params = {}
       <#list fields as field>
       <#if field.webSelectType != 'zore'>
-      params.${field.fieldName} = this.${field.fieldName}
+      if (this.${field.fieldName} !== '') {
+        params.${field.fieldName} = this.${field.fieldName}
+      } else {
+        params.${field.fieldName} = null;
+      }
       </#if>
       </#list>
       params.pageNum = this.pageNum

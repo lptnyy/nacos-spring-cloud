@@ -7,11 +7,10 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.lang.Integer;
 import java.lang.String;
-import java.util.Date;
 
 /**
  * <p>
-    * 
+    *
     * </p>
  *
  * @author 王振宇
@@ -25,25 +24,25 @@ import java.util.Date;
 public class XiaoshuoNoveltypeVo {
 
    /**
-    * 
+    *
     */
     @ApiModelProperty(value = "", name = "id")
     private Integer id;
 
    /**
-    * 
+    *
     */
     @ApiModelProperty(value = "", name = "name")
     private String name;
 
    /**
-    * 
+    *
     */
     @ApiModelProperty(value = "", name = "sort")
     private Integer sort;
 
    /**
-    * 
+    *
     */
     @ApiModelProperty(value = "", name = "createTime")
     private String createTime;

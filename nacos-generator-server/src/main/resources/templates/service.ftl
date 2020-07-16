@@ -1,7 +1,7 @@
 package ${genpkg};
-import com.wzy.common.feign.FeignRequestInterceptor;
-import com.wzy.common.method.ProParameter;
-import com.wzy.common.util.ServiceResponse;
+import com.nacos.common.feign.FeignRequestInterceptor;
+import com.nacos.common.method.ProParameter;
+import com.nacos.common.util.ServiceResponse;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;

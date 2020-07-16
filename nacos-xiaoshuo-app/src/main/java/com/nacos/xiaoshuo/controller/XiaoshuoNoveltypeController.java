@@ -1,6 +1,7 @@
 package com.nacos.xiaoshuo.controller;
 import com.nacos.common.annotation.Log;
 import com.nacos.common.method.ProParameter;
+import com.nacos.common.util.DateUtil;
 import com.nacos.common.util.ServiceResponse;
 import com.nacos.xiaoshuo.IXiaoshuoNoveltypeService;
 import com.nacos.xiaoshuo.dto.XiaoshuoNoveltype;
@@ -19,7 +20,7 @@ import java.util.stream.Collectors;
 
 /**
  * <p>
-    * 
+    *
     * </p>
  *
  * @author 王振宇
@@ -36,7 +37,7 @@ public class XiaoshuoNoveltypeController {
 
     @PostMapping(value = "/getPageList")
     @ApiOperation(value = "分页查询列表")
-    @Log(name = "", value = "分页查询列表", source = "xiaoshuo-app")
+    @Log(name = "小说类型", value = "分页查询列表", source = "xiaoshuo-app")
     public ServiceResponse<List<XiaoshuoNoveltypeVo>> getPageList(@RequestBody XiaoshuoNoveltypeRequest request) {
         return new ServiceResponse<List<XiaoshuoNoveltypeVo>>()
                 .run(serviceResponse -> {
@@ -59,6 +60,7 @@ public class XiaoshuoNoveltypeController {
                             .map(xiaoshuoNoveltype -> {
                                 XiaoshuoNoveltypeVo xiaoshuoNoveltypevo = new XiaoshuoNoveltypeVo();
                                 BeanUtils.copyProperties(xiaoshuoNoveltype,xiaoshuoNoveltypevo);
+                                xiaoshuoNoveltypevo.setCreateTime(DateUtil.getyyMMddHHmmss(xiaoshuoNoveltype.getCreateTime()));
                                 // vo.set 格式化一些特定的字段比如时间类型 自定义多种返回类型 应对视图层的需要
                                 return xiaoshuoNoveltypevo;
                             })
@@ -71,7 +73,7 @@ public class XiaoshuoNoveltypeController {
 
     @PostMapping(value = "/get")
     @ApiOperation(value = "获取单条信息")
-    @Log(name = "", value = "获取单条信息", source = "xiaoshuo-app")
+    @Log(name = "小说类型", value = "获取单条信息", source = "xiaoshuo-app")
     public ServiceResponse<XiaoshuoNoveltypeVo> get(@RequestBody XiaoshuoNoveltypeRequest request) {
         return new ServiceResponse<XiaoshuoNoveltypeVo>()
                 .run(serviceResponse -> {
@@ -93,7 +95,7 @@ public class XiaoshuoNoveltypeController {
 
     @PostMapping(value = "/save")
     @ApiOperation(value = "保存")
-    @Log(name = "", value = "保存", source = "xiaoshuo-app")
+    @Log(name = "小说类型", value = "保存", source = "xiaoshuo-app")
     public ServiceResponse<XiaoshuoNoveltypeVo> save(@RequestBody XiaoshuoNoveltypeRequest request) {
         return new ServiceResponse<XiaoshuoNoveltypeVo>()
                 .run(serviceResponse -> {
@@ -121,7 +123,7 @@ public class XiaoshuoNoveltypeController {
 
     @PostMapping(value = "/idsDelete")
     @ApiOperation(value = "批量删除")
-    @Log(name = "", value = "批量删除", source = "xiaoshuo-app")
+    @Log(name = "小说类型", value = "批量删除", source = "xiaoshuo-app")
     public ServiceResponse<Integer> idsDelete(@RequestBody XiaoshuoNoveltypeRequest request) {
         return new ServiceResponse<Integer>()
                 .run(serviceResponse -> {
@@ -143,7 +145,7 @@ public class XiaoshuoNoveltypeController {
 
     @PostMapping(value = "/delete")
     @ApiOperation(value = "删除")
-    @Log(name = "", value = "删除", source = "xiaoshuo-app")
+    @Log(name = "小说类型", value = "删除", source = "xiaoshuo-app")
     public ServiceResponse<Integer> delete(@RequestBody XiaoshuoNoveltypeRequest request) {
         return new ServiceResponse<Integer>()
                 .run(serviceResponse -> {
@@ -162,7 +164,7 @@ public class XiaoshuoNoveltypeController {
 
     @PostMapping(value = "/update")
     @ApiOperation(value = "修改")
-    @Log(name = "", value = "修改", source = "xiaoshuo-app")
+    @Log(name = "小说类型", value = "修改", source = "xiaoshuo-app")
     public ServiceResponse<Integer> update(@RequestBody XiaoshuoNoveltypeRequest request) {
         return new ServiceResponse<Integer>()
                 .run(serviceResponse -> {

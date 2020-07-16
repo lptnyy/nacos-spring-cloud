@@ -1,6 +1,6 @@
 package ${genpkg}.hystrix;
-import com.wzy.common.method.ProParameter;
-import com.wzy.common.util.ServiceResponse;
+import com.nacos.common.method.ProParameter;
+import com.nacos.common.util.ServiceResponse;
 import java.util.List;
 import java.lang.Integer;
 import org.springframework.stereotype.Component;

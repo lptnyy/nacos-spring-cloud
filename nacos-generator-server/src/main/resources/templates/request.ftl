@@ -2,7 +2,7 @@ package ${genpkg};
 import lombok.Data;
 import java.util.List;
 import java.lang.Integer;
-import com.wzy.common.page.RequestPage;
+import com.nacos.common.page.RequestPage;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 <#list importPkg as pkg>

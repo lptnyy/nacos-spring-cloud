@@ -10,7 +10,8 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @SpringBootApplication(exclude = DataSourceAutoConfiguration.class)
 @EnableSwagger2
 @EnableFeignClients({
-        "com.nacos.system"
+        "com.nacos.system",
+        "com.nacos.xiaoshuo"
 })
 @ComponentScans({
     @ComponentScan("com.nacos.system"),
