@@ -3,7 +3,7 @@
     <Row>
       <Col span="24">
         <Card :bordered="false">
-          <p slot="title">${tableComment}管理</p>
+          <p slot="title">${tableComment}</p>
             <div class="search">
               <#list fields as field>
               <#if field.webSelectType == 'text'>
@@ -178,7 +178,7 @@ export default {
       this.title = '编辑${tableComment}'
       let tableRow = this.tableData[index]
       <#list fields as field>
-      this.formInline.${field.fieldName} = tableRow.${field.fieldName}
+      this.formInline.${field.fieldName} = tableRow.${field.fieldName}<#if field.type == "Integer"> + ''</#if>
       </#list>
       this.addFlag = true
     },
@@ -259,6 +259,7 @@ export default {
       this.initData()
     },
     onPageSizeChange (index) {
+      this.pageNum = 1
       this.pageSize = index
       this.initData()
     },

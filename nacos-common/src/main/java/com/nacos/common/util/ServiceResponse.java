@@ -166,9 +166,17 @@ public class ServiceResponse<T> implements Serializable {
             if (transaction) {
                // GlobalTransactionContext.reload(RootContext.getXID()).rollback();
             }
-            throw new Exception("服务器调用异常");
+            if (this.msg == null && this.msg.equals(""))
+                throw new Exception("服务器调用异常");
+            else
+                throw new Exception(this.msg);
         }
         return this;
+    }
+
+    public void setErrorMsg(String msg){
+        this.msg = msg;
+        this.code = MessageType.VERIFICATION.getValue();
     }
 
     /**
