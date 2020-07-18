@@ -90,7 +90,12 @@
     <dependency>
       <groupId>com.aliyun.oss</groupId>
       <artifactId>aliyun-sdk-oss</artifactId>
-      <version>3.8.0</version>
+      <version>${ali-oss}</version>
+    </dependency>
+    <dependency>
+      <groupId>com.qcloud</groupId>
+      <artifactId>cos_api</artifactId>
+      <version>${tx-oss}</version>
     </dependency>
   </dependencies>
   <build>

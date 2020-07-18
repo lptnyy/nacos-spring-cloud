@@ -12,6 +12,9 @@ public class StringUtil {
      */
     public String getClassName(String name) {
         // 通过下划线分割字符串
+        if (name.indexOf("_") == -1) {
+            return name;
+        }
         String[] names = name.split("_");
         String resultStr = "";
         for(String str: names) {
@@ -29,6 +32,9 @@ public class StringUtil {
      */
     public String getFieldName(String name) {
         // 通过下划线分割字符串
+        if (name.indexOf("_") == -1) {
+            return name;
+        }
         String[] names = name.split("_");
         String resultStr = "";
         int i = 0;

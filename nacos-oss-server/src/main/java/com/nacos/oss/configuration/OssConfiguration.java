@@ -16,6 +16,8 @@ public class OssConfiguration {
     String accessKeyId;
     @Value("${oss.access-key-secret}")
     String accessKeySecret;
+    @Value("${oss.region}")
+    String region;
     @Value("${oss.bucket-name}")
     String bucketName;
     @Value("${oss.file-dns-url}")

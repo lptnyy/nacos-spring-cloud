@@ -271,7 +271,7 @@ export default {
       if (this.${field.fieldName} !== '') {
         params.${field.fieldName} = this.${field.fieldName}
       } else {
-        params.${field.fieldName} = null;
+        params.${field.fieldName} = null
       }
       </#if>
       </#list>
