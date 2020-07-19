@@ -10,7 +10,7 @@
               <Input class="input" v-model="${field.fieldName}" placeholder="${field.comment}"/>
               </#if>
               <#if field.webSelectType == 'select'>
-              <Select v-model="${field.fieldName}">
+              <Select class="input" v-model="${field.fieldName}">
                 <Option value="0">需要编码</Option>
               </Select>
               </#if>
@@ -69,10 +69,10 @@ export default {
   data () {
     return {
       title: '添加${tableComment}',
-      isCreate: this.authorities('权限值'),
-      isDelete: this.authorities('权限值'),
-      isUpdate: this.authorities('权限值'),
-      isRetrieve: this.authorities('权限值'),
+      isCreate: this.authorities('${createVali}'),
+      isDelete: this.authorities('${delVali}'),
+      isUpdate: this.authorities('${editVali}'),
+      isRetrieve: this.authorities('${queryVali}'),
       selection: [],
       addFlag: false,
       <#list fields as field>
@@ -90,7 +90,7 @@ export default {
         <#list fields as field>
         ${field.fieldName}: [
           { required: true, message: '请输入${field.comment}', trigger: 'blur' }
-        ],
+        ]<#if field_index != fields?size - 1>,</#if>
         </#list>
       },
       columns: [
@@ -148,7 +148,7 @@ export default {
     initFromInput () {
       var formInline = {
         <#list fields as field>
-        ${field.fieldName}: <#if field.type == 'String'>''<#else>null</#if>,
+        ${field.fieldName}: <#if field.type == 'String'>''<#else>null</#if><#if field_index != fields?size - 1>,</#if>
         </#list>
       }
       return formInline

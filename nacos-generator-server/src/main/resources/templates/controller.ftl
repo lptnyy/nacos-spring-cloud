@@ -37,6 +37,9 @@ public class ${className}Controller {
     @PostMapping(value = "/getPageList")
     @ApiOperation(value = "分页查询列表")
     @Log(name = "${tableComment}", value = "分页查询列表", source = "${logSourceName}")
+    <#if queryVali != "">
+    @Authority(values = {"${queryVali}"})
+    </#if>
     public ServiceResponse<List<${className}Vo>> getPageList(@RequestBody ${className}Request request) {
       return new ServiceResponse<List<${className}Vo>>()
           .run(serviceResponse -> {
@@ -70,6 +73,9 @@ public class ${className}Controller {
     @PostMapping(value = "/get")
     @ApiOperation(value = "获取单条信息")
     @Log(name = "${tableComment}", value = "获取单条信息", source = "${logSourceName}")
+    <#if queryVali != "">
+    @Authority(values = {"${queryVali}"})
+    </#if>
     public ServiceResponse<${className}Vo> get(@RequestBody ${className}Request request) {
       return new ServiceResponse<${className}Vo>()
           .run(serviceResponse -> {
@@ -92,6 +98,9 @@ public class ${className}Controller {
     @ApiOperation(value = "保存")
     @GlobalTransactional
     @Log(name = "${tableComment}", value = "保存", source = "${logSourceName}")
+    <#if createVali != "">
+    @Authority(values = {"${createVali}"})
+    </#if>
     public ServiceResponse<${className}Vo> save(@RequestBody ${className}Request request) {
       return new ServiceResponse<${className}Vo>()
           .run(serviceResponse -> {
@@ -119,6 +128,9 @@ public class ${className}Controller {
     @PostMapping(value = "/idsDelete")
     @ApiOperation(value = "批量删除")
     @Log(name = "${tableComment}", value = "批量删除", source = "${logSourceName}")
+    <#if delVali != "">
+    @Authority(values = {"${delVali}"})
+    </#if>
     public ServiceResponse<Integer> idsDelete(@RequestBody ${className}Request request) {
       return new ServiceResponse<Integer>()
           .run(serviceResponse -> {
@@ -140,6 +152,9 @@ public class ${className}Controller {
     @PostMapping(value = "/delete")
     @ApiOperation(value = "删除")
     @Log(name = "${tableComment}", value = "删除", source = "${logSourceName}")
+    <#if delVali != "">
+    @Authority(values = {"${delVali}"})
+    </#if>
     public ServiceResponse<Integer> delete(@RequestBody ${className}Request request) {
       return new ServiceResponse<Integer>()
           .run(serviceResponse -> {
@@ -159,6 +174,9 @@ public class ${className}Controller {
     @PostMapping(value = "/update")
     @ApiOperation(value = "修改")
     @Log(name = "${tableComment}", value = "修改", source = "${logSourceName}")
+    <#if editVali != "">
+    @Authority(values = {"${editVali}"})
+    </#if>
     public ServiceResponse<Integer> update(@RequestBody ${className}Request request) {
       return new ServiceResponse<Integer>()
           .run(serviceResponse -> {

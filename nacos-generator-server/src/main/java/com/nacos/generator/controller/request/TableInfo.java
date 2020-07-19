@@ -20,5 +20,9 @@ public class TableInfo {
     String feignClientService;
     String gateWayPath;
     String logSourceName;
+    String createVali;
+    String queryVali;
+    String delVali;
+    String editVali;
     List<TableGenInfo> tableGenInfos;
 }

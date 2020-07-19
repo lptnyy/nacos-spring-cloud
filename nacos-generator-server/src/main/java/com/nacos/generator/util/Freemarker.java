@@ -542,6 +542,10 @@ public class Freemarker {
         // 存放生成的字段信息
         dataModel.put("fields", fields);
         dataModel.put("importPkg", importPkg);
+        dataModel.put("createVali", tableInfo.getCreateVali());
+        dataModel.put("queryVali", tableInfo.getQueryVali());
+        dataModel.put("delVali", tableInfo.getDelVali());
+        dataModel.put("editVali", tableInfo.getEditVali());
 
         String cacheFile = System.getProperty("user.dir");
         String gearfileUrl = cacheFile+"/generator/src/main/java/"+tableInfo.getControllerPkg().replace(".", "/")+"/";
@@ -628,6 +632,10 @@ public class Freemarker {
         // 存放生成的字段信息
         dataModel.put("fields", fields);
         dataModel.put("importPkg", importPkg);
+        dataModel.put("createVali", tableInfo.getCreateVali());
+        dataModel.put("queryVali", tableInfo.getQueryVali());
+        dataModel.put("delVali", tableInfo.getDelVali());
+        dataModel.put("editVali", tableInfo.getEditVali());
 
         String cacheFile = System.getProperty("user.dir");
         String gearfileUrl = cacheFile+"/generator/vue/pro/"+stringUtil.getClassName(table.get("tableName"))+"/";
