@@ -36,21 +36,21 @@ public class ${className}ServiceImpl implements I${className}Service {
     public ServiceResponse<${className}> get(ProParameter<${className}Request> proParameter) {
       return new ServiceResponse<${className}>()
           .run((serviceResponse) -> {
-             LambdaQueryWrapper<${className}> lambdaQueryWrapper = new LambdaQueryWrapper<>();
-             ${className}Request request = proParameter.getObj();
-             <#list fields as field>
-             <#if field.type == 'String'>
-             if(!StringUtils.isEmpty(request.get${field.fieldName2}())){
-               lambdaQueryWrapper.eq(${className}::get${field.fieldName2},request.get${field.fieldName2}());
-             }
-             </#if>
-             <#if field.type != 'String'>
-             if(request.get${field.fieldName2}() != null){
-               lambdaQueryWrapper.eq(${className}::get${field.fieldName2},request.get${field.fieldName2}());
-             }
-             </#if>
-             </#list>
-             return mapper.selectOne(lambdaQueryWrapper);
+              LambdaQueryWrapper<${className}> lambdaQueryWrapper = new LambdaQueryWrapper<>();
+              ${className}Request request = proParameter.getObj();
+              <#list fields as field>
+              <#if field.type == 'String'>
+              if(!StringUtils.isEmpty(request.get${field.fieldName2}())){
+                lambdaQueryWrapper.eq(${className}::get${field.fieldName2},request.get${field.fieldName2}());
+              }
+              </#if>
+              <#if field.type != 'String'>
+              if(request.get${field.fieldName2}() != null){
+                lambdaQueryWrapper.eq(${className}::get${field.fieldName2},request.get${field.fieldName2}());
+              }
+              </#if>
+              </#list>
+              return mapper.selectOne(lambdaQueryWrapper);
           }).exec();
     }
 
@@ -58,39 +58,39 @@ public class ${className}ServiceImpl implements I${className}Service {
     public ServiceResponse<List<${className}>> getList(ProParameter<${className}Request> proParameter) {
       return new ServiceResponse<List<${className}>>()
           .run((serviceResponse) -> {
-             LambdaQueryWrapper<${className}> lambdaQueryWrapper = new LambdaQueryWrapper<>();
-             ${className}Request request = proParameter.getObj();
-             <#list fields as field>
+              LambdaQueryWrapper<${className}> lambdaQueryWrapper = new LambdaQueryWrapper<>();
+              ${className}Request request = proParameter.getObj();
+              <#list fields as field>
               <#if field.type == 'String' && field.selectType != 'zore'>
-             if(!StringUtils.isEmpty(request.get${field.fieldName2}())){
-                <#if field.selectType == 'eq'>
-               lambdaQueryWrapper.eq(${className}::get${field.fieldName2},request.get${field.fieldName2}());
-                </#if>
-                <#if field.selectType == 'like'>
-               lambdaQueryWrapper.like(${className}::get${field.fieldName2},request.get${field.fieldName2}());
-                </#if>
-             }
+              if(!StringUtils.isEmpty(request.get${field.fieldName2}())){
+                 <#if field.selectType == 'eq'>
+                lambdaQueryWrapper.eq(${className}::get${field.fieldName2},request.get${field.fieldName2}());
+                 </#if>
+                 <#if field.selectType == 'like'>
+                lambdaQueryWrapper.like(${className}::get${field.fieldName2},request.get${field.fieldName2}());
+                 </#if>
+              }
               </#if>
               <#if field.type != 'String' && field.selectType != 'zore'>
-             if(request.get${field.fieldName2}() != null){
+              if(request.get${field.fieldName2}() != null){
                 <#if field.selectType == 'eq'>
-               lambdaQueryWrapper.eq(${className}::get${field.fieldName2},request.get${field.fieldName2}());
+                lambdaQueryWrapper.eq(${className}::get${field.fieldName2},request.get${field.fieldName2}());
                 </#if>
                 <#if field.selectType == 'like'>
-               lambdaQueryWrapper.like(${className}::get${field.fieldName2},request.get${field.fieldName2}());
+                lambdaQueryWrapper.like(${className}::get${field.fieldName2},request.get${field.fieldName2}());
                 </#if>
-             }
+              }
               </#if>
             </#list>
             <#list fields as field>
               <#if field.sort == 'asc'>
-             lambdaQueryWrapper.orderByAsc(${className}::get${field.fieldName2});
+              lambdaQueryWrapper.orderByAsc(${className}::get${field.fieldName2});
               </#if>
               <#if field.sort == 'desc'>
-             lambdaQueryWrapper.orderByDesc(${className}::get${field.fieldName2});
+              lambdaQueryWrapper.orderByDesc(${className}::get${field.fieldName2});
               </#if>
             </#list>
-             return mapper.selectList(lambdaQueryWrapper);
+              return mapper.selectList(lambdaQueryWrapper);
           }).exec();
     }
 
@@ -98,45 +98,45 @@ public class ${className}ServiceImpl implements I${className}Service {
     public ServiceResponse<List<${className}>> getPageList(ProParameter<${className}Request> proParameter) {
       return new ServiceResponse<List<${className}>>()
           .run((serviceResponse -> {
-             LambdaQueryWrapper<${className}> lambdaQueryWrapper = new LambdaQueryWrapper<>();
-             ${className}Request request = proParameter.getObj();
+              LambdaQueryWrapper<${className}> lambdaQueryWrapper = new LambdaQueryWrapper<>();
+              ${className}Request request = proParameter.getObj();
             <#list fields as field>
               <#if field.type == 'String' && field.selectType != 'zore'>
-             if(!StringUtils.isEmpty(request.get${field.fieldName2}())){
+              if(!StringUtils.isEmpty(request.get${field.fieldName2}())){
                 <#if field.selectType == 'eq'>
-               lambdaQueryWrapper.eq(${className}::get${field.fieldName2},request.get${field.fieldName2}());
+                lambdaQueryWrapper.eq(${className}::get${field.fieldName2},request.get${field.fieldName2}());
                 </#if>
                 <#if field.selectType == 'like'>
-               lambdaQueryWrapper.like(${className}::get${field.fieldName2},request.get${field.fieldName2}());
+                lambdaQueryWrapper.like(${className}::get${field.fieldName2},request.get${field.fieldName2}());
                 </#if>
-             }
+              }
               </#if>
               <#if field.type != 'String' && field.selectType != 'zore'>
-             if(request.get${field.fieldName2}() != null){
+              if(request.get${field.fieldName2}() != null){
                 <#if field.selectType == 'eq'>
-               lambdaQueryWrapper.eq(${className}::get${field.fieldName2},request.get${field.fieldName2}());
+                lambdaQueryWrapper.eq(${className}::get${field.fieldName2},request.get${field.fieldName2}());
                 </#if>
                 <#if field.selectType == 'like'>
-               lambdaQueryWrapper.like(${className}::get${field.fieldName2},request.get${field.fieldName2}());
+                lambdaQueryWrapper.like(${className}::get${field.fieldName2},request.get${field.fieldName2}());
                 </#if>
-             }
+              }
               </#if>
             </#list>
             <#list fields as field>
               <#if field.sort == 'asc'>
-             lambdaQueryWrapper.orderByAsc(${className}::get${field.fieldName2});
+              lambdaQueryWrapper.orderByAsc(${className}::get${field.fieldName2});
               </#if>
               <#if field.sort == 'desc'>
-             lambdaQueryWrapper.orderByDesc(${className}::get${field.fieldName2});
+              lambdaQueryWrapper.orderByDesc(${className}::get${field.fieldName2});
               </#if>
             </#list>
-             Page<${className}> page = new Page<>(proParameter.getRequestPage().getPageNum(),proParameter.getRequestPage().getPageSize());
-             IPage<${className}> pageResult = mapper.selectPage(page, lambdaQueryWrapper);
-             serviceResponse.setPageNo(proParameter.getRequestPage().getPageNum())
-                .setPageSize(proParameter.getRequestPage().getPageSize())
-                .setCount(pageResult.getTotal())
-                .setPages(pageResult.getPages());
-             return pageResult.getRecords();
+              Page<${className}> page = new Page<>(proParameter.getRequestPage().getPageNum(),proParameter.getRequestPage().getPageSize());
+              IPage<${className}> pageResult = mapper.selectPage(page, lambdaQueryWrapper);
+              serviceResponse.setPageNo(proParameter.getRequestPage().getPageNum())
+                 .setPageSize(proParameter.getRequestPage().getPageSize())
+                 .setCount(pageResult.getTotal())
+                 .setPages(pageResult.getPages());
+              return pageResult.getRecords();
           })).exec();
     }
 
@@ -144,28 +144,28 @@ public class ${className}ServiceImpl implements I${className}Service {
     public ServiceResponse<List<${className}>> findIdsList(ProParameter<${className}Request> proParameter) {
       return new ServiceResponse<List<${className}>>()
         .run(serviceResponse -> {
-           LambdaQueryWrapper<${className}> queryWrapper = new LambdaQueryWrapper<>();
-           ${className}Request request = proParameter.getObj();
+            LambdaQueryWrapper<${className}> queryWrapper = new LambdaQueryWrapper<>();
+            ${className}Request request = proParameter.getObj();
           <#list fields as field>
           <#if field.type == 'String'>
-           if(!StringUtils.isEmpty(request.get${field.fieldName2}())){
-             queryWrapper.in(${className}::get${field.fieldName2},request.getIds());
-           }
+            if(!StringUtils.isEmpty(request.get${field.fieldName2}())){
+               queryWrapper.in(${className}::get${field.fieldName2},request.getIds());
+            }
           <#else >
-           if(request.get${field.fieldName2}() != null){
-             queryWrapper.in(${className}::get${field.fieldName2},request.getIds());
-           }
+            if(request.get${field.fieldName2}() != null){
+               queryWrapper.in(${className}::get${field.fieldName2},request.getIds());
+            }
           </#if>
           </#list>
           <#list fields as field>
           <#if field.sort == 'asc'>
-           queryWrapper.orderByAsc(${className}::get${field.fieldName2});
+            queryWrapper.orderByAsc(${className}::get${field.fieldName2});
           </#if>
           <#if field.sort == 'desc'>
-           queryWrapper.orderByDesc(${className}::get${field.fieldName2});
+            queryWrapper.orderByDesc(${className}::get${field.fieldName2});
           </#if>
           </#list>
-           return mapper.selectList(queryWrapper);
+            return mapper.selectList(queryWrapper);
         }).exec();
     }
 
@@ -174,9 +174,9 @@ public class ${className}ServiceImpl implements I${className}Service {
     public ServiceResponse<Integer> update(ProParameter<${className}Request> proParameter) {
       return new ServiceResponse<Integer>()
           .run(serviceResponse -> {
-             ${className} bean = new ${className}();
-             BeanUtils.copyProperties(proParameter.getObj(),bean);
-             return mapper.updateById(bean);
+              ${className} bean = new ${className}();
+              BeanUtils.copyProperties(proParameter.getObj(),bean);
+              return mapper.updateById(bean);
           }).exec();
     }
 
@@ -185,10 +185,10 @@ public class ${className}ServiceImpl implements I${className}Service {
     public ServiceResponse<${className}> save(ProParameter<${className}Request> proParameter) {
         return new ServiceResponse<${className}>()
             .run(serviceResponse -> {
-               ${className} bean = new ${className}();
-               BeanUtils.copyProperties(proParameter.getObj(),bean);
-               mapper.insert(bean);
-               return bean;
+                ${className} bean = new ${className}();
+                BeanUtils.copyProperties(proParameter.getObj(),bean);
+                mapper.insert(bean);
+                return bean;
             }).exec();
     }
 
@@ -198,12 +198,12 @@ public class ${className}ServiceImpl implements I${className}Service {
        return new ServiceResponse<List<${className}>>()
             .run(serviceResponse -> {
                 List<${className}> roles = proParameter.getObj()
-                  .stream()
-                  .map(${smClassName}Request -> {
-                     ${className} ${smClassName} = new ${className}();
-                     BeanUtils.copyProperties(${smClassName}Request, ${smClassName});
-                     mapper.insert(${smClassName});
-                     return ${smClassName};
+                   .stream()
+                   .map(${smClassName}Request -> {
+                       ${className} ${smClassName} = new ${className}();
+                       BeanUtils.copyProperties(${smClassName}Request, ${smClassName});
+                       mapper.insert(${smClassName});
+                       return ${smClassName};
                   }).collect(Collectors.toList());
                return roles;
             }).exec();
@@ -214,20 +214,20 @@ public class ${className}ServiceImpl implements I${className}Service {
     public ServiceResponse<Integer> delete(ProParameter<${className}Request> proParameter) {
       return new ServiceResponse<Integer>()
           .run(serviceResponse -> {
-             LambdaQueryWrapper<${className}> lambdaQueryWrapper = new LambdaQueryWrapper<>();
-             ${className}Request request = proParameter.getObj();
+              LambdaQueryWrapper<${className}> lambdaQueryWrapper = new LambdaQueryWrapper<>();
+              ${className}Request request = proParameter.getObj();
             <#list fields as field>
             <#if field.type == 'String'>
-             if(!StringUtils.isEmpty(request.get${field.fieldName2}())){
-               lambdaQueryWrapper.eq(${className}::get${field.fieldName2},request.get${field.fieldName2}());
-             }
+              if(!StringUtils.isEmpty(request.get${field.fieldName2}())){
+                lambdaQueryWrapper.eq(${className}::get${field.fieldName2},request.get${field.fieldName2}());
+              }
             <#else >
-             if(request.get${field.fieldName2}() != null){
-               lambdaQueryWrapper.eq(${className}::get${field.fieldName2},request.get${field.fieldName2}());
-             }
+              if(request.get${field.fieldName2}() != null){
+                lambdaQueryWrapper.eq(${className}::get${field.fieldName2},request.get${field.fieldName2}());
+              }
             </#if>
             </#list>
-             return mapper.delete(lambdaQueryWrapper);
+              return mapper.delete(lambdaQueryWrapper);
           }).exec();
     }
 
@@ -236,20 +236,20 @@ public class ${className}ServiceImpl implements I${className}Service {
     public ServiceResponse<Integer> idsDelete(ProParameter<${className}Request> proParameter) {
       return new ServiceResponse<Integer>()
           .run(serviceResponse -> {
-              LambdaQueryWrapper<${className}> queryWrapper = new LambdaQueryWrapper<>();
-              ${className}Request request = proParameter.getObj();
+               LambdaQueryWrapper<${className}> queryWrapper = new LambdaQueryWrapper<>();
+               ${className}Request request = proParameter.getObj();
              <#list fields as field>
               <#if field.type == 'String'>
-              if(!StringUtils.isEmpty(request.get${field.fieldName2}())){
-                 queryWrapper.in(${className}::get${field.fieldName2},request.getIds());
-              }
+               if(!StringUtils.isEmpty(request.get${field.fieldName2}())){
+                  queryWrapper.in(${className}::get${field.fieldName2},request.getIds());
+               }
               <#else >
-              if(request.get${field.fieldName2}() != null){
-                 queryWrapper.in(${className}::get${field.fieldName2},request.getIds());
-              }
+               if(request.get${field.fieldName2}() != null){
+                  queryWrapper.in(${className}::get${field.fieldName2},request.getIds());
+               }
               </#if>
              </#list>
-             return mapper.delete(queryWrapper);
+              return mapper.delete(queryWrapper);
           }).exec();
     }
 }
