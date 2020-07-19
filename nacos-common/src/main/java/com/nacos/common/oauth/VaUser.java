@@ -1,5 +1,4 @@
 package com.nacos.common.oauth;
-
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.security.Timestamp;
 import java.util.ArrayList;
