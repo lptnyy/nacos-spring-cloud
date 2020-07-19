@@ -12,6 +12,7 @@ public class StringUtil {
      */
     public String getClassName(String name) {
         // 通过下划线分割字符串
+        name = name.trim();
         if (name.indexOf("_") == -1) {
             return name;
         }
@@ -32,6 +33,7 @@ public class StringUtil {
      */
     public String getFieldName(String name) {
         // 通过下划线分割字符串
+        name = name.trim();
         if (name.indexOf("_") == -1) {
             return name;
         }
