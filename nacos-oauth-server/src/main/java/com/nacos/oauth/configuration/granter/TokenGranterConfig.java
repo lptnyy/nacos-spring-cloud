@@ -1,9 +1,10 @@
-package com.nacos.oauth.configuration;
+package com.nacos.oauth.configuration.granter;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import javax.annotation.Resource;
-import com.nacos.oauth.service.AppManagerUserService;
+
+import com.nacos.oauth.configuration.service.AppManagerUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

@@ -1,4 +1,4 @@
-package com.nacos.oauth.configuration;
+package com.nacos.oauth.configuration.granter;
 import com.nacos.oauth.configuration.exception.ProOAuth2Exception;
 import org.springframework.security.authentication.*;
 import org.springframework.security.core.Authentication;

@@ -1,4 +1,4 @@
-package com.nacos.oauth.configuration;
+package com.nacos.oauth.configuration.granter;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import org.springframework.security.authentication.AbstractAuthenticationToken;

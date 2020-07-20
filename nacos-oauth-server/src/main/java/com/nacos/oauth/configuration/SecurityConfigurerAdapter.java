@@ -1,5 +1,5 @@
 package com.nacos.oauth.configuration;
-import com.nacos.oauth.service.OAuth2UserService;
+import com.nacos.oauth.configuration.service.OAuth2UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

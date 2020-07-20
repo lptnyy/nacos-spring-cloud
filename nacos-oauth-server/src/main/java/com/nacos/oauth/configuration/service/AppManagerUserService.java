@@ -1,4 +1,4 @@
-package com.nacos.oauth.service;
+package com.nacos.oauth.configuration.service;
 import com.nacos.common.method.ProParameter;
 import com.nacos.common.oauth.VaRole;
 import com.nacos.common.oauth.VaUser;
