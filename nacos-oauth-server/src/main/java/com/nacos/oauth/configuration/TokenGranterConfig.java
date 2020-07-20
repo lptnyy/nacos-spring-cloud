@@ -3,6 +3,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import javax.annotation.Resource;
+import com.nacos.oauth.service.AppManagerUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -40,6 +41,9 @@ public class TokenGranterConfig {
 
     @Resource(name = "oauth2UserService")
     private UserDetailsService userDetailsService;
+
+    @Resource(name = "appManagerUserService")
+    private AppManagerUserService appManagerUserService;
 
     private TokenGranter tokenGranter;
 
@@ -111,6 +115,9 @@ public class TokenGranterConfig {
 
             // 添加自定义授权模式（实际是密码模式的复制）
             tokenGranters.add(new SmsCodeTokenGranter(authenticationManager, tokenServices, clientDetailsService, requestFactory));
+
+            // 添加app后台配置授权
+            tokenGranters.add(new AppManagerTokenGranter(authenticationManager,tokenServices,clientDetailsService,requestFactory, appManagerUserService));
         }
         return tokenGranters;
     }

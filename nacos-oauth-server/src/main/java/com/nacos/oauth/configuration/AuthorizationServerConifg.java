@@ -59,7 +59,7 @@ public class AuthorizationServerConifg extends AuthorizationServerConfigurerAdap
                 .withClient(webClient)
                 .scopes("web") //此处的scopes是无用的，可以随意设置
                 .secret(webSecret)
-                .authorizedGrantTypes("password", "authorization_code", "refresh_token","sms_code");
+                .authorizedGrantTypes("password","app_code", "authorization_code", "refresh_token","sms_code");
 
     }
 
