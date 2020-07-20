@@ -51,6 +51,9 @@ public class AppManagerTokenGranter extends AbstractTokenGranter {
         if (!userDetails.getPassword().equals(appSecret)) {
             throw new ProOAuth2Exception("appSecret错误");
         }
+        if (!userDetails.isEnabled()) {
+            throw new ProOAuth2Exception("appKey没有发布");
+        }
         Authentication userAuth = new UsernamePasswordAuthenticationToken(userDetails,null,userDetails.getAuthorities());
         OAuth2Request storedOAuth2Request = getRequestFactory().createOAuth2Request(client, tokenRequest);
         return new OAuth2Authentication(storedOAuth2Request, userAuth);

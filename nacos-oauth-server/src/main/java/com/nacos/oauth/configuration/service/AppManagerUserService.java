@@ -31,6 +31,11 @@ public class AppManagerUserService implements UserDetailsService {
             response.checkState();
             ProApp proApp = response.getObj();
             VaUser vaUser = new VaUser(proApp.getAppKey());
+            if (proApp.getStat().equals(1)) {
+                vaUser.setEnabled(true);
+            } else {
+                vaUser.setEnabled(false);
+            }
             vaUser.setPassword(proApp.getAppSecret());
             List<VaRole> roleList = new ArrayList();
             VaRole vaRole = new VaRole();
