@@ -4,6 +4,7 @@ import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.nacos.common.method.ProParameter;
+import com.nacos.common.util.DateUtil;
 import com.nacos.common.util.ServiceResponse;
 import com.nacos.system.UserService;
 import com.nacos.system.dto.ProUser;
@@ -15,7 +16,6 @@ import java.util.List;
 import javax.annotation.Resource;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.BeanUtils;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -82,6 +82,9 @@ public class UserServiceImpl implements UserService {
                 .run(serviceResponse -> {
                     ProUser proUser = new ProUser();
                     BeanUtils.copyProperties(proParameter.getObj(),proUser);
+                    if (proParameter.getObj().getLastLoginTime() != null) {
+                        proUser.setLastLoginTime(DateUtil.getyyMMddHHmmss(proParameter.getObj().getLastLoginTime()));
+                    }
                     LambdaQueryWrapper<ProUser> queryWrapper = new LambdaQueryWrapper<>();
                     queryWrapper.eq(ProUser::getUserId,proParameter.getObj().getUserId());
                     return proUserMapper.update(proUser,queryWrapper);

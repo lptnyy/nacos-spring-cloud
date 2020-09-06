@@ -1,4 +1,4 @@
-package com.nacos.ffmpeg;
+package com.nacos.live;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;

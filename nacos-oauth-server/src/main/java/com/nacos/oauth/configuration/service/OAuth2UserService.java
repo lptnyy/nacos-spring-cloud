@@ -16,7 +16,10 @@ import com.nacos.system.request.ProMenuRequest;
 import com.nacos.system.request.ProRoleMenuRequest;
 import com.nacos.system.request.ProUserRoleRequest;
 import com.nacos.system.request.User;
+
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
 import org.apache.commons.lang.StringUtils;
@@ -56,6 +59,13 @@ public class OAuth2UserService implements UserDetailsService {
             VaUser vaUser = null;
             if (user != null) {
                 try {
+                    // 修改登录次数 以及 登录时间
+                    User updateUser = new User();
+                    updateUser.setUserId(user.getUserId());
+                    updateUser.setLoginNum(user.getLoginNum() + 1);
+                    updateUser.setLastLoginTime(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()));
+                    ServiceResponse<Integer> updateResponse = userService.update(new ProParameter<>(updateUser));
+                    updateResponse.checkState();
 
                     // 获取用户角色信息
                     ProUserRoleRequest userRoleRequest = new ProUserRoleRequest();
