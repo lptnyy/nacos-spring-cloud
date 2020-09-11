@@ -15,6 +15,7 @@ import java.util.stream.Collectors;
 import javax.annotation.Resource;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.BeanUtils;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -216,7 +217,7 @@ public class ProResourceFileServiceImpl implements IProResourceFileService {
     }
 
     @Override
-    //@GlobalTransactional
+    @Transactional
     public ServiceResponse<Integer> update(ProParameter<ProResourceFileRequest> proParameter) throws Exception {
         return new ServiceResponse<Integer>()
                 .run(serviceResponse -> {
@@ -227,7 +228,7 @@ public class ProResourceFileServiceImpl implements IProResourceFileService {
     }
 
     @Override
-    //@GlobalTransactional
+    @Transactional
     public ServiceResponse<ProResourceFile> save(ProParameter<ProResourceFileRequest> proParameter) throws Exception {
         return new ServiceResponse<ProResourceFile>()
                 .run(serviceResponse -> {
@@ -239,7 +240,7 @@ public class ProResourceFileServiceImpl implements IProResourceFileService {
     }
 
     @Override
-    //@GlobalTransactional
+    @Transactional
     public ServiceResponse<List<ProResourceFile>> batchSave(ProParameter<List<ProResourceFileRequest>> proParameter) throws Exception {
        return new ServiceResponse<List<ProResourceFile>>()
                .run(serviceResponse -> {
@@ -256,7 +257,7 @@ public class ProResourceFileServiceImpl implements IProResourceFileService {
      }
 
     @Override
-    //@GlobalTransactional
+    @Transactional
     public ServiceResponse<Integer> delete(ProParameter<ProResourceFileRequest> proParameter) throws Exception {
         return new ServiceResponse<Integer>()
                 .run(serviceResponse -> {
@@ -300,7 +301,7 @@ public class ProResourceFileServiceImpl implements IProResourceFileService {
     }
 
     @Override
-    //@GlobalTransactional
+    @Transactional
     public ServiceResponse<Integer> idsDelete(ProParameter<ProResourceFileRequest> proParameter) throws Exception {
         return new ServiceResponse<Integer>()
                 .run(serviceResponse -> {

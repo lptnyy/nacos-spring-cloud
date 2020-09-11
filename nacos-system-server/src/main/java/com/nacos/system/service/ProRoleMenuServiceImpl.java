@@ -14,6 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.annotation.Resource;
 import org.springframework.beans.BeanUtils;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -131,7 +132,7 @@ public class ProRoleMenuServiceImpl implements IProRoleMenuService {
     }
 
     @Override
-    //@GlobalTransactional
+    @Transactional
     public ServiceResponse<Integer> update(ProParameter<ProRoleMenuRequest> proParameter) throws Exception {
         return new ServiceResponse<Integer>()
                 .run(serviceResponse -> {
@@ -142,7 +143,7 @@ public class ProRoleMenuServiceImpl implements IProRoleMenuService {
     }
 
     @Override
-    //@GlobalTransactional
+    @Transactional
     public ServiceResponse<ProRoleMenu> save(ProParameter<ProRoleMenuRequest> proParameter) throws Exception {
         return new ServiceResponse<ProRoleMenu>()
                 .run(serviceResponse -> {
@@ -154,7 +155,7 @@ public class ProRoleMenuServiceImpl implements IProRoleMenuService {
     }
 
     @Override
-    //@GlobalTransactional
+    @Transactional
     public ServiceResponse<Integer> batchSave(ProParameter<List<ProRoleMenuRequest>> proParameter) throws Exception {
        return new ServiceResponse<Integer>()
                .run(serviceResponse -> {
@@ -171,7 +172,7 @@ public class ProRoleMenuServiceImpl implements IProRoleMenuService {
      }
 
     @Override
-    //@GlobalTransactional
+    @Transactional
     public ServiceResponse<Integer> delete(ProParameter<ProRoleMenuRequest> proParameter) throws Exception {
         return new ServiceResponse<Integer>()
                 .run(serviceResponse -> {
@@ -194,7 +195,7 @@ public class ProRoleMenuServiceImpl implements IProRoleMenuService {
     }
 
     @Override
-    //@GlobalTransactional
+    @Transactional
     public ServiceResponse<Integer> idsDelete(ProParameter<ProRoleMenuRequest> proParameter) throws Exception {
         return new ServiceResponse<Integer>()
                 .run(serviceResponse -> {

@@ -15,11 +15,16 @@ import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.Callable;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
+
+import io.seata.core.context.RootContext;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 import org.springframework.web.context.request.RequestAttributes;
 import org.springframework.web.context.request.RequestContextHolder;
+import org.springframework.web.context.request.ServletRequestAttributes;
+
+import javax.servlet.http.HttpServletRequest;
 
 @Component
 public class RequestAttributeHystrixConcurrencyStrategy extends HystrixConcurrencyStrategy {
@@ -72,6 +77,8 @@ public class RequestAttributeHystrixConcurrencyStrategy extends HystrixConcurren
     @Override
     public <T> Callable<T> wrapCallable(Callable<T> callable) {
         RequestAttributes requestAttributes = RequestContextHolder.getRequestAttributes();
+        String xid = RootContext.getXID();
+        requestAttributes.setAttribute(RootContext.KEY_XID,xid, RequestAttributes.SCOPE_REQUEST);
         return new WrappedCallable<>(callable, requestAttributes);
     }
 

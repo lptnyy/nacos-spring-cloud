@@ -15,6 +15,7 @@ import java.util.stream.Collectors;
 import javax.annotation.Resource;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.BeanUtils;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -210,7 +211,7 @@ public class ProLogServiceImpl implements IProLogService {
     }
 
     @Override
-    //@GlobalTransactional
+    @Transactional
     public ServiceResponse<Integer> update(ProParameter<ProLogRequest> proParameter) throws Exception {
         return new ServiceResponse<Integer>()
                 .run(serviceResponse -> {
@@ -221,7 +222,7 @@ public class ProLogServiceImpl implements IProLogService {
     }
 
     @Override
-    //@GlobalTransactional
+    @Transactional
     public ServiceResponse<ProLog> save(ProParameter<ProLogRequest> proParameter) throws Exception {
         return new ServiceResponse<ProLog>()
                 .run(serviceResponse -> {
@@ -233,7 +234,7 @@ public class ProLogServiceImpl implements IProLogService {
     }
 
     @Override
-    //@GlobalTransactional
+    @Transactional
     public ServiceResponse<List<ProLog>> batchSave(ProParameter<List<ProLogRequest>> proParameter) throws Exception {
        return new ServiceResponse<List<ProLog>>()
                .run(serviceResponse -> {
@@ -250,7 +251,7 @@ public class ProLogServiceImpl implements IProLogService {
      }
 
     @Override
-    //@GlobalTransactional
+    @Transactional
     public ServiceResponse<Integer> delete(ProParameter<ProLogRequest> proParameter) throws Exception {
         return new ServiceResponse<Integer>()
                 .run(serviceResponse -> {
@@ -288,7 +289,7 @@ public class ProLogServiceImpl implements IProLogService {
     }
 
     @Override
-    //@GlobalTransactional
+    @Transactional
     public ServiceResponse<Integer> idsDelete(ProParameter<ProLogRequest> proParameter) throws Exception {
         return new ServiceResponse<Integer>()
                 .run(serviceResponse -> {

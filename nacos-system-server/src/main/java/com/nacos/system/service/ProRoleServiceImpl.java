@@ -15,6 +15,7 @@ import java.util.stream.Collectors;
 import javax.annotation.Resource;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.BeanUtils;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -110,7 +111,7 @@ public class ProRoleServiceImpl implements IProRoleService {
     }
 
     @Override
-    //@GlobalTransactional
+    @Transactional
     public ServiceResponse<Integer> update(ProParameter<ProRoleRequest> proParameter) throws Exception {
         return new ServiceResponse<Integer>()
                 .run(serviceResponse -> {
@@ -121,7 +122,7 @@ public class ProRoleServiceImpl implements IProRoleService {
     }
 
     @Override
-    //@GlobalTransactional
+    @Transactional
     public ServiceResponse<ProRole> save(ProParameter<ProRoleRequest> proParameter) throws Exception {
         return new ServiceResponse<ProRole>()
                 .run(serviceResponse -> {
@@ -133,7 +134,7 @@ public class ProRoleServiceImpl implements IProRoleService {
     }
 
     @Override
-    //@GlobalTransactional
+    @Transactional
     public ServiceResponse<List<ProRole>> batchSave(ProParameter<List<ProRoleRequest>> proParameter) throws Exception {
         return new ServiceResponse<List<ProRole>>()
                 .run(serviceResponse -> {
@@ -150,7 +151,7 @@ public class ProRoleServiceImpl implements IProRoleService {
     }
 
     @Override
-    //@GlobalTransactional
+    @Transactional
     public ServiceResponse<Integer> delete(ProParameter<ProRoleRequest> proParameter) throws Exception {
         return new ServiceResponse<Integer>()
                 .run(serviceResponse -> {
@@ -170,7 +171,7 @@ public class ProRoleServiceImpl implements IProRoleService {
     }
 
     @Override
-    //@GlobalTransactional
+    @Transactional
     public ServiceResponse<Integer> idsDelete(ProParameter<ProRoleRequest> proParameter) throws Exception {
         return new ServiceResponse<Integer>()
                 .run(serviceResponse -> {

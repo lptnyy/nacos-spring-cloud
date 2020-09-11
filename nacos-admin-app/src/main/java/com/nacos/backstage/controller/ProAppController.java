@@ -8,6 +8,7 @@ import com.nacos.common.annotation.Log;
 import com.nacos.system.IProAppService;
 import com.nacos.system.dto.ProApp;
 import com.nacos.system.request.ProAppRequest;
+import io.seata.spring.annotation.GlobalTransactional;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.BeanUtils;
@@ -97,26 +98,26 @@ public class ProAppController {
     @ApiOperation(value = "保存")
     @Log(name = "应用管理", value = "保存", source = "admin-app")
     @Authority(values = {"app_create"})
+    @GlobalTransactional
     public ServiceResponse<ProAppVo> save(@RequestBody ProAppRequest request) {
       return new ServiceResponse<ProAppVo>()
+              .beginTransaction()
           .run(serviceResponse -> {
-             // 开启事务标记 验证服务是否执行成功 失败回滚分布式事务
-             ServiceResponse<ProApp> response = proAppService.get(new ProParameter<>(request));
-             response.beginTransaction();
+              // 开启事务标记 验证服务是否执行成功 失败回滚分布式事务
+              ServiceResponse<ProApp> response = proAppService.get(new ProParameter<>(request));
+              response.beginTransaction();
+              response.checkState();
 
-             // 获取调用服务状态
-             response.checkState();
+              // 保存数据 开启事务标记 验证服务是否执行成功 失败回滚分布式事务
+              response = proAppService.save(new ProParameter<>(request));
+              response.beginTransaction();
+              response.checkState();
 
-             // 保存数据 开启事务标记 验证服务是否执行成功 失败回滚分布式事务
-             response = proAppService.save(new ProParameter<>(request));
-             response.beginTransaction();
-             response.checkState();
-
-             // 获取返回数据
-             ProApp proApp = response.getObj();
-             ProAppVo proAppVo = new ProAppVo();
-             BeanUtils.copyProperties(proApp,proAppVo);
-             return proAppVo;
+              // 获取返回数据
+              ProApp proApp = response.getObj();
+              ProAppVo proAppVo = new ProAppVo();
+              BeanUtils.copyProperties(proApp,proAppVo);
+              return proAppVo;
           })
           .exec();
     }
@@ -125,6 +126,7 @@ public class ProAppController {
     @ApiOperation(value = "批量删除")
     @Log(name = "应用管理", value = "批量删除", source = "admin-app")
     @Authority(values = {"app_del"})
+    @GlobalTransactional
     public ServiceResponse<Integer> idsDelete(@RequestBody ProAppRequest request) {
       return new ServiceResponse<Integer>()
           .run(serviceResponse -> {
@@ -147,6 +149,7 @@ public class ProAppController {
     @ApiOperation(value = "删除")
     @Log(name = "应用管理", value = "删除", source = "admin-app")
     @Authority(values = {"app_del"})
+    @GlobalTransactional
     public ServiceResponse<Integer> delete(@RequestBody ProAppRequest request) {
       return new ServiceResponse<Integer>()
           .run(serviceResponse -> {
@@ -167,6 +170,7 @@ public class ProAppController {
     @ApiOperation(value = "修改")
     @Log(name = "应用管理", value = "修改", source = "admin-app")
     @Authority(values = {"app_edit"})
+    @GlobalTransactional
     public ServiceResponse<Integer> update(@RequestBody ProAppRequest request) {
       return new ServiceResponse<Integer>()
           .run(serviceResponse -> {

@@ -8,6 +8,8 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Objects;
 import javax.servlet.http.HttpServletRequest;
+
+import io.seata.core.context.RootContext;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
@@ -44,10 +46,14 @@ public class FeignRequestInterceptor implements RequestInterceptor {
     private Map<String, String> getHeaders(HttpServletRequest request) {
         Map<String, String> map = new LinkedHashMap<>();
         Enumeration<String> enums = request.getHeaderNames();
+        String kid = (String) request.getAttribute(RootContext.KEY_XID);
         while (enums.hasMoreElements()) {
             String key = enums.nextElement();
             String value = request.getHeader(key);
             map.put(key, value);
+        }
+        if (kid != null && !kid.equals("")) {
+            map.put(RootContext.KEY_XID, kid);
         }
         return map;
     }

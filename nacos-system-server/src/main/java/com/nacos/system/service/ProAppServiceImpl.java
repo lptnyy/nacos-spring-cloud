@@ -4,6 +4,7 @@ import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.nacos.common.method.ProParameter;
 import com.nacos.common.util.ServiceResponse;
+import io.seata.core.context.RootContext;
 import io.swagger.annotations.Api;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.BeanUtils;
@@ -158,6 +159,7 @@ public class ProAppServiceImpl implements IProAppService {
     @Transactional
     public ServiceResponse<Integer> update(ProParameter<ProAppRequest> proParameter) {
       return new ServiceResponse<Integer>()
+              .beginTransaction()
           .run(serviceResponse -> {
              ProApp bean = new ProApp();
              BeanUtils.copyProperties(proParameter.getObj(),bean);
@@ -169,6 +171,7 @@ public class ProAppServiceImpl implements IProAppService {
     @Transactional
     public ServiceResponse<ProApp> save(ProParameter<ProAppRequest> proParameter) {
         return new ServiceResponse<ProApp>()
+                .beginTransaction()
             .run(serviceResponse -> {
                ProApp bean = new ProApp();
                BeanUtils.copyProperties(proParameter.getObj(),bean);
@@ -181,6 +184,7 @@ public class ProAppServiceImpl implements IProAppService {
     @Transactional
     public ServiceResponse<List<ProApp>> batchSave(ProParameter<List<ProAppRequest>> proParameter) {
        return new ServiceResponse<List<ProApp>>()
+               .beginTransaction()
             .run(serviceResponse -> {
                 List<ProApp> roles = proParameter.getObj()
                   .stream()
@@ -198,6 +202,7 @@ public class ProAppServiceImpl implements IProAppService {
     @Transactional
     public ServiceResponse<Integer> delete(ProParameter<ProAppRequest> proParameter) {
       return new ServiceResponse<Integer>()
+              .beginTransaction()
           .run(serviceResponse -> {
              LambdaQueryWrapper<ProApp> lambdaQueryWrapper = new LambdaQueryWrapper<>();
              ProAppRequest request = proParameter.getObj();
@@ -227,6 +232,7 @@ public class ProAppServiceImpl implements IProAppService {
     @Transactional
     public ServiceResponse<Integer> idsDelete(ProParameter<ProAppRequest> proParameter) {
       return new ServiceResponse<Integer>()
+              .beginTransaction()
           .run(serviceResponse -> {
               LambdaQueryWrapper<ProApp> queryWrapper = new LambdaQueryWrapper<>();
               ProAppRequest request = proParameter.getObj();

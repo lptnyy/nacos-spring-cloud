@@ -15,6 +15,7 @@ import com.nacos.system.dto.ProUserRole;
 import com.nacos.system.request.ProMenuRequest;
 import com.nacos.system.request.ProRoleMenuRequest;
 import com.nacos.system.request.ProUserRoleRequest;
+import io.seata.spring.annotation.GlobalTransactional;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import java.util.List;
@@ -136,6 +137,7 @@ public class MenuController {
     //@GlobalTransactional
     @Log(name = "菜单", value = "保存", source = "admin-app")
     @SentinelResource(value = "menu/save")
+    @GlobalTransactional
     public ServiceResponse<ProMenuVo> save(@RequestBody ProMenuRequest request) {
         return new ServiceResponse<ProMenuVo>()
                 .run(serviceResponse -> {
@@ -170,7 +172,7 @@ public class MenuController {
 
     @PostMapping(value = "/idsDelete")
     @ApiOperation(value = "批量删除")
-    //@GlobalTransactional
+    @GlobalTransactional
     @SentinelResource(value = "menu/idsDelete")
     @Log(name = "菜单", value = "批量删除", source = "admin-app")
     public ServiceResponse<Integer> idsDelete(@RequestBody ProMenuRequest request) {
@@ -194,7 +196,7 @@ public class MenuController {
 
     @PostMapping(value = "/delete")
     @ApiOperation(value = "删除")
-    //@GlobalTransactional
+    @GlobalTransactional
     @SentinelResource(value = "menu/delete")
     @Log(name = "菜单", value = "删除", source = "admin-app")
     public ServiceResponse<Integer> delete(@RequestBody ProMenuRequest request) {
@@ -215,7 +217,7 @@ public class MenuController {
 
     @PostMapping(value = "/update")
     @ApiOperation(value = "修改")
-    //@GlobalTransactional
+    @GlobalTransactional
     @Log(name = "菜单", value = "修改", source = "admin-app")
     @SentinelResource(value = "menu/update")
     public ServiceResponse<Integer> update(@RequestBody ProMenuRequest request) {

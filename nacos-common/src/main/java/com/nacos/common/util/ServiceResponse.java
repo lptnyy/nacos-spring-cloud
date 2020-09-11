@@ -1,9 +1,8 @@
 package com.nacos.common.util;
-
 import com.fasterxml.jackson.databind.ObjectMapper;
-//import io.seata.core.context.RootContext;
-//import io.seata.core.exception.TransactionException;
-//import io.seata.tm.api.GlobalTransactionContext;
+import io.seata.core.context.RootContext;
+import io.seata.core.exception.TransactionException;
+import io.seata.tm.api.GlobalTransactionContext;
 import java.io.Serializable;
 
 /**
@@ -116,6 +115,13 @@ public class ServiceResponse<T> implements Serializable {
         } catch (Exception e){
             this.setMsg(e.getMessage());
             this.setCode(MessageType.FAIL.getValue());
+            if (transaction) {
+                try {
+                    rollback();
+                } catch (TransactionException e1) {
+                    e1.printStackTrace();
+                }
+            }
         }
         return this;
     }
@@ -164,7 +170,7 @@ public class ServiceResponse<T> implements Serializable {
     public ServiceResponse<T> checkState() throws Exception {
         if (this.code != 200) {
             if (transaction) {
-               // GlobalTransactionContext.reload(RootContext.getXID()).rollback();
+               GlobalTransactionContext.reload(RootContext.getXID()).rollback();
             }
             if (this.msg == null && this.msg.equals(""))
                 throw new Exception("服务器调用异常");
@@ -187,11 +193,11 @@ public class ServiceResponse<T> implements Serializable {
         return this;
     }
 
-//    // 事务回滚
-//    public ServiceResponse<T> rollback() throws TransactionException {
-//        GlobalTransactionContext.reload(RootContext.getXID()).rollback();
-//        return this;
-//    }
+    // 事务回滚
+    public ServiceResponse<T> rollback() throws TransactionException {
+        GlobalTransactionContext.reload(RootContext.getXID()).rollback();
+        return this;
+    }
 
     public T toObjClass(Class srClass) {
         return (T) mapper.convertValue(getObj(), srClass);

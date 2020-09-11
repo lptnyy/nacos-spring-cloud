@@ -14,6 +14,7 @@ import java.util.stream.Collectors;
 import javax.annotation.Resource;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.BeanUtils;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -143,9 +144,10 @@ public class ProEnumServiceImpl implements IProEnumService {
     }
 
     @Override
-    //@GlobalTransactional
+    @Transactional
     public ServiceResponse<Integer> update(ProParameter<ProEnumRequest> proParameter) throws Exception{
         return new ServiceResponse<Integer>()
+                .beginTransaction()
                 .run(serviceResponse -> {
                     ProEnum bean = new ProEnum();
                     BeanUtils.copyProperties(proParameter.getObj(),bean);
@@ -154,9 +156,10 @@ public class ProEnumServiceImpl implements IProEnumService {
     }
 
     @Override
-    //@GlobalTransactional
+    @Transactional
     public ServiceResponse<ProEnum> save(ProParameter<ProEnumRequest> proParameter) throws Exception{
         return new ServiceResponse<ProEnum>()
+                .beginTransaction()
                 .run(serviceResponse -> {
                     ProEnum bean = new ProEnum();
                     BeanUtils.copyProperties(proParameter.getObj(),bean);
@@ -166,9 +169,10 @@ public class ProEnumServiceImpl implements IProEnumService {
     }
 
     @Override
-    //@GlobalTransactional
+    @Transactional
     public ServiceResponse<List<ProEnum>> batchSave(ProParameter<List<ProEnumRequest>> proParameter) throws Exception{
        return new ServiceResponse<List<ProEnum>>()
+               .beginTransaction()
                .run(serviceResponse -> {
                    List<ProEnum> roles = proParameter.getObj()
                        .stream()
@@ -183,9 +187,10 @@ public class ProEnumServiceImpl implements IProEnumService {
      }
 
     @Override
-    //@GlobalTransactional
+    @Transactional
     public ServiceResponse<Integer> delete(ProParameter<ProEnumRequest> proParameter) throws Exception{
         return new ServiceResponse<Integer>()
+                .beginTransaction()
                 .run(serviceResponse -> {
                     LambdaQueryWrapper<ProEnum> lambdaQueryWrapper = new LambdaQueryWrapper<>();
                     ProEnumRequest request = proParameter.getObj();
@@ -209,9 +214,10 @@ public class ProEnumServiceImpl implements IProEnumService {
     }
 
     @Override
-    //@GlobalTransactional
+    @Transactional
     public ServiceResponse<Integer> idsDelete(ProParameter<ProEnumRequest> proParameter) throws Exception{
         return new ServiceResponse<Integer>()
+                .beginTransaction()
                 .run(serviceResponse -> {
                     LambdaQueryWrapper<ProEnum> queryWrapper = new LambdaQueryWrapper<>();
                     ProEnumRequest request = proParameter.getObj();

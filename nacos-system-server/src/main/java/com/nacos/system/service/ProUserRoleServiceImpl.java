@@ -13,6 +13,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 import javax.annotation.Resource;
 import org.springframework.beans.BeanUtils;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -118,7 +119,7 @@ public class ProUserRoleServiceImpl implements IProUserRoleService {
     }
 
     @Override
-    //@GlobalTransactional
+    @Transactional
     public ServiceResponse<Integer> update(ProParameter<ProUserRoleRequest> proParameter) throws Exception {
         return new ServiceResponse<Integer>()
                 .run(serviceResponse -> {
@@ -129,7 +130,7 @@ public class ProUserRoleServiceImpl implements IProUserRoleService {
     }
 
     @Override
-    //@GlobalTransactional
+    @Transactional
     public ServiceResponse<ProUserRole> save(ProParameter<ProUserRoleRequest> proParameter) throws Exception {
         return new ServiceResponse<ProUserRole>()
                 .run(serviceResponse -> {
@@ -141,7 +142,7 @@ public class ProUserRoleServiceImpl implements IProUserRoleService {
     }
 
     @Override
-    //@GlobalTransactional
+    @Transactional
     public ServiceResponse<List<ProUserRole>> batchSave(ProParameter<List<ProUserRoleRequest>> proParameter) throws Exception {
        return new ServiceResponse<List<ProUserRole>>()
                .run(serviceResponse -> {
@@ -158,7 +159,7 @@ public class ProUserRoleServiceImpl implements IProUserRoleService {
      }
 
     @Override
-    //@GlobalTransactional
+    @Transactional
     public ServiceResponse<Integer> delete(ProParameter<ProUserRoleRequest> proParameter) throws Exception {
         return new ServiceResponse<Integer>()
                 .run(serviceResponse -> {
@@ -181,7 +182,7 @@ public class ProUserRoleServiceImpl implements IProUserRoleService {
     }
 
     @Override
-    //@GlobalTransactional
+    @Transactional
     public ServiceResponse<Integer> idsDelete(ProParameter<ProUserRoleRequest> proParameter) throws Exception {
         return new ServiceResponse<Integer>()
                 .run(serviceResponse -> {
