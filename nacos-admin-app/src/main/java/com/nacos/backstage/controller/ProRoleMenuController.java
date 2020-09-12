@@ -7,6 +7,7 @@ import com.nacos.common.util.ServiceResponse;
 import com.nacos.system.IProRoleMenuService;
 import com.nacos.system.dto.ProRoleMenu;
 import com.nacos.system.request.ProRoleMenuRequest;
+import io.seata.spring.annotation.GlobalTransactional;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import java.util.List;
@@ -95,9 +96,10 @@ public class ProRoleMenuController {
     @ApiOperation(value = "保存")
     @SentinelResource(value = "proRoleMenu/save")
     @Log(name = "角色菜单关系表", value = "保存", source = "admin-app")
-    //@GlobalTransactional
+    @GlobalTransactional
     public ServiceResponse<Integer> save(@RequestBody ProRoleMenuRequest request) {
         return new ServiceResponse<Integer>()
+                .beginTransaction()
                 .run(serviceResponse -> {
 
                     // 删原角色权限信息
@@ -126,9 +128,10 @@ public class ProRoleMenuController {
     @ApiOperation(value = "批量删除")
     @SentinelResource(value = "proRoleMenu/idsDelete")
     @Log(name = "角色菜单关系表", value = "批量删除", source = "admin-app")
-    //@GlobalTransactional
+    @GlobalTransactional
     public ServiceResponse<Integer> idsDelete(@RequestBody ProRoleMenuRequest request) {
         return new ServiceResponse<Integer>()
+                .beginTransaction()
                 .run(serviceResponse -> {
 
                     // 获取调用服务返回结果 通过返回结果 进行业务判断 以及 手动控制 分布式事务回滚
@@ -147,9 +150,10 @@ public class ProRoleMenuController {
     @ApiOperation(value = "删除")
     @SentinelResource(value = "proRoleMenu/delete")
     @Log(name = "角色菜单关系表", value = "删除", source = "admin-app")
-    //@GlobalTransactional
+    @GlobalTransactional
     public ServiceResponse<Integer> delete(@RequestBody ProRoleMenuRequest request) {
         return new ServiceResponse<Integer>()
+                .beginTransaction()
                 .run(serviceResponse -> {
 
                     // 获取调用服务返回结果 通过返回结果 进行业务判断 以及 手动控制 分布式事务回滚
@@ -168,9 +172,10 @@ public class ProRoleMenuController {
     @ApiOperation(value = "修改")
     @SentinelResource(value = "proRoleMenu/update")
     @Log(name = "角色菜单关系表", value = "修改", source = "admin-app")
-    //@GlobalTransactional
+    @GlobalTransactional
     public ServiceResponse<Integer> update(@RequestBody ProRoleMenuRequest request) {
         return new ServiceResponse<Integer>()
+                .beginTransaction()
                 .run(serviceResponse -> {
 
                     // 获取调用服务返回结果 通过返回结果 进行业务判断 以及 手动控制 分布式事务回滚
