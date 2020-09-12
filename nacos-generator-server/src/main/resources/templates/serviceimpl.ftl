@@ -173,6 +173,7 @@ public class ${className}ServiceImpl implements I${className}Service {
     @Transactional
     public ServiceResponse<Integer> update(ProParameter<${className}Request> proParameter) {
       return new ServiceResponse<Integer>()
+          .beginTransaction()
           .run(serviceResponse -> {
               ${className} bean = new ${className}();
               BeanUtils.copyProperties(proParameter.getObj(),bean);
@@ -184,6 +185,7 @@ public class ${className}ServiceImpl implements I${className}Service {
     @Transactional
     public ServiceResponse<${className}> save(ProParameter<${className}Request> proParameter) {
         return new ServiceResponse<${className}>()
+            .beginTransaction()
             .run(serviceResponse -> {
                 ${className} bean = new ${className}();
                 BeanUtils.copyProperties(proParameter.getObj(),bean);
@@ -196,6 +198,7 @@ public class ${className}ServiceImpl implements I${className}Service {
     @Transactional
     public ServiceResponse<List<${className}>> batchSave(ProParameter<List<${className}Request>> proParameter) {
        return new ServiceResponse<List<${className}>>()
+            .beginTransaction()
             .run(serviceResponse -> {
                 List<${className}> roles = proParameter.getObj()
                    .stream()
@@ -213,6 +216,7 @@ public class ${className}ServiceImpl implements I${className}Service {
     @Transactional
     public ServiceResponse<Integer> delete(ProParameter<${className}Request> proParameter) {
       return new ServiceResponse<Integer>()
+          .beginTransaction()
           .run(serviceResponse -> {
               LambdaQueryWrapper<${className}> lambdaQueryWrapper = new LambdaQueryWrapper<>();
               ${className}Request request = proParameter.getObj();
@@ -235,6 +239,7 @@ public class ${className}ServiceImpl implements I${className}Service {
     @Transactional
     public ServiceResponse<Integer> idsDelete(ProParameter<${className}Request> proParameter) {
       return new ServiceResponse<Integer>()
+          .beginTransaction()
           .run(serviceResponse -> {
                LambdaQueryWrapper<${className}> queryWrapper = new LambdaQueryWrapper<>();
                ${className}Request request = proParameter.getObj();

@@ -40,6 +40,7 @@ public class ${className}Controller {
     <#if queryVali != "">
     @Authority(values = {"${queryVali}"})
     </#if>
+    @SentinelResource(value = "${smClassName}/getPageList")
     public ServiceResponse<List<${className}Vo>> getPageList(@RequestBody ${className}Request request) {
       return new ServiceResponse<List<${className}Vo>>()
           .run(serviceResponse -> {
@@ -76,6 +77,7 @@ public class ${className}Controller {
     <#if queryVali != "">
     @Authority(values = {"${queryVali}"})
     </#if>
+    @SentinelResource(value = "${smClassName}/get")
     public ServiceResponse<${className}Vo> get(@RequestBody ${className}Request request) {
       return new ServiceResponse<${className}Vo>()
           .run(serviceResponse -> {
@@ -101,8 +103,10 @@ public class ${className}Controller {
     <#if createVali != "">
     @Authority(values = {"${createVali}"})
     </#if>
+    @SentinelResource(value = "${smClassName}/save")
     public ServiceResponse<${className}Vo> save(@RequestBody ${className}Request request) {
       return new ServiceResponse<${className}Vo>()
+          .beginTransaction()
           .run(serviceResponse -> {
               // 开启事务标记 验证服务是否执行成功 失败回滚分布式事务
               ServiceResponse<${className}> response = ${smClassName}Service.get(new ProParameter<>(request));
@@ -131,8 +135,10 @@ public class ${className}Controller {
     <#if delVali != "">
     @Authority(values = {"${delVali}"})
     </#if>
+    @SentinelResource(value = "${smClassName}/idsDelete")
     public ServiceResponse<Integer> idsDelete(@RequestBody ${className}Request request) {
       return new ServiceResponse<Integer>()
+          .beginTransaction()
           .run(serviceResponse -> {
               // 标记通过enumid删除
               request.set${pri}(1);
@@ -155,8 +161,10 @@ public class ${className}Controller {
     <#if delVali != "">
     @Authority(values = {"${delVali}"})
     </#if>
+    @SentinelResource(value = "${smClassName}/delete")
     public ServiceResponse<Integer> delete(@RequestBody ${className}Request request) {
       return new ServiceResponse<Integer>()
+          .beginTransaction()
           .run(serviceResponse -> {
 
               // 获取调用服务返回结果 通过返回结果 进行业务判断 以及 手动控制 分布式事务回滚
@@ -177,8 +185,10 @@ public class ${className}Controller {
     <#if editVali != "">
     @Authority(values = {"${editVali}"})
     </#if>
+    @SentinelResource(value = "${smClassName}/update")
     public ServiceResponse<Integer> update(@RequestBody ${className}Request request) {
       return new ServiceResponse<Integer>()
+          .beginTransaction()
           .run(serviceResponse -> {
 
               // 获取调用服务返回结果 通过返回结果 进行业务判断 以及 手动控制 分布式事务回滚
