@@ -55,6 +55,7 @@
     <swagger2.version>2.9.2</swagger2.version>
     <ali-oss>3.8.0</ali-oss>
     <tx-oss>5.6.24</tx-oss>
+    <druid.version>1.1.22</druid.version>
   </properties>
 
   <dependencyManagement>
