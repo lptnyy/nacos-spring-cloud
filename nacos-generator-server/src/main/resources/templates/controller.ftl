@@ -1,4 +1,6 @@
 package ${genpkg};
+import com.alibaba.csp.sentinel.annotation.SentinelResource;
+import com.nacos.common.annotation.Authority;
 import com.nacos.common.method.ProParameter;
 import com.nacos.common.util.ServiceResponse;
 import com.nacos.common.annotation.Log;
@@ -136,6 +138,7 @@ public class ${className}Controller {
     @Authority(values = {"${delVali}"})
     </#if>
     @SentinelResource(value = "${smClassName}/idsDelete")
+    @GlobalTransactional
     public ServiceResponse<Integer> idsDelete(@RequestBody ${className}Request request) {
       return new ServiceResponse<Integer>()
           .beginTransaction()
@@ -162,6 +165,7 @@ public class ${className}Controller {
     @Authority(values = {"${delVali}"})
     </#if>
     @SentinelResource(value = "${smClassName}/delete")
+    @GlobalTransactional
     public ServiceResponse<Integer> delete(@RequestBody ${className}Request request) {
       return new ServiceResponse<Integer>()
           .beginTransaction()
@@ -186,6 +190,7 @@ public class ${className}Controller {
     @Authority(values = {"${editVali}"})
     </#if>
     @SentinelResource(value = "${smClassName}/update")
+    @GlobalTransactional
     public ServiceResponse<Integer> update(@RequestBody ${className}Request request) {
       return new ServiceResponse<Integer>()
           .beginTransaction()

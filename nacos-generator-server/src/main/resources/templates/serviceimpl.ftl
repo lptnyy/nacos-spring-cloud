@@ -15,7 +15,7 @@ import ${dtoClassPath};
 import ${requestClassPath};
 import ${serviceClassPath};
 import ${mapperClassPath};
-
+import org.springframework.transaction.annotation.Transactional;
 /**
  * <p>
     * ${tableComment}
