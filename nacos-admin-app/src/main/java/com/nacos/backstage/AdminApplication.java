@@ -9,13 +9,15 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @SpringBootApplication
 @EnableSwagger2
 @EnableFeignClients({
-		"com.nacos.system"
+		"com.nacos.system",
+		"com.nacos.member"
 })
 @ComponentScans({
 		@ComponentScan("com.nacos.common.exception"), // 载入全局异常管理
 		@ComponentScan("com.nacos.common.feign"),
 		@ComponentScan("com.nacos.common.aspect"),
-		@ComponentScan("com.nacos.system")
+		@ComponentScan("com.nacos.system"),
+		@ComponentScan("com.nacos.member")
 })
 public class AdminApplication {
     public static void main(String[] args) {

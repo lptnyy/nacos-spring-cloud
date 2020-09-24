@@ -30,6 +30,11 @@
       <version>1.0-SNAPSHOT</version>
     </dependency>
     <dependency>
+      <groupId>com.nacos</groupId>
+      <artifactId>nacos-member-fegin</artifactId>
+      <version>1.0-SNAPSHOT</version>
+    </dependency>
+    <dependency>
       <groupId>com.alibaba.cloud</groupId>
       <artifactId>spring-cloud-starter-alibaba-nacos-config</artifactId>
     </dependency>
@@ -77,12 +82,12 @@
       <artifactId>spring-cloud-starter-oauth2</artifactId>
     </dependency>
     <dependency>
-      <groupId>com.alibaba.cloud</groupId>
-      <artifactId>spring-cloud-starter-alibaba-sentinel</artifactId>
-    </dependency>
-    <dependency>
       <groupId>io.seata</groupId>
       <artifactId>seata-spring-boot-starter</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>com.alibaba.cloud</groupId>
+      <artifactId>spring-cloud-starter-alibaba-sentinel</artifactId>
     </dependency>
   </dependencies>
 

@@ -54,6 +54,11 @@ public class FeignRequestInterceptor implements RequestInterceptor {
         }
         if (kid != null && !kid.equals("")) {
             map.put(RootContext.KEY_XID, kid);
+        } else {
+            kid = RootContext.getXID();
+            if (kid != null && !kid.equals("")) {
+                map.put(RootContext.KEY_XID, kid);
+            }
         }
         return map;
     }

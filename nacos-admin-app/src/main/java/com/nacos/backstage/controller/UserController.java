@@ -12,6 +12,7 @@ import com.nacos.system.dto.ProUser;
 import com.nacos.system.dto.ProUserRole;
 import com.nacos.system.request.ProUserRoleRequest;
 import com.nacos.system.request.User;
+import io.seata.spring.annotation.GlobalTransactional;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import java.util.ArrayList;
@@ -94,7 +95,7 @@ public class UserController {
     @PostMapping(value = "/delete")
     @ApiOperation(value = "删除用户")
     @Log(name = "管理员日志", value = "删除用户", source = "system-app")
-    //@GlobalTransactional
+    @GlobalTransactional
     @Authority(values = {"admin_del"})
     @SentinelResource(value = "user/delete")
     public ServiceResponse<Integer> delete(@RequestBody User user) {
@@ -110,7 +111,7 @@ public class UserController {
     @ApiOperation(value = "添加用户")
     @Authority(values = {"addadmin"})
     @Log(name = "管理员日志", value = "添加", source = "system-app")
-    //@GlobalTransactional(rollbackFor = Exception.class)
+    @GlobalTransactional(rollbackFor = Exception.class)
     @SentinelResource(value = "user/save")
     public ServiceResponse<Integer> save(@RequestBody User user) {
         return new ServiceResponse<Integer>()
@@ -135,7 +136,7 @@ public class UserController {
     @ApiOperation(value = "修改用户状态")
     @Log(name = "管理员日志", value = "修改用户状态", source = "system-app")
     @Authority(values = {"admin_edit"})
-    //@GlobalTransactional
+    @GlobalTransactional
     @SentinelResource(value = "user/updateStats")
     public ServiceResponse<Integer> updateStats(@RequestBody User user) {
         return new ServiceResponse<Integer>()
@@ -148,7 +149,7 @@ public class UserController {
     @PostMapping(value = "/update")
     @ApiOperation(value = "修改用户")
     @Log(name = "管理员日志", value = "修改用户", source = "system-app")
-    //@GlobalTransactional
+    @GlobalTransactional
     @Authority(values = {"admin_edit"})
     @SentinelResource(value = "user/update")
     public ServiceResponse<Integer> update(@RequestBody User user) {
