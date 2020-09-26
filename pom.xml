@@ -22,6 +22,8 @@
       <module>nacos-seata</module>
       <module>nacos-member-server</module>
       <module>nacos-member-fegin</module>
+    <module>nacos-search-server</module>
+    <module>nacos-search-fegin</module>
   </modules>
   <properties>
     <mysql-connector-java.version>8.0.20</mysql-connector-java.version>
