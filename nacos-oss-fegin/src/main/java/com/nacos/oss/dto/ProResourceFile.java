@@ -1,5 +1,4 @@
-package com.nacos.system.dto;
-
+package com.nacos.oss.dto;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;

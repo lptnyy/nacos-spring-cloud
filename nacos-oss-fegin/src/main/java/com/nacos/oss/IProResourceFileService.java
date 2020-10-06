@@ -1,15 +1,15 @@
-package com.nacos.system;
+package com.nacos.oss;
 import com.nacos.common.feign.FeignRequestInterceptor;
 import com.nacos.common.method.ProParameter;
 import com.nacos.common.util.ServiceResponse;
-import com.nacos.system.dto.ProResourceFile;
-import com.nacos.system.hystrix.ProResourceFileServiceHystrix;
-import com.nacos.system.request.ProResourceFileRequest;
-import java.util.List;
+import com.nacos.oss.dto.ProResourceFile;
+import com.nacos.oss.hystrix.ProResourceFileServiceHystrix;
+import com.nacos.oss.request.ProResourceFileRequest;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import java.util.List;
 
 /**
  * <p>
@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
  * @author 王振宇
  * @since 2020-05-02
  */
-@FeignClient(value = "system-service", configuration = FeignRequestInterceptor.class,fallback = ProResourceFileServiceHystrix.class)
+@FeignClient(value = "oss-service", configuration = FeignRequestInterceptor.class,fallback = ProResourceFileServiceHystrix.class)
 public interface IProResourceFileService {
 
     /*

@@ -1,10 +1,11 @@
-package com.nacos.system.hystrix;
+package com.nacos.oss.hystrix;
 import com.nacos.common.method.ProParameter;
 import com.nacos.common.util.ServiceResponse;
-import com.nacos.system.IProResourceFileService;
-import com.nacos.system.dto.ProResourceFile;
-import com.nacos.system.request.ProResourceFileRequest;
+import com.nacos.oss.IProResourceFileService;
+import com.nacos.oss.dto.ProResourceFile;
 import java.util.List;
+
+import com.nacos.oss.request.ProResourceFileRequest;
 import org.springframework.stereotype.Component;
 
 /**

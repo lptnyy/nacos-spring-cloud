@@ -13,7 +13,7 @@ public class OssFactory {
     OssConfiguration ossConfiguration;
 
     /**
-     * 通过spring 自定装配
+     * 通过spring 自动装配
      * @return
      */
     @Bean
@@ -32,6 +32,9 @@ public class OssFactory {
                 oss = new TxOss();
                 oss.setConfiguration(ossConfiguration);
                 break;
+            case "qn":
+                oss = new QiNiuOss();
+                oss.setConfiguration(ossConfiguration);
             default:
                 log.error("type字段配置错误，无法初始化。");
         }

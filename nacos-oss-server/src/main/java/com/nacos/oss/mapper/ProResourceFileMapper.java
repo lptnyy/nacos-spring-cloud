@@ -1,6 +1,6 @@
-package com.nacos.system.mapper;
+package com.nacos.oss.mapper;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.nacos.system.dto.ProResourceFile;
+import com.nacos.oss.dto.ProResourceFile;
 
 /**
  * <p>

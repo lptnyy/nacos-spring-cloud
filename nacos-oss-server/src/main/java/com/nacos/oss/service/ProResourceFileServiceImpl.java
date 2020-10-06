@@ -1,14 +1,14 @@
-package com.nacos.system.service;
+package com.nacos.oss.service;
 
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.nacos.common.method.ProParameter;
 import com.nacos.common.util.ServiceResponse;
-import com.nacos.system.IProResourceFileService;
-import com.nacos.system.dto.ProResourceFile;
-import com.nacos.system.mapper.ProResourceFileMapper;
-import com.nacos.system.request.ProResourceFileRequest;
+import com.nacos.oss.IProResourceFileService;
+import com.nacos.oss.dto.ProResourceFile;
+import com.nacos.oss.mapper.ProResourceFileMapper;
+import com.nacos.oss.request.ProResourceFileRequest;
 import io.swagger.annotations.Api;
 import java.util.List;
 import java.util.stream.Collectors;

@@ -1,4 +1,4 @@
-package com.nacos.system.request;
+package com.nacos.oss.request;
 import com.nacos.common.page.RequestPage;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
