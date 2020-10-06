@@ -8,6 +8,7 @@ import com.nacos.common.util.ServiceResponse;
 import com.nacos.oss.IProResourceFileService;
 import com.nacos.oss.dto.ProResourceFile;
 import com.nacos.oss.request.ProResourceFileRequest;
+import io.seata.spring.annotation.GlobalTransactional;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import java.util.List;
@@ -98,7 +99,7 @@ public class ProResourceFileController {
 
     @PostMapping(value = "/save")
     @ApiOperation(value = "保存")
-    //@GlobalTransactional
+    @GlobalTransactional
     @SentinelResource(value = "proResourceFile/save")
     @Log(name = "系统资源文件表", value = "保存", source = "admin-app")
     public ServiceResponse<ProResourceFileVo> save(@RequestBody ProResourceFileRequest request) {
@@ -127,7 +128,7 @@ public class ProResourceFileController {
 
     @PostMapping(value = "/saveBatch")
     @ApiOperation(value = "保存")
-    //@GlobalTransactional
+    @GlobalTransactional
     @SentinelResource(value = "proResourceFile/saveBatch")
     @Log(name = "系统资源文件表", value = "保存", source = "admin-app")
     public ServiceResponse<List<ProResourceFile>> saveBatch(@RequestBody List<ProResourceFileRequest> request) {
@@ -146,7 +147,7 @@ public class ProResourceFileController {
 
     @PostMapping(value = "/idsDelete")
     @ApiOperation(value = "批量删除")
-    //@GlobalTransactional
+    @GlobalTransactional
     @SentinelResource(value = "proResourceFile/idsDelete")
     @Log(name = "系统资源文件表", value = "批量删除", source = "admin-app")
     public ServiceResponse<Integer> idsDelete(@RequestBody ProResourceFileRequest request) {
@@ -170,7 +171,7 @@ public class ProResourceFileController {
 
     @PostMapping(value = "/delete")
     @ApiOperation(value = "删除")
-    //@GlobalTransactional
+    @GlobalTransactional
     @SentinelResource(value = "proResourceFile/delete")
     @Log(name = "系统资源文件表", value = "删除", source = "admin-app")
     public ServiceResponse<Integer> delete(@RequestBody ProResourceFileRequest request) {
@@ -191,7 +192,7 @@ public class ProResourceFileController {
 
     @PostMapping(value = "/update")
     @ApiOperation(value = "修改")
-    //@GlobalTransactional
+    @GlobalTransactional
     @SentinelResource(value = "proResourceFile/update")
     @Log(name = "系统资源文件表", value = "修改", source = "admin-app")
     public ServiceResponse<Integer> update(@RequestBody ProResourceFileRequest request) {

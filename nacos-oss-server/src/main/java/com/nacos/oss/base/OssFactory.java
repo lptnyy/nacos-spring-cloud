@@ -35,6 +35,7 @@ public class OssFactory {
             case "qn":
                 oss = new QiNiuOss();
                 oss.setConfiguration(ossConfiguration);
+                break;
             default:
                 log.error("type字段配置错误，无法初始化。");
         }
