@@ -50,14 +50,10 @@ public class MenuController {
         return new ServiceResponse<List<ProMenuVo>>()
                 .run(serviceResponse -> {
 
-                    // 获取调用服务返回结果 通过返回结果 进行业务判断 以及 手动控制 分布式事务回滚
-                    ServiceResponse<List<ProMenu>> response = proMenuService.getList(new ProParameter<>(request));
-
-                    // 获取调用服务状态
-                    response.checkState();
-
                     // 获取服务返回的结果
-                    List<ProMenu> resultList = response.getObj();
+                    List<ProMenu> resultList = proMenuService.getList(new ProParameter<>(request))
+                            .checkState()
+                            .getObj();
 
                     // 获取所有根节点
                     List<ProMenu> genTree = resultList.stream()

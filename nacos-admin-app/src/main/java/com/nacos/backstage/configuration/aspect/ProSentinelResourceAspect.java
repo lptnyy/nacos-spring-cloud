@@ -1,5 +1,4 @@
 package com.nacos.backstage.configuration.aspect;
-
 import com.alibaba.csp.sentinel.annotation.aspectj.SentinelResourceAspect;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

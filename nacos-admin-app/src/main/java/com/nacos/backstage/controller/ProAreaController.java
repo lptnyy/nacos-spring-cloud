@@ -1,13 +1,12 @@
-package ${genpkg};
+package com.nacos.backstage.controller;
 import com.alibaba.csp.sentinel.annotation.SentinelResource;
-import com.nacos.common.annotation.Authority;
 import com.nacos.common.method.ProParameter;
 import com.nacos.common.util.ServiceResponse;
-import com.nacos.common.annotation.Log;
-import ${serviceClassPath};
-import ${dtoClassPath};
-import ${requestClassPath};
-import ${voClassPath};
+import com.nacos.system.IProAreaService;
+import com.nacos.system.dto.ProArea;
+import com.nacos.system.request.ProAreaRequest;
+import com.nacos.backstage.vo.ProAreaVo;
+import io.seata.spring.annotation.GlobalTransactional;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.BeanUtils;
@@ -16,39 +15,34 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import io.seata.spring.annotation.GlobalTransactional;
 import java.util.List;
 import java.util.stream.Collectors;
 
 /**
  * <p>
-    * ${tableComment}
+    * 
     * </p>
  *
  * @author 王振宇
- * @since ${generatorDate}
+ * @since 2020-10-11
  */
 @RestController
-@RequestMapping(value = "${smClassName}")
-@Api(value = "${className}Controller", description = "${tableComment}")
+@RequestMapping(value = "proArea")
+@Api(value = "ProAreaController", description = "")
 @SuppressWarnings("unchecked")
-public class ${className}Controller {
+public class ProAreaController {
 
     @Autowired
-    I${className}Service ${smClassName}Service;
+    IProAreaService proAreaService;
 
     @PostMapping(value = "/getPageList")
     @ApiOperation(value = "分页查询列表")
-    @Log(name = "${tableComment}", value = "分页查询列表", source = "${logSourceName}")
-    <#if queryVali != "">
-    @Authority(values = {"${queryVali}"})
-    </#if>
-    @SentinelResource(value = "${smClassName}/getPageList")
-    public ServiceResponse<List<${className}Vo>> getPageList(@RequestBody ${className}Request request) {
-      return new ServiceResponse<List<${className}Vo>>()
+    @SentinelResource(value = "proArea/getPageList")
+    public ServiceResponse<List<ProAreaVo>> getPageList(@RequestBody ProAreaRequest request) {
+      return new ServiceResponse<List<ProAreaVo>>()
           .run(serviceResponse -> {
               // 获取调用服务返回结果 通过返回结果 进行业务判断 以及 手动控制 分布式事务回滚
-              ServiceResponse<List<${className}>> response = ${smClassName}Service.getPageList(new ProParameter<>(request)
+              ServiceResponse<List<ProArea>> response = proAreaService.getPageList(new ProParameter<>(request)
                 .setRequestPage(request));
 
               // 获取调用服务状态
@@ -58,15 +52,15 @@ public class ${className}Controller {
               response.copyPage(serviceResponse);
 
               // 获取服务返回的结果
-              List<${className}> resultList = response.getObj();
+              List<ProArea> resultList = response.getObj();
 
               // 组装vo 返回数据 也可以不组装直接返回原始数据
-              List<${className}Vo> returnList = resultList.stream()
-                .map(${smClassName} -> {
-                    ${className}Vo ${smClassName}vo = new ${className}Vo();
-                    BeanUtils.copyProperties(${smClassName},${smClassName}vo);
+              List<ProAreaVo> returnList = resultList.stream()
+                .map(proArea -> {
+                    ProAreaVo proAreavo = new ProAreaVo();
+                    BeanUtils.copyProperties(proArea,proAreavo);
                     // vo.set 格式化一些特定的字段比如时间类型 自定义多种返回类型 应对视图层的需要
-                    return ${smClassName}vo;
+                    return proAreavo;
                 })
                 .collect(Collectors.toList());
               return returnList;
@@ -76,25 +70,21 @@ public class ${className}Controller {
 
     @PostMapping(value = "/get")
     @ApiOperation(value = "获取单条信息")
-    @Log(name = "${tableComment}", value = "获取单条信息", source = "${logSourceName}")
-    <#if queryVali != "">
-    @Authority(values = {"${queryVali}"})
-    </#if>
-    @SentinelResource(value = "${smClassName}/get")
-    public ServiceResponse<${className}Vo> get(@RequestBody ${className}Request request) {
-      return new ServiceResponse<${className}Vo>()
+    @SentinelResource(value = "proArea/get")
+    public ServiceResponse<ProAreaVo> get(@RequestBody ProAreaRequest request) {
+      return new ServiceResponse<ProAreaVo>()
           .run(serviceResponse -> {
               // 获取调用服务返回结果 通过返回结果 进行业务判断 以及 手动控制 分布式事务回滚
-              ServiceResponse<${className}> response = ${smClassName}Service.get(new ProParameter<>(request));
+              ServiceResponse<ProArea> response = proAreaService.get(new ProParameter<>(request));
 
               // 获取调用服务状态
               response.checkState();
 
               // 组装返回的vo
-              ${className} ${smClassName} = response.getObj();
-              ${className}Vo ${smClassName}Vo = new ${className}Vo();
-              BeanUtils.copyProperties(${smClassName},${smClassName}Vo);
-              return ${smClassName}Vo;
+              ProArea proArea = response.getObj();
+              ProAreaVo proAreaVo = new ProAreaVo();
+              BeanUtils.copyProperties(proArea,proAreaVo);
+              return proAreaVo;
           })
           .exec();
     }
@@ -102,53 +92,45 @@ public class ${className}Controller {
     @PostMapping(value = "/save")
     @ApiOperation(value = "保存")
     @GlobalTransactional
-    @Log(name = "${tableComment}", value = "保存", source = "${logSourceName}")
-    <#if createVali != "">
-    @Authority(values = {"${createVali}"})
-    </#if>
-    @SentinelResource(value = "${smClassName}/save")
-    public ServiceResponse<${className}Vo> save(@RequestBody ${className}Request request) {
-      return new ServiceResponse<${className}Vo>()
+    @SentinelResource(value = "proArea/save")
+    public ServiceResponse<ProAreaVo> save(@RequestBody ProAreaRequest request) {
+      return new ServiceResponse<ProAreaVo>()
           .beginTransaction()
           .run(serviceResponse -> {
               // 开启事务标记 验证服务是否执行成功 失败回滚分布式事务
-              ServiceResponse<${className}> response = ${smClassName}Service.get(new ProParameter<>(request));
+              ServiceResponse<ProArea> response = proAreaService.get(new ProParameter<>(request));
               response.beginTransaction();
 
               // 获取调用服务状态
               response.checkState();
 
               // 保存数据 开启事务标记 验证服务是否执行成功 失败回滚分布式事务
-              response = ${smClassName}Service.save(new ProParameter<>(request));
+              response = proAreaService.save(new ProParameter<>(request));
               response.beginTransaction();
               response.checkState();
 
               // 获取返回数据
-              ${className} ${smClassName} = response.getObj();
-              ${className}Vo ${smClassName}Vo = new ${className}Vo();
-              BeanUtils.copyProperties(${smClassName},${smClassName}Vo);
-              return ${smClassName}Vo;
+              ProArea proArea = response.getObj();
+              ProAreaVo proAreaVo = new ProAreaVo();
+              BeanUtils.copyProperties(proArea,proAreaVo);
+              return proAreaVo;
           })
           .exec();
     }
 
     @PostMapping(value = "/idsDelete")
     @ApiOperation(value = "批量删除")
-    @Log(name = "${tableComment}", value = "批量删除", source = "${logSourceName}")
-    <#if delVali != "">
-    @Authority(values = {"${delVali}"})
-    </#if>
-    @SentinelResource(value = "${smClassName}/idsDelete")
+    @SentinelResource(value = "proArea/idsDelete")
     @GlobalTransactional
-    public ServiceResponse<Integer> idsDelete(@RequestBody ${className}Request request) {
+    public ServiceResponse<Integer> idsDelete(@RequestBody ProAreaRequest request) {
       return new ServiceResponse<Integer>()
           .beginTransaction()
           .run(serviceResponse -> {
               // 标记通过enumid删除
-              request.set${pri}(1);
+              request.setId(1);
 
               // 获取调用服务返回结果 通过返回结果 进行业务判断 以及 手动控制 分布式事务回滚
-              ServiceResponse<Integer> response = ${smClassName}Service.idsDelete(new ProParameter<>(request));
+              ServiceResponse<Integer> response = proAreaService.idsDelete(new ProParameter<>(request));
               response.beginTransaction();
 
               // 获取调用服务状态
@@ -161,19 +143,15 @@ public class ${className}Controller {
 
     @PostMapping(value = "/delete")
     @ApiOperation(value = "删除")
-    @Log(name = "${tableComment}", value = "删除", source = "${logSourceName}")
-    <#if delVali != "">
-    @Authority(values = {"${delVali}"})
-    </#if>
-    @SentinelResource(value = "${smClassName}/delete")
+    @SentinelResource(value = "proArea/delete")
     @GlobalTransactional
-    public ServiceResponse<Integer> delete(@RequestBody ${className}Request request) {
+    public ServiceResponse<Integer> delete(@RequestBody ProAreaRequest request) {
       return new ServiceResponse<Integer>()
           .beginTransaction()
           .run(serviceResponse -> {
 
               // 获取调用服务返回结果 通过返回结果 进行业务判断 以及 手动控制 分布式事务回滚
-              ServiceResponse<Integer> response = ${smClassName}Service.delete(new ProParameter<>(request));
+              ServiceResponse<Integer> response = proAreaService.delete(new ProParameter<>(request));
               response.beginTransaction();
 
               // 获取调用服务状态
@@ -186,19 +164,15 @@ public class ${className}Controller {
 
     @PostMapping(value = "/update")
     @ApiOperation(value = "修改")
-    @Log(name = "${tableComment}", value = "修改", source = "${logSourceName}")
-    <#if editVali != "">
-    @Authority(values = {"${editVali}"})
-    </#if>
-    @SentinelResource(value = "${smClassName}/update")
+    @SentinelResource(value = "proArea/update")
     @GlobalTransactional
-    public ServiceResponse<Integer> update(@RequestBody ${className}Request request) {
+    public ServiceResponse<Integer> update(@RequestBody ProAreaRequest request) {
       return new ServiceResponse<Integer>()
           .beginTransaction()
           .run(serviceResponse -> {
 
               // 获取调用服务返回结果 通过返回结果 进行业务判断 以及 手动控制 分布式事务回滚
-              ServiceResponse<Integer> response = ${smClassName}Service.update(new ProParameter<>(request));
+              ServiceResponse<Integer> response = proAreaService.update(new ProParameter<>(request));
               response.beginTransaction();
 
               // 获取调用服务状态

@@ -72,6 +72,11 @@ public class ProMemberVo {
     @ApiModelProperty(value = "性别", name = "sex")
     private String sex;
 
+    /**
+     * 性别字符串
+     */
+    private String sexStr;
+
    /**
     * 年龄
     */
@@ -113,6 +118,12 @@ public class ProMemberVo {
     */
     @ApiModelProperty(value = "会员状态", name = "state")
     private String state;
+
+    /**
+     * 会员状态
+     */
+    @ApiModelProperty(value = "会员状态(字符串)", name = "stateStr")
+    private String stateStr;
 
    /**
     * 充值密码

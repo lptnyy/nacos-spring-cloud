@@ -24,24 +24,33 @@ public class ServiceResponse<T> implements Serializable {
     boolean transaction = false;
     ObjectMapper mapper = new ObjectMapper();
 
-    public ServiceResponse builder(){
-        return new ServiceResponse<T>();
+    public ServiceResponse(int code, String message) {
+        this.code = code;
+        this.msg = message;
     }
 
-    public static ServiceResponse SUCCESSServiceResponse = new ServiceResponse();
-    public static ServiceResponse FAILServiceResponse = new ServiceResponse();
-    public static ServiceResponse AuthFAILServiceResponse = new ServiceResponse();
-    public static ServiceResponse BEBUSYFAILServiceResponse = new ServiceResponse();
+    public ServiceResponse() {
+
+    }
+
+    final static ServiceResponse SUCCESSServiceResponse = new ServiceResponse(MessageType.SUCCESS.getValue(),"ok");
+    final static ServiceResponse FAILServiceResponse = new ServiceResponse(MessageType.FAIL.getValue(),"服务器异常");
+    final static ServiceResponse AuthFAILServiceResponse = new ServiceResponse(MessageType.AUTHFAIL.getValue(), "没有相关权限");
+    final static ServiceResponse BEBUSYFAILServiceResponse = new ServiceResponse(MessageType.BEBUSYFAIL.getValue(),"服务器忙碌");
+
+    public static ServiceResponse getFAIL(){
+        return FAILServiceResponse;
+    }
+
+    public static ServiceResponse getAuthFAIL(){
+        return AuthFAILServiceResponse;
+    }
 
     public static ServiceResponse getBEBUSYFAIL(){
-        BEBUSYFAILServiceResponse.setCode(MessageType.BEBUSYFAIL.getValue());
-        BEBUSYFAILServiceResponse.setMsg("服务器忙碌");
         return BEBUSYFAILServiceResponse;
     }
 
     public static ServiceResponse getSUCCESS(){
-        SUCCESSServiceResponse.setCode(MessageType.SUCCESS.getValue());
-        SUCCESSServiceResponse.setMsg("ok");
         return SUCCESSServiceResponse;
     }
 
@@ -57,18 +66,6 @@ public class ServiceResponse<T> implements Serializable {
         serviceResponse.setCode(this.getCode());
         serviceResponse.setMsg(this.getMsg());
         return this;
-    }
-
-    public static ServiceResponse getFAIL(){
-        FAILServiceResponse.setCode(MessageType.FAIL.getValue());
-        FAILServiceResponse.setMsg("服务器异常");
-        return FAILServiceResponse;
-    }
-
-    public static ServiceResponse getAuthFAIL(){
-        AuthFAILServiceResponse.setCode(MessageType.AUTHFAIL.getValue());
-        AuthFAILServiceResponse.setMsg("没有相关权限");
-        return AuthFAILServiceResponse;
     }
 
     public ServiceResponse<T> run(Exceutor<T> exceutor) {
