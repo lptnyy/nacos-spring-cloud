@@ -165,7 +165,7 @@ public class ServiceResponse<T> implements Serializable {
 
     // 服务调用验证如果开启事务 回滚事务
     public ServiceResponse<T> checkState() throws Exception {
-        if (this.code != 200) {
+        if (this.code != MessageType.SUCCESS.getValue()) {
             if (transaction) {
                GlobalTransactionContext.reload(RootContext.getXID()).rollback();
             }

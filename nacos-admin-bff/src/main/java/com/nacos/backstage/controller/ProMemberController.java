@@ -9,9 +9,15 @@ import com.nacos.member.IProMemberService;
 import com.nacos.member.dto.ProMember;
 import com.nacos.member.request.ProMemberRequest;
 import com.nacos.backstage.vo.ProMemberVo;
+import com.nacos.system.IProAreaService;
+import com.nacos.system.IProCityService;
 import com.nacos.system.IProEnumService;
+import com.nacos.system.IProProvinceService;
 import com.nacos.system.dto.ProEnum;
+import com.nacos.system.request.ProAreaRequest;
+import com.nacos.system.request.ProCityRequest;
 import com.nacos.system.request.ProEnumRequest;
+import com.nacos.system.request.ProProvinceRequest;
 import io.seata.spring.annotation.GlobalTransactional;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -46,6 +52,15 @@ public class ProMemberController {
     @Autowired
     IProEnumService proEnumService;
 
+    @Autowired
+    IProProvinceService proProvinceService;
+
+    @Autowired
+    IProCityService proCityService;
+
+    @Autowired
+    IProAreaService proAreaService;
+
     @PostMapping(value = "/getPageList")
     @ApiOperation(value = "分页查询列表")
     @Log(name = "会员表 会员", value = "分页查询列表", source = "admin-app")
@@ -77,6 +92,37 @@ public class ProMemberController {
                   enumMaps.put(proEnum.getValuestr(),proEnum.getKeystr());
               });
 
+              // 获取省市区信息
+              ProProvinceRequest proProvinceRequest = new ProProvinceRequest();
+              Map<String,String> provinces = new HashMap<>();
+              proProvinceService
+                  .getList(new ProParameter<>(proProvinceRequest))
+                  .checkState()
+                  .getObj()
+                  .forEach(proProvince -> {
+                    provinces.put(proProvince.getProvinceId(),proProvince.getName());
+                  });
+
+              ProCityRequest proCityRequest = new ProCityRequest();
+              Map<String,String> citys = new HashMap<>();
+              proCityService
+                  .getList(new ProParameter<>(proCityRequest))
+                  .checkState()
+                  .getObj()
+                  .forEach(proCity -> {
+                    citys.put(proCity.getCityId(),proCity.getName());
+                  });
+
+              ProAreaRequest proAreaRequest = new ProAreaRequest();
+              Map<String,String> areas = new HashMap<>();
+              proAreaService
+                  .getList(new ProParameter<>(proAreaRequest))
+                  .checkState()
+                  .getObj()
+                  .forEach(proArea -> {
+                    areas.put(proArea.getAreaId(),proArea.getName());
+                  });
+
               // 枚举表获取性别配置
               proEnumRequest = new ProEnumRequest();
               proEnumRequest.setType("sex");
@@ -94,6 +140,9 @@ public class ProMemberController {
                     BeanUtils.copyProperties(proMember,proMembervo);
                     proMembervo.setStateStr(enumMaps.get(proMembervo.getState()));
                     proMembervo.setSexStr(sexMaps.get(proMembervo.getSex()));
+                    proMembervo.setProvinceStr(provinces.get(proMembervo.getProvince()));
+                    proMembervo.setCityStr(citys.get(proMembervo.getCity()));
+                    proMembervo.setAreaStr(areas.get(proMembervo.getArea()));
                     proMembervo.setCreateTime(DateUtil.getyyMMddHHmmss(proMember.getCreateTime()));
                     proMembervo.setUpdateTime(DateUtil.getyyMMddHHmmss(proMember.getUpdateTime()));
                     // vo.set 格式化一些特定的字段比如时间类型 自定义多种返回类型 应对视图层的需要

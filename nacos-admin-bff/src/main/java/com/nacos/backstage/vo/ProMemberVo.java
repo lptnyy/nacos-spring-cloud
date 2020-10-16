@@ -88,19 +88,22 @@ public class ProMemberVo {
     */
     @ApiModelProperty(value = "省份", name = "province")
     private String province;
+    @ApiModelProperty(value = "省份字符", name = "province")
+    private String provinceStr;
 
    /**
     * 城市
     */
     @ApiModelProperty(value = "城市", name = "city")
     private String city;
+    private String cityStr;
 
    /**
     * 区
     */
     @ApiModelProperty(value = "区", name = "area")
     private String area;
-
+    private String areaStr;
    /**
     * 学校
     */

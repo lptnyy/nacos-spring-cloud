@@ -13,7 +13,7 @@
       <module>nacos-system-server</module>
       <module>nacos-oauth-server</module>
       <module>nacos-gateway-server</module>
-      <module>nacos-admin-app</module>
+      <module>nacos-admin-bff</module>
       <module>nacos-oss-server</module>
       <module>nacos-oss-fegin</module>
       <module>nacos-generator-server</module>

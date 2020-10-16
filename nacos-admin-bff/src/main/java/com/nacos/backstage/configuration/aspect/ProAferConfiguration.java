@@ -1,5 +1,4 @@
 package com.nacos.backstage.configuration.aspect;
-
 import com.alibaba.fastjson.JSON;
 import com.nacos.common.annotation.Authority;
 import com.nacos.common.annotation.Log;
