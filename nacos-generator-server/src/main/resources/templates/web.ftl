@@ -43,13 +43,13 @@
           <Form ref="formInline" :model="formInline" :rules="ruleValidate">
             <#list fields as field>
             <FormItem label="${field.comment}" prop="${field.fieldName}">
-              <Input v-model="formInline.${field.fieldName}" placeholder="请输入${field.comment}"/>
+              <Input :disabled="disabled" v-model="formInline.${field.fieldName}" placeholder="请输入${field.comment}"/>
             </FormItem>
             </#list>
           </Form>
           <div class="foodl">
               <Button @click="cancel">取消</Button>
-              &nbsp;&nbsp;<Button type="primary" :disabled="!isCreate" @click="handleSubmit('formInline')">确定</Button>
+              &nbsp;&nbsp;<Button v-if="disabled===false" type="primary" :disabled="!isCreate" @click="handleSubmit('formInline')">确定</Button>
           </div>
       </Modal>
     </Row>
@@ -68,6 +68,7 @@ export default {
   },
   data () {
     return {
+      disabled: false,
       title: '添加${tableComment}',
       isCreate: this.authorities('${createVali}'),
       isDelete: this.authorities('${delVali}'),
@@ -110,9 +111,21 @@ export default {
           title: '操作',
           key: 'action',
           fixed: 'right',
-          width: 140,
+          width: 160,
           render: (h, params) => {
             return h('div', [
+              h('Button', {
+                props: {
+                  type: 'text',
+                  size: 'small',
+                  disabled: !this.isRetrieve
+                },
+                on: {
+                  click: () => {
+                    this.infoBtnClick(params.index)
+                  }
+                }
+              }, '详情'),
               h('Button', {
                 props: {
                   type: 'text',
@@ -169,10 +182,20 @@ export default {
       this.title = '添加${tableComment}'
       this.formInline = this.initFromInput()
       this.addFlag = true
+      this.disabled = false
     },
     cancel () {
       this.addFlag = false
       this.formInline = this.initFromInput()
+    },
+    infoBtnClick (index) {
+      this.title = '编辑${tableComment}'
+      let tableRow = this.tableData[index]
+      <#list fields as field>
+      this.formInline.${field.fieldName} = tableRow.${field.fieldName}<#if field.type == "Integer"> + ''</#if>
+      </#list>
+      this.addFlag = true
+      this.disabled = true
     },
     editBtnClick (index) {
       this.title = '编辑${tableComment}'
@@ -181,6 +204,7 @@ export default {
       this.formInline.${field.fieldName} = tableRow.${field.fieldName}<#if field.type == "Integer"> + ''</#if>
       </#list>
       this.addFlag = true
+      this.disabled = false
     },
     deleteBathBtnClick () {
       if (this.selection.length === 0) {

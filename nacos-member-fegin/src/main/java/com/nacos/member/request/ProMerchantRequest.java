@@ -1,8 +1,8 @@
-package com.nacos.backstage.vo;
+package com.nacos.member.request;
 import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.experimental.Accessors;
 import java.util.List;
+import java.lang.Integer;
+import com.nacos.common.page.RequestPage;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.lang.Integer;
@@ -19,11 +19,9 @@ import java.util.Date;
  * @since 2020-10-17
  */
 @Data
-@EqualsAndHashCode(callSuper = false)
-@Accessors(chain = true)
 @ApiModel(value = " ProMerchantVo", description = "商户表 ")
 @SuppressWarnings("unchecked")
-public class ProMerchantVo {
+public class ProMerchantRequest extends RequestPage {
 
    /**
     * 标示列
@@ -152,7 +150,7 @@ public class ProMerchantVo {
     private String updateTime;
 
    /**
-    * in 查询操作 批量删除
+    * in 查询操作
     */
     @ApiModelProperty(value = "in 查询操作 批量删除", name = "ids")
     private List<Integer> ids;

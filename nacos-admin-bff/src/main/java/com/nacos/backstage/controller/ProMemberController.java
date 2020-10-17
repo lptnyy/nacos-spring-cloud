@@ -5,8 +5,11 @@ import com.nacos.common.method.ProParameter;
 import com.nacos.common.util.DateUtil;
 import com.nacos.common.util.ServiceResponse;
 import com.nacos.common.annotation.Log;
+import com.nacos.member.IProLevelService;
 import com.nacos.member.IProMemberService;
+import com.nacos.member.dto.ProLevel;
 import com.nacos.member.dto.ProMember;
+import com.nacos.member.request.ProLevelRequest;
 import com.nacos.member.request.ProMemberRequest;
 import com.nacos.backstage.vo.ProMemberVo;
 import com.nacos.system.IProAreaService;
@@ -21,6 +24,7 @@ import com.nacos.system.request.ProProvinceRequest;
 import io.seata.spring.annotation.GlobalTransactional;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import org.checkerframework.checker.units.qual.A;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -60,6 +64,9 @@ public class ProMemberController {
 
     @Autowired
     IProAreaService proAreaService;
+
+    @Autowired
+    IProLevelService proLevelService;
 
     @PostMapping(value = "/getPageList")
     @ApiOperation(value = "分页查询列表")
@@ -122,6 +129,16 @@ public class ProMemberController {
                   .forEach(proArea -> {
                     areas.put(proArea.getAreaId(),proArea.getName());
                   });
+              // 获取会员等级
+              ProLevelRequest proLevelRequest = new ProLevelRequest();
+              Map<Integer,String> levels = new HashMap<>();
+              proLevelService
+                  .getList(new ProParameter<>(proLevelRequest))
+                  .checkState()
+                  .getObj()
+                  .forEach(proLevel -> {
+                    levels.put(proLevel.getLevelId(),proLevel.getLevelName());
+                  });
 
               // 枚举表获取性别配置
               proEnumRequest = new ProEnumRequest();
@@ -143,6 +160,7 @@ public class ProMemberController {
                     proMembervo.setProvinceStr(provinces.get(proMembervo.getProvince()));
                     proMembervo.setCityStr(citys.get(proMembervo.getCity()));
                     proMembervo.setAreaStr(areas.get(proMembervo.getArea()));
+                    proMembervo.setLevelName(levels.get(proMembervo.getLevelId()));
                     proMembervo.setCreateTime(DateUtil.getyyMMddHHmmss(proMember.getCreateTime()));
                     proMembervo.setUpdateTime(DateUtil.getyyMMddHHmmss(proMember.getUpdateTime()));
                     // vo.set 格式化一些特定的字段比如时间类型 自定义多种返回类型 应对视图层的需要

@@ -116,6 +116,12 @@ public class ProMemberVo {
     @ApiModelProperty(value = "会员等级", name = "levelId")
     private Integer levelId;
 
+    /**
+     * 会员等级
+     */
+    @ApiModelProperty(value = "会员等级", name = "levelName")
+    private String levelName;
+
    /**
     * 会员状态
     */

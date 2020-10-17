@@ -69,6 +69,12 @@ public class ProResourceFileVo {
     @ApiModelProperty(value = "资源类型", name = "type")
     private String type;
 
+    /**
+     * 资源类型
+     */
+    @ApiModelProperty(value = "资源类型", name = "typeStr")
+    private String typeStr;
+
    /**
     * 资源后缀
     */

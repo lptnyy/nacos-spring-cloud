@@ -4,10 +4,12 @@ import com.nacos.common.util.RandomUtil;
 import com.nacos.common.util.StringUtil;
 import com.nacos.oss.configuration.OssConfiguration;
 import com.nacos.oss.dto.FIleVo;
+import com.qiniu.http.Response;
 import com.qiniu.storage.Configuration;
 import com.qiniu.storage.Region;
 import com.qiniu.storage.UploadManager;
 import com.qiniu.util.Auth;
+import lombok.extern.log4j.Log4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.multipart.MultipartFile;
 import java.io.IOException;
@@ -68,7 +70,7 @@ public class QiNiuOss implements Oss{
                 }
             }
         }
-        return null;
+        return uploadManager;
     }
 
 
@@ -88,8 +90,8 @@ public class QiNiuOss implements Oss{
         try {
             UploadManager uploadManager = getUploadManager();
             byte[] imgBytes = file.getBytes();
-            uploadManager.put(imgBytes, fileVo.getRandomFileName(), this.upToken);
-        } catch (IOException e) {
+            Response response = uploadManager.put(imgBytes, fileVo.getRandomFileName(), this.upToken);
+        } catch (Exception e) {
             e.printStackTrace();
         } finally {
 

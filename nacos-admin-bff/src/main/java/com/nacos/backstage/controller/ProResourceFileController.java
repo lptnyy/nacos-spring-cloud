@@ -8,10 +8,14 @@ import com.nacos.common.util.ServiceResponse;
 import com.nacos.oss.IProResourceFileService;
 import com.nacos.oss.dto.ProResourceFile;
 import com.nacos.oss.request.ProResourceFileRequest;
+import com.nacos.system.IProEnumService;
+import com.nacos.system.request.ProEnumRequest;
 import io.seata.spring.annotation.GlobalTransactional;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,6 +41,9 @@ public class ProResourceFileController {
     @Autowired
     IProResourceFileService proResourceFileService;
 
+    @Autowired
+    IProEnumService proEnumService;
+
     @PostMapping(value = "/getPageList")
     @ApiOperation(value = "分页查询列表")
     @Log(name = "系统资源文件表", value = "分页查询列表", source = "admin-app")
@@ -58,11 +65,24 @@ public class ProResourceFileController {
                     // 获取服务返回的结果
                     List<ProResourceFile> resultList = response.getObj();
 
+                    // 获取枚举表状态信息
+                    ProEnumRequest proEnumRequest = new ProEnumRequest();
+                    proEnumRequest.setType("oss");
+                    Map<String, String> oss = new HashMap<>();
+                    proEnumService
+                        .getList(new ProParameter<>(proEnumRequest))
+                        .checkState()
+                        .getObj()
+                        .forEach(proEnum -> {
+                          oss.put(proEnum.getValuestr(), proEnum.getKeystr());
+                        });
+
                     // 组装vo 返回数据 也可以不组装直接返回原始数据
                     List<ProResourceFileVo> returnList = resultList.stream()
                             .map(proResourceFile -> {
                                 ProResourceFileVo proResourceFilevo = new ProResourceFileVo();
                                 BeanUtils.copyProperties(proResourceFile,proResourceFilevo);
+                                proResourceFilevo.setTypeStr(oss.get(proResourceFilevo.getType()));
                                 proResourceFilevo.setUploadTime(DateUtil.getyyMMddHHmmss(proResourceFile.getUploadTime()));
                                 // vo.set 格式化一些特定的字段比如时间类型 自定义多种返回类型 应对视图层的需要
                                 return proResourceFilevo;
@@ -105,13 +125,6 @@ public class ProResourceFileController {
     public ServiceResponse<ProResourceFileVo> save(@RequestBody ProResourceFileRequest request) {
         return new ServiceResponse<ProResourceFileVo>()
                 .run(serviceResponse -> {
-
-                    // 获取调用服务返回结果 通过返回结果 进行业务判断 以及 手动控制 分布式事务回滚
-                    ServiceResponse<ProResourceFile> response = proResourceFileService.get(new ProParameter<>(request));
-                    response.beginTransaction();
-
-                    // 获取调用服务状态
-                    response.checkState();
 
                     // 获取返回结果 包括数据库插入id
                     ProResourceFile proResourceFile = proResourceFileService.save(new ProParameter<>(request))

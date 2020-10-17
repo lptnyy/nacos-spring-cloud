@@ -201,49 +201,49 @@
           "title": "pro_level",
           "fields": [
             {
-              "name": "等级id",
+              "name": "level_id",
               "type": "Integer",
               "remark": "",
-              "chnname": "level_id",
+              "chnname": "等级id",
               "pk": true,
               "notNull": true,
               "autoIncrement": true
             },
             {
-              "name": "等级名称",
+              "name": "level_name",
               "type": "DefaultString",
               "remark": "",
-              "chnname": "level_name",
+              "chnname": "等级名称",
               "notNull": true
             },
             {
-              "name": "展示图片",
+              "name": "image",
               "type": "ShortString",
               "remark": "",
-              "chnname": "image",
+              "chnname": "展示图片",
               "notNull": true
             },
             {
-              "name": "等级积分",
+              "name": "integral",
               "type": "Integer",
               "remark": "",
-              "chnname": "integral",
+              "chnname": "等级积分",
               "notNull": true,
               "defaultValue": "0"
             },
             {
-              "name": "等级价格",
+              "name": "price",
               "type": "Money",
               "remark": "",
-              "chnname": "price",
+              "chnname": "等级价格",
               "notNull": true,
               "defaultValue": "0"
             },
             {
-              "name": "创建时间",
+              "name": "create_time",
               "type": "DateTime",
               "remark": "",
-              "chnname": "create_time",
+              "chnname": "创建时间",
               "notNull": true
             }
           ],
@@ -298,112 +298,13 @@
           "remark": "会员等级"
         },
         {
-          "title": "pro_authorith",
+          "title": "pro_level_api",
           "fields": [
             {
               "name": "authorith_id",
               "type": "Integer",
               "remark": "",
               "chnname": "权限id",
-              "pk": true,
-              "notNull": true,
-              "autoIncrement": true
-            },
-            {
-              "name": "name",
-              "type": "DefaultString",
-              "remark": "",
-              "chnname": "权限名称",
-              "notNull": true
-            },
-            {
-              "name": "function",
-              "type": "DefaultString",
-              "remark": "",
-              "chnname": "权限功能",
-              "notNull": true
-            },
-            {
-              "name": "type",
-              "type": "DefaultString",
-              "remark": "",
-              "chnname": "权限类型",
-              "notNull": true
-            },
-            {
-              "name": "num",
-              "type": "Integer",
-              "remark": "",
-              "chnname": "次数限制",
-              "defaultValue": "0",
-              "notNull": true
-            },
-            {
-              "name": "create_time",
-              "type": "DateTime",
-              "remark": "",
-              "chnname": "创建时间",
-              "notNull": true
-            }
-          ],
-          "indexs": [],
-          "headers": [
-            {
-              "fieldName": "chnname",
-              "relationNoShow": false
-            },
-            {
-              "fieldName": "name",
-              "relationNoShow": false
-            },
-            {
-              "fieldName": "type",
-              "relationNoShow": false
-            },
-            {
-              "fieldName": "dataType",
-              "relationNoShow": true
-            },
-            {
-              "fieldName": "remark",
-              "relationNoShow": true
-            },
-            {
-              "fieldName": "pk",
-              "relationNoShow": false
-            },
-            {
-              "fieldName": "notNull",
-              "relationNoShow": true
-            },
-            {
-              "fieldName": "autoIncrement",
-              "relationNoShow": true
-            },
-            {
-              "fieldName": "defaultValue",
-              "relationNoShow": true
-            },
-            {
-              "fieldName": "relationNoShow",
-              "relationNoShow": true
-            },
-            {
-              "fieldName": "uiHint",
-              "relationNoShow": true
-            }
-          ],
-          "chnname": "会员权限",
-          "remark": "会员权限"
-        },
-        {
-          "title": "pro_level_authorith",
-          "fields": [
-            {
-              "name": "id",
-              "type": "Integer",
-              "remark": "",
-              "chnname": "标示id",
               "pk": true,
               "notNull": true,
               "autoIncrement": true
@@ -416,10 +317,10 @@
               "notNull": true
             },
             {
-              "name": "authorith_id",
+              "name": "api_id",
               "type": "Integer",
               "remark": "",
-              "chnname": "权限id",
+              "chnname": "接口id",
               "notNull": true
             },
             {
@@ -477,13 +378,14 @@
               "relationNoShow": true
             }
           ],
-          "chnname": "会员等级权限关联"
+          "chnname": "会员接口",
+          "remark": "等级功能列表"
         },
         {
-          "title": "pro_third_party_login",
+          "title": "pro_other_login",
           "fields": [
             {
-              "name": "thrid_id",
+              "name": "login_id",
               "type": "Integer",
               "remark": "",
               "chnname": "标示id",
@@ -577,70 +479,34 @@
           "chnname": "第三方登录"
         },
         {
-          "title": "pro_gold_flow",
+          "title": "pro_member_address",
           "fields": [
             {
-              "name": "flow_id",
+              "name": "address_id",
               "type": "Integer",
               "remark": "",
-              "chnname": "标示id",
+              "chnname": "标识id",
               "pk": true,
               "notNull": true,
               "autoIncrement": true
             },
             {
-              "name": "member_id",
+              "name": "name",
               "type": "DefaultString",
               "remark": "",
-              "chnname": "会员id"
+              "chnname": "联系人"
             },
             {
-              "name": "type",
-              "type": "DefaultString",
-              "remark": "pay/drawing/give/purchase",
-              "chnname": "类型"
-            },
-            {
-              "name": "pay_type",
-              "type": "DefaultString",
-              "remark": "WeChat/Alipay",
-              "chnname": "支付类型"
-            },
-            {
-              "name": "money",
-              "type": "Money",
-              "remark": "",
-              "chnname": "金额"
-            },
-            {
-              "name": "pay_no",
+              "name": "tel",
               "type": "DefaultString",
               "remark": "",
-              "chnname": "流水号"
+              "chnname": "联系电话"
             },
             {
-              "name": "bank_name",
+              "name": "address",
               "type": "DefaultString",
               "remark": "",
-              "chnname": "银行名称"
-            },
-            {
-              "name": "bank_card",
-              "type": "DefaultString",
-              "remark": "",
-              "chnname": "银行卡"
-            },
-            {
-              "name": "drawer",
-              "type": "DefaultString",
-              "remark": "",
-              "chnname": "提款人"
-            },
-            {
-              "name": "drawing_no",
-              "type": "DefaultString",
-              "remark": "",
-              "chnname": "提款流水号"
+              "chnname": "联系地址"
             },
             {
               "name": "create_time",
@@ -696,8 +562,90 @@
               "relationNoShow": true
             }
           ],
-          "chnname": "金币流水",
-          "remark": "支付流水"
+          "chnname": "会员地址"
+        },
+        {
+          "title": "pro_member_setting",
+          "fields": [
+            {
+              "name": "REVISION",
+              "type": "Integer",
+              "remark": "",
+              "chnname": "乐观锁"
+            },
+            {
+              "name": "CREATED_BY",
+              "type": "IdOrKey",
+              "remark": "",
+              "chnname": "创建人"
+            },
+            {
+              "name": "CREATED_TIME",
+              "type": "DateTime",
+              "remark": "",
+              "chnname": "创建时间"
+            },
+            {
+              "name": "UPDATED_BY",
+              "type": "IdOrKey",
+              "remark": "",
+              "chnname": "更新人"
+            },
+            {
+              "name": "UPDATED_TIME",
+              "type": "DateTime",
+              "remark": "",
+              "chnname": "更新时间"
+            }
+          ],
+          "indexs": [],
+          "headers": [
+            {
+              "fieldName": "chnname",
+              "relationNoShow": false
+            },
+            {
+              "fieldName": "name",
+              "relationNoShow": false
+            },
+            {
+              "fieldName": "type",
+              "relationNoShow": false
+            },
+            {
+              "fieldName": "dataType",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "remark",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "pk",
+              "relationNoShow": false
+            },
+            {
+              "fieldName": "notNull",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "autoIncrement",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "defaultValue",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "relationNoShow",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "uiHint",
+              "relationNoShow": true
+            }
+          ],
+          "chnname": "会员表默认设置"
         }
       ],
       "graphCanvas": {
@@ -712,200 +660,727 @@
           },
           {
             "shape": "table",
-            "title": "pro_authorith",
+            "title": "pro_level_api",
             "moduleName": false,
-            "x": 632.5,
-            "y": 520,
+            "x": 1100,
+            "y": 210,
             "id": "5258e4b4"
+          },
+          {
+            "shape": "table",
+            "title": "pro_other_login",
+            "moduleName": false,
+            "x": 670,
+            "y": -110,
+            "id": "fa641786"
           },
           {
             "shape": "table",
             "title": "pro_level",
             "moduleName": false,
-            "x": 632.5,
-            "y": 299.2857142857143,
+            "x": 630,
+            "y": 230,
             "id": "5907d0cc"
-          },
-          {
-            "shape": "table",
-            "title": "pro_level_authorith",
-            "moduleName": false,
-            "x": 982.5,
-            "y": 360,
-            "id": "85670f56"
-          },
-          {
-            "shape": "table",
-            "title": "pro_gold_flow",
-            "moduleName": false,
-            "x": 640,
-            "y": 50,
-            "id": "bbb00b37"
-          },
-          {
-            "shape": "table",
-            "title": "pro_third_party_login",
-            "moduleName": false,
-            "x": 640,
-            "y": -170,
-            "id": "fa641786"
           }
         ],
-        "edges": [
-          {
-            "shape": "erdRelation",
-            "relation": "0,n:1",
-            "source": "85670f56",
-            "target": "5907d0cc",
-            "id": "06257bf5",
-            "controlPoints": [
-              {
-                "x": 858.3818359375,
-                "y": 362.52272727272725
-              },
-              {
-                "x": 756.609375,
-                "y": 261.5357142857143
-              }
-            ],
-            "sourceAnchor": 2,
-            "targetAnchor": 1
-          },
-          {
-            "shape": "erdRelation",
-            "relation": "0,n:1",
-            "source": "85670f56",
-            "target": "5258e4b4",
-            "id": "ef222760",
-            "controlPoints": [
-              {
-                "x": 858.3818359375,
-                "y": 382.70454545454544
-              },
-              {
-                "x": 756.8681640625,
-                "y": 482.25
-              }
-            ],
-            "sourceAnchor": 4,
-            "targetAnchor": 1
-          },
-          {
-            "shape": "erdRelation",
-            "relation": "0,n:1",
-            "source": "30ba642f",
-            "target": "5907d0cc",
-            "id": "42cb4e3d",
-            "controlPoints": [
-              {
-                "x": 306.705078125,
-                "y": 195.72560975609753
-              },
-              {
-                "x": 508.390625,
-                "y": 261.5357142857143
-              }
-            ],
-            "sourceAnchor": 27,
-            "targetAnchor": 0
-          },
-          {
-            "shape": "erdRelation",
-            "relation": "0,n:1",
-            "source": "fa641786",
-            "target": "30ba642f",
-            "id": "93cbc586",
-            "controlPoints": [
-              {
-                "x": 504.869140625,
-                "y": -127.21666666666667
-              },
-              {
-                "x": 306.705078125,
-                "y": -64.90853658536585
-              }
-            ],
-            "sourceAnchor": 8,
-            "targetAnchor": 1
-          },
-          {
-            "shape": "erdRelation",
-            "relation": "0,n:1",
-            "source": "bbb00b37",
-            "target": "30ba642f",
-            "id": "af7bf1e5",
-            "controlPoints": [
-              {
-                "x": 509.8818359375,
-                "y": -17.769999999999996
-              },
-              {
-                "x": 306.705078125,
-                "y": -64.90853658536585
-              }
-            ],
-            "sourceAnchor": 2,
-            "targetAnchor": 1
-          }
-        ]
+        "edges": []
       },
-      "associations": [
+      "associations": []
+    },
+    {
+      "name": "pro_product",
+      "chnname": "产品管理",
+      "entities": [
         {
-          "relation": "0,n:1",
-          "from": {
-            "entity": "pro_level_authorith",
-            "field": "level_id"
-          },
-          "to": {
-            "entity": "pro_level",
-            "field": "等级id"
-          }
+          "title": "pro_product",
+          "fields": [
+            {
+              "name": "REVISION",
+              "type": "Integer",
+              "remark": "",
+              "chnname": "乐观锁"
+            },
+            {
+              "name": "CREATED_BY",
+              "type": "IdOrKey",
+              "remark": "",
+              "chnname": "创建人"
+            },
+            {
+              "name": "CREATED_TIME",
+              "type": "DateTime",
+              "remark": "",
+              "chnname": "创建时间"
+            },
+            {
+              "name": "UPDATED_BY",
+              "type": "IdOrKey",
+              "remark": "",
+              "chnname": "更新人"
+            },
+            {
+              "name": "UPDATED_TIME",
+              "type": "DateTime",
+              "remark": "",
+              "chnname": "更新时间"
+            }
+          ],
+          "indexs": [],
+          "headers": [
+            {
+              "fieldName": "chnname",
+              "relationNoShow": false
+            },
+            {
+              "fieldName": "name",
+              "relationNoShow": false
+            },
+            {
+              "fieldName": "type",
+              "relationNoShow": false
+            },
+            {
+              "fieldName": "dataType",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "remark",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "pk",
+              "relationNoShow": false
+            },
+            {
+              "fieldName": "notNull",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "autoIncrement",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "defaultValue",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "relationNoShow",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "uiHint",
+              "relationNoShow": true
+            }
+          ],
+          "chnname": "产品表",
+          "remark": "产品表"
         },
         {
-          "relation": "0,n:1",
-          "from": {
-            "entity": "pro_level_authorith",
-            "field": "authorith_id"
-          },
-          "to": {
-            "entity": "pro_authorith",
-            "field": "authorith_id"
-          }
+          "title": "pro_product_info",
+          "fields": [
+            {
+              "name": "REVISION",
+              "type": "Integer",
+              "remark": "",
+              "chnname": "乐观锁"
+            },
+            {
+              "name": "CREATED_BY",
+              "type": "IdOrKey",
+              "remark": "",
+              "chnname": "创建人"
+            },
+            {
+              "name": "CREATED_TIME",
+              "type": "DateTime",
+              "remark": "",
+              "chnname": "创建时间"
+            },
+            {
+              "name": "UPDATED_BY",
+              "type": "IdOrKey",
+              "remark": "",
+              "chnname": "更新人"
+            },
+            {
+              "name": "UPDATED_TIME",
+              "type": "DateTime",
+              "remark": "",
+              "chnname": "更新时间"
+            }
+          ],
+          "indexs": [],
+          "headers": [
+            {
+              "fieldName": "chnname",
+              "relationNoShow": false
+            },
+            {
+              "fieldName": "name",
+              "relationNoShow": false
+            },
+            {
+              "fieldName": "type",
+              "relationNoShow": false
+            },
+            {
+              "fieldName": "dataType",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "remark",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "pk",
+              "relationNoShow": false
+            },
+            {
+              "fieldName": "notNull",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "autoIncrement",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "defaultValue",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "relationNoShow",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "uiHint",
+              "relationNoShow": true
+            }
+          ],
+          "chnname": "产品详情"
         },
         {
-          "relation": "0,n:1",
-          "from": {
-            "entity": "pro_member",
-            "field": "level_Id"
-          },
-          "to": {
-            "entity": "pro_level",
-            "field": "等级id"
-          }
+          "title": "pro_product_type",
+          "fields": [
+            {
+              "name": "REVISION",
+              "type": "Integer",
+              "remark": "",
+              "chnname": "乐观锁"
+            },
+            {
+              "name": "CREATED_BY",
+              "type": "IdOrKey",
+              "remark": "",
+              "chnname": "创建人"
+            },
+            {
+              "name": "CREATED_TIME",
+              "type": "DateTime",
+              "remark": "",
+              "chnname": "创建时间"
+            },
+            {
+              "name": "UPDATED_BY",
+              "type": "IdOrKey",
+              "remark": "",
+              "chnname": "更新人"
+            },
+            {
+              "name": "UPDATED_TIME",
+              "type": "DateTime",
+              "remark": "",
+              "chnname": "更新时间"
+            }
+          ],
+          "indexs": [],
+          "headers": [
+            {
+              "fieldName": "chnname",
+              "relationNoShow": false
+            },
+            {
+              "fieldName": "name",
+              "relationNoShow": false
+            },
+            {
+              "fieldName": "type",
+              "relationNoShow": false
+            },
+            {
+              "fieldName": "dataType",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "remark",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "pk",
+              "relationNoShow": false
+            },
+            {
+              "fieldName": "notNull",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "autoIncrement",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "defaultValue",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "relationNoShow",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "uiHint",
+              "relationNoShow": true
+            }
+          ],
+          "chnname": "产品分类"
         },
         {
-          "relation": "0,n:1",
-          "from": {
-            "entity": "pro_third_party_login",
-            "field": "member_id"
-          },
-          "to": {
-            "entity": "pro_member",
-            "field": "member_id"
-          }
+          "title": "pro_product_specification",
+          "fields": [
+            {
+              "name": "REVISION",
+              "type": "Integer",
+              "remark": "",
+              "chnname": "乐观锁"
+            },
+            {
+              "name": "CREATED_BY",
+              "type": "IdOrKey",
+              "remark": "",
+              "chnname": "创建人"
+            },
+            {
+              "name": "CREATED_TIME",
+              "type": "DateTime",
+              "remark": "",
+              "chnname": "创建时间"
+            },
+            {
+              "name": "UPDATED_BY",
+              "type": "IdOrKey",
+              "remark": "",
+              "chnname": "更新人"
+            },
+            {
+              "name": "UPDATED_TIME",
+              "type": "DateTime",
+              "remark": "",
+              "chnname": "更新时间"
+            }
+          ],
+          "indexs": [],
+          "headers": [
+            {
+              "fieldName": "chnname",
+              "relationNoShow": false
+            },
+            {
+              "fieldName": "name",
+              "relationNoShow": false
+            },
+            {
+              "fieldName": "type",
+              "relationNoShow": false
+            },
+            {
+              "fieldName": "dataType",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "remark",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "pk",
+              "relationNoShow": false
+            },
+            {
+              "fieldName": "notNull",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "autoIncrement",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "defaultValue",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "relationNoShow",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "uiHint",
+              "relationNoShow": true
+            }
+          ],
+          "chnname": "产品规格"
         },
         {
-          "relation": "0,n:1",
-          "from": {
-            "entity": "pro_gold_flow",
-            "field": "member_id"
-          },
-          "to": {
-            "entity": "pro_member",
-            "field": "member_id"
-          }
+          "title": "pro_product_setting",
+          "fields": [
+            {
+              "name": "REVISION",
+              "type": "Integer",
+              "remark": "",
+              "chnname": "乐观锁"
+            },
+            {
+              "name": "CREATED_BY",
+              "type": "IdOrKey",
+              "remark": "",
+              "chnname": "创建人"
+            },
+            {
+              "name": "CREATED_TIME",
+              "type": "DateTime",
+              "remark": "",
+              "chnname": "创建时间"
+            },
+            {
+              "name": "UPDATED_BY",
+              "type": "IdOrKey",
+              "remark": "",
+              "chnname": "更新人"
+            },
+            {
+              "name": "UPDATED_TIME",
+              "type": "DateTime",
+              "remark": "",
+              "chnname": "更新时间"
+            }
+          ],
+          "indexs": [],
+          "headers": [
+            {
+              "fieldName": "chnname",
+              "relationNoShow": false
+            },
+            {
+              "fieldName": "name",
+              "relationNoShow": false
+            },
+            {
+              "fieldName": "type",
+              "relationNoShow": false
+            },
+            {
+              "fieldName": "dataType",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "remark",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "pk",
+              "relationNoShow": false
+            },
+            {
+              "fieldName": "notNull",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "autoIncrement",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "defaultValue",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "relationNoShow",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "uiHint",
+              "relationNoShow": true
+            }
+          ],
+          "chnname": "产品表默认设置"
         }
-      ]
+      ],
+      "graphCanvas": {
+        "edges": [],
+        "nodes": []
+      },
+      "associations": []
+    },
+    {
+      "name": "pro_enterprise",
+      "chnname": "企业管理",
+      "entities": [],
+      "graphCanvas": {
+        "edges": []
+      }
+    },
+    {
+      "name": "pro_order",
+      "chnname": "订单管理",
+      "entities": [
+        {
+          "title": "pro_order",
+          "fields": [
+            {
+              "name": "REVISION",
+              "type": "Integer",
+              "remark": "",
+              "chnname": "乐观锁"
+            },
+            {
+              "name": "CREATED_BY",
+              "type": "IdOrKey",
+              "remark": "",
+              "chnname": "创建人"
+            },
+            {
+              "name": "CREATED_TIME",
+              "type": "DateTime",
+              "remark": "",
+              "chnname": "创建时间"
+            },
+            {
+              "name": "UPDATED_BY",
+              "type": "IdOrKey",
+              "remark": "",
+              "chnname": "更新人"
+            },
+            {
+              "name": "UPDATED_TIME",
+              "type": "DateTime",
+              "remark": "",
+              "chnname": "更新时间"
+            }
+          ],
+          "indexs": [],
+          "headers": [
+            {
+              "fieldName": "chnname",
+              "relationNoShow": false
+            },
+            {
+              "fieldName": "name",
+              "relationNoShow": false
+            },
+            {
+              "fieldName": "type",
+              "relationNoShow": false
+            },
+            {
+              "fieldName": "dataType",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "remark",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "pk",
+              "relationNoShow": false
+            },
+            {
+              "fieldName": "notNull",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "autoIncrement",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "defaultValue",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "relationNoShow",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "uiHint",
+              "relationNoShow": true
+            }
+          ],
+          "chnname": "订单表"
+        },
+        {
+          "title": "pro_return_order",
+          "fields": [
+            {
+              "name": "REVISION",
+              "type": "Integer",
+              "remark": "",
+              "chnname": "乐观锁"
+            },
+            {
+              "name": "CREATED_BY",
+              "type": "IdOrKey",
+              "remark": "",
+              "chnname": "创建人"
+            },
+            {
+              "name": "CREATED_TIME",
+              "type": "DateTime",
+              "remark": "",
+              "chnname": "创建时间"
+            },
+            {
+              "name": "UPDATED_BY",
+              "type": "IdOrKey",
+              "remark": "",
+              "chnname": "更新人"
+            },
+            {
+              "name": "UPDATED_TIME",
+              "type": "DateTime",
+              "remark": "",
+              "chnname": "更新时间"
+            }
+          ],
+          "indexs": [],
+          "headers": [
+            {
+              "fieldName": "chnname",
+              "relationNoShow": false
+            },
+            {
+              "fieldName": "name",
+              "relationNoShow": false
+            },
+            {
+              "fieldName": "type",
+              "relationNoShow": false
+            },
+            {
+              "fieldName": "dataType",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "remark",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "pk",
+              "relationNoShow": false
+            },
+            {
+              "fieldName": "notNull",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "autoIncrement",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "defaultValue",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "relationNoShow",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "uiHint",
+              "relationNoShow": true
+            }
+          ],
+          "chnname": "订单退款"
+        },
+        {
+          "title": "pro_play_flow",
+          "fields": [
+            {
+              "name": "REVISION",
+              "type": "Integer",
+              "remark": "",
+              "chnname": "乐观锁"
+            },
+            {
+              "name": "CREATED_BY",
+              "type": "IdOrKey",
+              "remark": "",
+              "chnname": "创建人"
+            },
+            {
+              "name": "CREATED_TIME",
+              "type": "DateTime",
+              "remark": "",
+              "chnname": "创建时间"
+            },
+            {
+              "name": "UPDATED_BY",
+              "type": "IdOrKey",
+              "remark": "",
+              "chnname": "更新人"
+            },
+            {
+              "name": "UPDATED_TIME",
+              "type": "DateTime",
+              "remark": "",
+              "chnname": "更新时间"
+            }
+          ],
+          "indexs": [],
+          "headers": [
+            {
+              "fieldName": "chnname",
+              "relationNoShow": false
+            },
+            {
+              "fieldName": "name",
+              "relationNoShow": false
+            },
+            {
+              "fieldName": "type",
+              "relationNoShow": false
+            },
+            {
+              "fieldName": "dataType",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "remark",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "pk",
+              "relationNoShow": false
+            },
+            {
+              "fieldName": "notNull",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "autoIncrement",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "defaultValue",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "relationNoShow",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "uiHint",
+              "relationNoShow": true
+            }
+          ],
+          "chnname": "支付流水"
+        }
+      ],
+      "graphCanvas": {
+        "nodes": [],
+        "edges": []
+      },
+      "associations": []
     }
   ],
   "dataTypeDomains": {
