@@ -7,7 +7,6 @@ import com.nacos.common.util.ServiceResponse;
 import com.nacos.common.annotation.Log;
 import com.nacos.member.IProLevelService;
 import com.nacos.member.IProMemberService;
-import com.nacos.member.dto.ProLevel;
 import com.nacos.member.dto.ProMember;
 import com.nacos.member.request.ProLevelRequest;
 import com.nacos.member.request.ProMemberRequest;
@@ -24,7 +23,6 @@ import com.nacos.system.request.ProProvinceRequest;
 import io.seata.spring.annotation.GlobalTransactional;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
-import org.checkerframework.checker.units.qual.A;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -70,7 +68,7 @@ public class ProMemberController {
 
     @PostMapping(value = "/getPageList")
     @ApiOperation(value = "分页查询列表")
-    @Log(name = "会员表 会员", value = "分页查询列表", source = "admin-app")
+    @Log(name = "会员表", value = "分页查询列表", source = "admin-app")
     @Authority(values = {"member_select"})
     @SentinelResource(value = "proMember/getPageList")
     public ServiceResponse<List<ProMemberVo>> getPageList(@RequestBody ProMemberRequest request) {
@@ -129,6 +127,7 @@ public class ProMemberController {
                   .forEach(proArea -> {
                     areas.put(proArea.getAreaId(),proArea.getName());
                   });
+
               // 获取会员等级
               ProLevelRequest proLevelRequest = new ProLevelRequest();
               Map<Integer,String> levels = new HashMap<>();
@@ -174,7 +173,7 @@ public class ProMemberController {
 
     @PostMapping(value = "/get")
     @ApiOperation(value = "获取单条信息")
-    @Log(name = "会员表 会员", value = "获取单条信息", source = "admin-app")
+    @Log(name = "会员表", value = "获取单条信息", source = "admin-app")
     @Authority(values = {"member_select"})
     @SentinelResource(value = "proMember/get")
     public ServiceResponse<ProMemberVo> get(@RequestBody ProMemberRequest request) {
@@ -198,7 +197,7 @@ public class ProMemberController {
     @PostMapping(value = "/save")
     @ApiOperation(value = "保存")
     @GlobalTransactional
-    @Log(name = "会员表 会员", value = "保存", source = "admin-app")
+    @Log(name = "会员表", value = "保存", source = "admin-app")
     @Authority(values = {"member_add"})
     @SentinelResource(value = "proMember/save")
     public ServiceResponse<ProMemberVo> save(@RequestBody ProMemberRequest request) {
@@ -229,7 +228,7 @@ public class ProMemberController {
 
     @PostMapping(value = "/idsDelete")
     @ApiOperation(value = "批量删除")
-    @Log(name = "会员表 会员", value = "批量删除", source = "admin-app")
+    @Log(name = "会员表", value = "批量删除", source = "admin-app")
     @Authority(values = {"member_delete"})
     @SentinelResource(value = "proMember/idsDelete")
     @GlobalTransactional
@@ -254,7 +253,7 @@ public class ProMemberController {
 
     @PostMapping(value = "/delete")
     @ApiOperation(value = "删除")
-    @Log(name = "会员表 会员", value = "删除", source = "admin-app")
+    @Log(name = "会员表", value = "删除", source = "admin-app")
     @Authority(values = {"member_delete"})
     @SentinelResource(value = "proMember/delete")
     @GlobalTransactional
@@ -277,7 +276,7 @@ public class ProMemberController {
 
     @PostMapping(value = "/update")
     @ApiOperation(value = "修改")
-    @Log(name = "会员表 会员", value = "修改", source = "admin-app")
+    @Log(name = "会员表", value = "修改", source = "admin-app")
     @Authority(values = {"member_update"})
     @SentinelResource(value = "proMember/update")
     @GlobalTransactional
