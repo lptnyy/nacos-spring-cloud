@@ -301,10 +301,10 @@
           "title": "pro_level_api",
           "fields": [
             {
-              "name": "authorith_id",
+              "name": "id",
               "type": "Integer",
               "remark": "",
-              "chnname": "权限id",
+              "chnname": "id",
               "pk": true,
               "notNull": true,
               "autoIncrement": true
@@ -654,38 +654,130 @@
             "shape": "table",
             "title": "pro_member",
             "moduleName": false,
-            "x": 155.25,
-            "y": 103,
+            "x": 150,
+            "y": 140,
             "id": "30ba642f"
+          },
+          {
+            "shape": "table",
+            "title": "pro_level",
+            "moduleName": false,
+            "x": 540,
+            "y": 275,
+            "id": "5907d0cc"
           },
           {
             "shape": "table",
             "title": "pro_level_api",
             "moduleName": false,
-            "x": 1100,
-            "y": 210,
+            "x": 902.5,
+            "y": 250,
             "id": "5258e4b4"
           },
           {
             "shape": "table",
             "title": "pro_other_login",
             "moduleName": false,
-            "x": 670,
-            "y": -110,
+            "x": 550,
+            "y": -70,
             "id": "fa641786"
-          },
-          {
-            "shape": "table",
-            "title": "pro_level",
-            "moduleName": false,
-            "x": 630,
-            "y": 230,
-            "id": "5907d0cc"
           }
         ],
-        "edges": []
+        "edges": [
+          {
+            "shape": "erdRelation",
+            "relation": "0,n:1",
+            "source": "fa641786",
+            "target": "30ba642f",
+            "id": "9f6efecb",
+            "controlPoints": [
+              {
+                "x": 414.869140625,
+                "y": -27.21666666666667
+              },
+              {
+                "x": 300.1220703125,
+                "y": -27.90853658536585
+              }
+            ],
+            "sourceAnchor": 8,
+            "targetAnchor": 1
+          },
+          {
+            "shape": "erdRelation",
+            "relation": "0,n:1",
+            "source": "30ba642f",
+            "target": "5907d0cc",
+            "id": "04a7ba83",
+            "controlPoints": [
+              {
+                "x": 300.1220703125,
+                "y": 232.72560975609753
+              },
+              {
+                "x": 415.890625,
+                "y": 237.25
+              }
+            ],
+            "sourceAnchor": 27,
+            "targetAnchor": 0
+          },
+          {
+            "shape": "erdRelation",
+            "relation": "0,n:1",
+            "source": "5258e4b4",
+            "target": "5907d0cc",
+            "id": "9e1c29db",
+            "controlPoints": [
+              {
+                "x": 778.1318359375,
+                "y": 252.52272727272728
+              },
+              {
+                "x": 664.109375,
+                "y": 237.25
+              }
+            ],
+            "sourceAnchor": 2,
+            "targetAnchor": 1
+          }
+        ]
       },
-      "associations": []
+      "associations": [
+        {
+          "relation": "0,n:1",
+          "from": {
+            "entity": "pro_other_login",
+            "field": "member_id"
+          },
+          "to": {
+            "entity": "pro_member",
+            "field": "member_id"
+          }
+        },
+        {
+          "relation": "0,n:1",
+          "from": {
+            "entity": "pro_member",
+            "field": "level_Id"
+          },
+          "to": {
+            "entity": "pro_level",
+            "field": "level_id"
+          }
+        },
+        {
+          "relation": "0,n:1",
+          "from": {
+            "entity": "pro_level_api",
+            "field": "level_id"
+          },
+          "to": {
+            "entity": "pro_level",
+            "field": "level_id"
+          }
+        }
+      ]
     },
     {
       "name": "pro_product",
@@ -695,31 +787,42 @@
           "title": "pro_product",
           "fields": [
             {
-              "name": "REVISION",
+              "name": "product_id",
               "type": "Integer",
               "remark": "",
-              "chnname": "乐观锁"
+              "chnname": "产品id",
+              "pk": true,
+              "notNull": true,
+              "autoIncrement": true
             },
             {
-              "name": "CREATED_BY",
+              "name": "title",
               "type": "IdOrKey",
               "remark": "",
-              "chnname": "创建人"
+              "chnname": "标题",
+              "notNull": true
             },
             {
-              "name": "CREATED_TIME",
+              "name": "image",
+              "type": "ShortString",
+              "remark": "",
+              "chnname": "展示图片",
+              "notNull": true
+            },
+            {
+              "name": "subtitle",
+              "type": "DefaultString",
+              "remark": "",
+              "chnname": "子标题"
+            },
+            {
+              "name": "create_time",
               "type": "DateTime",
               "remark": "",
               "chnname": "创建时间"
             },
             {
-              "name": "UPDATED_BY",
-              "type": "IdOrKey",
-              "remark": "",
-              "chnname": "更新人"
-            },
-            {
-              "name": "UPDATED_TIME",
+              "name": "update_time",
               "type": "DateTime",
               "remark": "",
               "chnname": "更新时间"
@@ -779,34 +882,33 @@
           "title": "pro_product_info",
           "fields": [
             {
-              "name": "REVISION",
+              "name": "product_id",
               "type": "Integer",
               "remark": "",
-              "chnname": "乐观锁"
+              "chnname": "产品id",
+              "pk": true,
+              "notNull": true
             },
             {
-              "name": "CREATED_BY",
-              "type": "IdOrKey",
+              "name": "imgs",
+              "type": "MiddleString",
               "remark": "",
-              "chnname": "创建人"
+              "chnname": "图库",
+              "notNull": true
             },
             {
-              "name": "CREATED_TIME",
+              "name": "editor",
+              "type": "LongText",
+              "remark": "",
+              "chnname": "组件",
+              "notNull": true
+            },
+            {
+              "name": "create_time",
               "type": "DateTime",
               "remark": "",
-              "chnname": "创建时间"
-            },
-            {
-              "name": "UPDATED_BY",
-              "type": "IdOrKey",
-              "remark": "",
-              "chnname": "更新人"
-            },
-            {
-              "name": "UPDATED_TIME",
-              "type": "DateTime",
-              "remark": "",
-              "chnname": "更新时间"
+              "chnname": "创建时间",
+              "notNull": true
             }
           ],
           "indexs": [],
