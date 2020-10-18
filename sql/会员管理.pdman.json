@@ -730,7 +730,7 @@
             "id": "9e1c29db",
             "controlPoints": [
               {
-                "x": 778.1318359375,
+                "x": 778.390625,
                 "y": 252.52272727272728
               },
               {
@@ -797,10 +797,22 @@
             },
             {
               "name": "title",
-              "type": "IdOrKey",
+              "type": "Name",
               "remark": "",
               "chnname": "标题",
               "notNull": true
+            },
+            {
+              "name": "subtitle",
+              "type": "Name",
+              "remark": "",
+              "chnname": "子标题"
+            },
+            {
+              "name": "price",
+              "type": "Money",
+              "remark": "",
+              "chnname": "产品单价"
             },
             {
               "name": "image",
@@ -810,22 +822,52 @@
               "notNull": true
             },
             {
-              "name": "subtitle",
-              "type": "DefaultString",
+              "name": "num",
+              "type": "Integer",
               "remark": "",
-              "chnname": "子标题"
+              "chnname": "产品数量"
             },
             {
-              "name": "create_time",
-              "type": "DateTime",
+              "name": "type_id",
+              "type": "Integer",
               "remark": "",
-              "chnname": "创建时间"
+              "chnname": "分类id"
+            },
+            {
+              "name": "pay_num",
+              "type": "Integer",
+              "remark": "",
+              "chnname": "购买数量"
+            },
+            {
+              "name": "fabulous_num",
+              "type": "Integer",
+              "remark": "",
+              "chnname": "赞数"
+            },
+            {
+              "name": "comment_num",
+              "type": "Integer",
+              "remark": "",
+              "chnname": "评论数"
+            },
+            {
+              "name": "share_num",
+              "type": "Integer",
+              "remark": "",
+              "chnname": "分享数"
             },
             {
               "name": "update_time",
               "type": "DateTime",
               "remark": "",
               "chnname": "更新时间"
+            },
+            {
+              "name": "create_time",
+              "type": "DateTime",
+              "remark": "",
+              "chnname": "创建时间"
             }
           ],
           "indexs": [],
@@ -897,11 +939,18 @@
               "notNull": true
             },
             {
+              "name": "introduce",
+              "type": "LongText",
+              "remark": "",
+              "chnname": "产品介绍",
+              "notNull": false
+            },
+            {
               "name": "editor",
               "type": "LongText",
               "remark": "",
               "chnname": "组件",
-              "notNull": true
+              "notNull": false
             },
             {
               "name": "create_time",
@@ -964,34 +1013,35 @@
           "title": "pro_product_type",
           "fields": [
             {
-              "name": "REVISION",
+              "name": "type_id",
               "type": "Integer",
               "remark": "",
-              "chnname": "乐观锁"
+              "chnname": "分类id",
+              "pk": true,
+              "notNull": true,
+              "autoIncrement": true
             },
             {
-              "name": "CREATED_BY",
-              "type": "IdOrKey",
+              "name": "name",
+              "type": "DefaultString",
               "remark": "",
-              "chnname": "创建人"
+              "chnname": "分类名称",
+              "notNull": true
             },
             {
-              "name": "CREATED_TIME",
-              "type": "DateTime",
+              "name": "parent_id",
+              "type": "Integer",
               "remark": "",
-              "chnname": "创建时间"
+              "chnname": "父级id",
+              "notNull": true,
+              "defaultValue": "0"
             },
             {
-              "name": "UPDATED_BY",
-              "type": "IdOrKey",
+              "name": "create_time",
+              "type": "DefaultString",
               "remark": "",
-              "chnname": "更新人"
-            },
-            {
-              "name": "UPDATED_TIME",
-              "type": "DateTime",
-              "remark": "",
-              "chnname": "更新时间"
+              "chnname": "创建时间",
+              "notNull": true
             }
           ],
           "indexs": [],
@@ -1211,10 +1261,97 @@
         }
       ],
       "graphCanvas": {
-        "edges": [],
-        "nodes": []
+        "nodes": [
+          {
+            "shape": "table",
+            "title": "pro_product",
+            "moduleName": false,
+            "x": 250,
+            "y": 170,
+            "id": "79a2f98f"
+          },
+          {
+            "shape": "table",
+            "title": "pro_product_info",
+            "moduleName": false,
+            "x": 640,
+            "y": 140,
+            "id": "a704e0d9"
+          },
+          {
+            "shape": "table",
+            "title": "pro_product_type",
+            "moduleName": false,
+            "x": -100,
+            "y": 230,
+            "id": "f78b1501"
+          }
+        ],
+        "edges": [
+          {
+            "shape": "erdRelation",
+            "relation": "0,n:1",
+            "source": "a704e0d9",
+            "target": "79a2f98f",
+            "id": "3c1ca62b",
+            "controlPoints": [
+              {
+                "x": 506.556640625,
+                "y": 112.28846153846153
+              },
+              {
+                "x": 382.4443359375,
+                "y": 62.12931034482759
+              }
+            ],
+            "sourceAnchor": 0,
+            "targetAnchor": 1
+          },
+          {
+            "shape": "erdRelation",
+            "relation": "0,n:1",
+            "source": "79a2f98f",
+            "target": "f78b1501",
+            "id": "78a699d3",
+            "controlPoints": [
+              {
+                "x": 117.5556640625,
+                "y": 182.54310344827587
+              },
+              {
+                "x": 24.109375,
+                "y": 212.3409090909091
+              }
+            ],
+            "sourceAnchor": 12,
+            "targetAnchor": 1
+          }
+        ]
       },
-      "associations": []
+      "associations": [
+        {
+          "relation": "0,n:1",
+          "from": {
+            "entity": "pro_product_info",
+            "field": "product_id"
+          },
+          "to": {
+            "entity": "pro_product",
+            "field": "product_id"
+          }
+        },
+        {
+          "relation": "0,n:1",
+          "from": {
+            "entity": "pro_product",
+            "field": "type_id"
+          },
+          "to": {
+            "entity": "pro_product_type",
+            "field": "type_id"
+          }
+        }
+      ]
     },
     {
       "name": "pro_enterprise",
