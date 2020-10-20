@@ -796,6 +796,18 @@
               "autoIncrement": true
             },
             {
+              "name": "enterprise_id",
+              "type": "Integer",
+              "remark": "",
+              "chnname": "企业id"
+            },
+            {
+              "name": "type_id",
+              "type": "Integer",
+              "remark": "",
+              "chnname": "分类id"
+            },
+            {
               "name": "title",
               "type": "Name",
               "remark": "",
@@ -809,35 +821,11 @@
               "chnname": "子标题"
             },
             {
-              "name": "price",
-              "type": "Money",
-              "remark": "",
-              "chnname": "产品单价"
-            },
-            {
               "name": "image",
               "type": "ShortString",
               "remark": "",
-              "chnname": "展示图片",
+              "chnname": "列表展示图片",
               "notNull": true
-            },
-            {
-              "name": "num",
-              "type": "Integer",
-              "remark": "",
-              "chnname": "产品数量"
-            },
-            {
-              "name": "type_id",
-              "type": "Integer",
-              "remark": "",
-              "chnname": "分类id"
-            },
-            {
-              "name": "pay_num",
-              "type": "Integer",
-              "remark": "",
-              "chnname": "购买数量"
             },
             {
               "name": "fabulous_num",
@@ -852,10 +840,46 @@
               "chnname": "评论数"
             },
             {
+              "name": "sales_num",
+              "type": "Integer",
+              "remark": "",
+              "chnname": "销售数量"
+            },
+            {
               "name": "share_num",
               "type": "Integer",
               "remark": "",
               "chnname": "分享数"
+            },
+            {
+              "name": "discount_sts",
+              "type": "Integer",
+              "remark": "",
+              "chnname": "是否会员打折"
+            },
+            {
+              "name": "integral_sts",
+              "type": "Integer",
+              "remark": "",
+              "chnname": "是否积分兑换"
+            },
+            {
+              "name": "state",
+              "type": "Integer",
+              "remark": "",
+              "chnname": "产品状态"
+            },
+            {
+              "name": "freight_id",
+              "type": "Integer",
+              "remark": "",
+              "chnname": "运费方式"
+            },
+            {
+              "name": "sort",
+              "type": "Integer",
+              "remark": "",
+              "chnname": "排序"
             },
             {
               "name": "update_time",
@@ -946,13 +970,6 @@
               "notNull": false
             },
             {
-              "name": "editor",
-              "type": "LongText",
-              "remark": "",
-              "chnname": "组件",
-              "notNull": false
-            },
-            {
               "name": "create_time",
               "type": "DateTime",
               "remark": "",
@@ -1029,6 +1046,12 @@
               "notNull": true
             },
             {
+              "name": "sort",
+              "type": "Integer",
+              "remark": "",
+              "chnname": "排序"
+            },
+            {
               "name": "parent_id",
               "type": "Integer",
               "remark": "",
@@ -1037,8 +1060,20 @@
               "defaultValue": "0"
             },
             {
+              "name": "icon",
+              "type": "ShortString",
+              "remark": "",
+              "chnname": "图标"
+            },
+            {
+              "name": "enterprise_id",
+              "type": "Integer",
+              "remark": "",
+              "chnname": "企业id"
+            },
+            {
               "name": "create_time",
-              "type": "DefaultString",
+              "type": "DateTime",
               "remark": "",
               "chnname": "创建时间",
               "notNull": true
@@ -1297,11 +1332,11 @@
             "controlPoints": [
               {
                 "x": 506.556640625,
-                "y": 112.28846153846153
+                "y": 122.3409090909091
               },
               {
-                "x": 382.4443359375,
-                "y": 62.12931034482759
+                "x": 394.4443359375,
+                "y": 22.101351351351354
               }
             ],
             "sourceAnchor": 0,
@@ -1315,15 +1350,15 @@
             "id": "78a699d3",
             "controlPoints": [
               {
-                "x": 117.5556640625,
-                "y": 182.54310344827587
+                "x": 105.5556640625,
+                "y": 62.20945945945945
               },
               {
-                "x": 24.109375,
-                "y": 212.3409090909091
+                "x": 27.44921875,
+                "y": 182.22058823529412
               }
             ],
-            "sourceAnchor": 12,
+            "sourceAnchor": 4,
             "targetAnchor": 1
           }
         ]
@@ -1358,8 +1393,10 @@
       "chnname": "企业管理",
       "entities": [],
       "graphCanvas": {
+        "nodes": [],
         "edges": []
-      }
+      },
+      "associations": []
     },
     {
       "name": "pro_order",

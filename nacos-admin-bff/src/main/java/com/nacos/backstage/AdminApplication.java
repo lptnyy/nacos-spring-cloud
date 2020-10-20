@@ -11,7 +11,8 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @EnableFeignClients({
 		"com.nacos.system",
 		"com.nacos.member",
-		"com.nacos.oss"
+		"com.nacos.oss",
+		"com.nacos.product"
 })
 @ComponentScans({
 		@ComponentScan("com.nacos.common.exception"), // 载入全局异常管理
@@ -19,7 +20,8 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 		@ComponentScan("com.nacos.common.aspect"),
 		@ComponentScan("com.nacos.system"),
 		@ComponentScan("com.nacos.member"),
-		@ComponentScan("com.nacos.oss")
+		@ComponentScan("com.nacos.oss"),
+		@ComponentScan("com.nacos.product")
 })
 public class AdminApplication {
     public static void main(String[] args) {
