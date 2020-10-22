@@ -36,11 +36,13 @@ CREATE TABLE IF NOT EXISTS `pro_product` (
   `update_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
   `create_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
   PRIMARY KEY (`product_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='产品管理';
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='产品管理';
 
--- 正在导出表  pro_product.pro_product 的数据：~0 rows (大约)
+-- 正在导出表  pro_product.pro_product 的数据：~2 rows (大约)
 DELETE FROM `pro_product`;
 /*!40000 ALTER TABLE `pro_product` DISABLE KEYS */;
+INSERT INTO `pro_product` (`product_id`, `enterprise_id`, `type_id`, `title`, `subtitle`, `image`, `fabulous_num`, `comment_num`, `sales_num`, `share_num`, `discount_sts`, `integral_sts`, `state`, `freight_id`, `sort`, `update_time`, `create_time`) VALUES
+	(6, 0, 17, '123', '123', 'jpg/2020102211260325521.jpg', 123, 123, 123, 123, 1, 1, 1, 123, 1, '2020-10-22 16:22:52', '2020-10-22 11:44:18');
 /*!40000 ALTER TABLE `pro_product` ENABLE KEYS */;
 
 -- 导出  表 pro_product.pro_product_info 结构
@@ -60,7 +62,6 @@ DELETE FROM `pro_product_info`;
 -- 导出  表 pro_product.pro_product_type 结构
 CREATE TABLE IF NOT EXISTS `pro_product_type` (
   `type_id` int(11) NOT NULL AUTO_INCREMENT COMMENT '分类id',
-  `列 6` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
   `name` varchar(32) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT '分类名称',
   `sort` int(11) NOT NULL DEFAULT '0' COMMENT '排序',
   `parent_id` int(11) NOT NULL DEFAULT '0' COMMENT '父级id',
@@ -73,9 +74,9 @@ CREATE TABLE IF NOT EXISTS `pro_product_type` (
 -- 正在导出表  pro_product.pro_product_type 的数据：~2 rows (大约)
 DELETE FROM `pro_product_type`;
 /*!40000 ALTER TABLE `pro_product_type` DISABLE KEYS */;
-INSERT INTO `pro_product_type` (`type_id`, `列 6`, `name`, `sort`, `parent_id`, `icon`, `enterprise_id`, `create_time`) VALUES
-	(16, '', '产品分类', 1, 0, 'jpg/2020101716533624632.jpg', 0, '2020-10-20 15:36:16'),
-	(17, '', '电子产品', 1, 16, 'jpg/2020101716533624632.jpg', 0, '2020-10-20 15:42:22');
+INSERT INTO `pro_product_type` (`type_id`, `name`, `sort`, `parent_id`, `icon`, `enterprise_id`, `create_time`) VALUES
+	(16, '产品分类', 1, 0, 'jpg/2020101716533624632.jpg', 0, '2020-10-20 15:36:16'),
+	(17, '电子产品', 1, 16, 'jpg/2020101716533624632.jpg', 0, '2020-10-20 15:42:22');
 /*!40000 ALTER TABLE `pro_product_type` ENABLE KEYS */;
 
 -- 导出  表 pro_product.undo_log 结构
@@ -91,9 +92,9 @@ CREATE TABLE IF NOT EXISTS `undo_log` (
   `ext` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `ux_undo_log` (`xid`,`branch_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=55 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=105 DEFAULT CHARSET=utf8;
 
--- 正在导出表  pro_product.undo_log 的数据：~0 rows (大约)
+-- 正在导出表  pro_product.undo_log 的数据：~1 rows (大约)
 DELETE FROM `undo_log`;
 /*!40000 ALTER TABLE `undo_log` DISABLE KEYS */;
 /*!40000 ALTER TABLE `undo_log` ENABLE KEYS */;
