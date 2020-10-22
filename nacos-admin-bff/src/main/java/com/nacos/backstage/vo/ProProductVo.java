@@ -42,6 +42,12 @@ public class ProProductVo {
     @ApiModelProperty(value = "分类id", name = "typeId")
     private Integer typeId;
 
+    /**
+     * 分类id
+     */
+    @ApiModelProperty(value = "分类id", name = "typeName")
+    private String typeName;
+
    /**
     * 标题
     */
@@ -90,17 +96,35 @@ public class ProProductVo {
     @ApiModelProperty(value = "是否会员打折", name = "discountSts")
     private Integer discountSts;
 
+    /**
+     * 是否会员打折
+     */
+    @ApiModelProperty(value = "是否会员打折", name = "discountStsStr")
+    private String discountStsStr;
+
    /**
     * 是否积分兑换
     */
     @ApiModelProperty(value = "是否积分兑换", name = "integralSts")
     private Integer integralSts;
 
+    /**
+     * 是否积分兑换
+     */
+    @ApiModelProperty(value = "是否积分兑换", name = "integralStsStr")
+    private String integralStsStr;
+
    /**
     * 产品状态
     */
     @ApiModelProperty(value = "产品状态", name = "state")
     private Integer state;
+
+    /**
+     * 产品状态
+     */
+    @ApiModelProperty(value = "产品状态", name = "stateStr")
+    private String stateStr;
 
    /**
     * 运费方式

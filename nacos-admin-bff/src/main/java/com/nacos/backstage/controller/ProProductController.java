@@ -6,11 +6,17 @@ import com.nacos.common.util.DateUtil;
 import com.nacos.common.util.ServiceResponse;
 import com.nacos.common.annotation.Log;
 import com.nacos.product.IProProductService;
+import com.nacos.product.IProProductTypeService;
 import com.nacos.product.dto.ProProduct;
 import com.nacos.product.request.ProProductRequest;
 import com.nacos.backstage.vo.ProProductVo;
+import com.nacos.product.request.ProProductTypeRequest;
+import com.nacos.system.IProEnumService;
+import com.nacos.system.request.ProEnumRequest;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import java.util.HashMap;
+import java.util.Map;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -38,6 +44,12 @@ public class ProProductController {
     @Autowired
     IProProductService proProductService;
 
+    @Autowired
+    IProEnumService proEnumService;
+
+    @Autowired
+    IProProductTypeService proProductTypeService;
+
     @PostMapping(value = "/getPageList")
     @ApiOperation(value = "分页查询列表")
     @Log(name = "产品管理", value = "分页查询列表", source = "admin-app")
@@ -46,6 +58,7 @@ public class ProProductController {
     public ServiceResponse<List<ProProductVo>> getPageList(@RequestBody ProProductRequest request) {
       return new ServiceResponse<List<ProProductVo>>()
           .run(serviceResponse -> {
+
               // 获取调用服务返回结果 通过返回结果 进行业务判断 以及 手动控制 分布式事务回滚
               List<ProProduct> resultList = proProductService.getPageList(new ProParameter<>(request)
                   .setRequestPage(request))
@@ -53,11 +66,69 @@ public class ProProductController {
                   .copyPage(serviceResponse)
                   .getObj();
 
+              // 查询所有分类信息
+              Map<Integer, String> types = new HashMap<>();
+              List<Integer> ids = resultList.stream()
+                  .map(proProduct -> {
+                    return proProduct.getTypeId();
+                  })
+                  .distinct()
+                  .collect(Collectors.toList());
+
+              if (ids.size() > 0) {
+                ProProductTypeRequest proProductTypeRequest = new ProProductTypeRequest();
+                proProductTypeRequest.setTypeId(1);
+                proProductTypeRequest.setIds(ids);
+                proProductTypeService.findIdsList(new ProParameter<>(proProductTypeRequest))
+                    .checkState()
+                    .getObj()
+                    .forEach(proProductType -> {
+                      types.put(proProductType.getTypeId(), proProductType.getName());
+                    });
+              }
+
+              // 获取产品状态枚举
+              Map<Integer, String> productSts = new HashMap<>();
+              ProEnumRequest proEnumRequest = new ProEnumRequest();
+              proEnumRequest.setType("product_state");
+              proEnumService.getList(new ProParameter<>(proEnumRequest))
+                  .checkState()
+                  .getObj()
+                  .forEach(proEnum -> {
+                    productSts.put(Integer.valueOf(proEnum.getValuestr()), proEnum.getKeystr());
+                  });
+
+              // 获取知否打折枚举
+              Map<Integer, String> discountSts = new HashMap<>();
+              proEnumRequest = new ProEnumRequest();
+              proEnumRequest.setType("discount_sts");
+              proEnumService.getList(new ProParameter<>(proEnumRequest))
+                  .checkState()
+                  .getObj()
+                  .forEach(proEnum -> {
+                    discountSts.put(Integer.valueOf(proEnum.getValuestr()), proEnum.getKeystr());
+                  });
+
+              // 获取是否积分兑换枚举
+              Map<Integer, String> integralSts = new HashMap<>();
+              proEnumRequest = new ProEnumRequest();
+              proEnumRequest.setType("integral_sts");
+              proEnumService.getList(new ProParameter<>(proEnumRequest))
+                  .checkState()
+                  .getObj()
+                  .forEach(proEnum -> {
+                    integralSts.put(Integer.valueOf(proEnum.getValuestr()), proEnum.getKeystr());
+                  });
+
               // 组装vo 返回数据 也可以不组装直接返回原始数据
               List<ProProductVo> returnList = resultList.stream()
                 .map(proProduct -> {
                     ProProductVo proProductvo = new ProProductVo();
                     BeanUtils.copyProperties(proProduct,proProductvo);
+                    proProductvo.setTypeName(types.get(proProductvo.getTypeId()));
+                    proProductvo.setDiscountStsStr(discountSts.get(proProductvo.getDiscountSts()));
+                    proProductvo.setStateStr(productSts.get(proProductvo.getState()));
+                    proProductvo.setIntegralStsStr(integralSts.get(proProductvo.getIntegralSts()));
                     proProductvo.setCreateTime(DateUtil.getyyMMddHHmmss(proProduct.getCreateTime()));
                     proProductvo.setUpdateTime(DateUtil.getyyMMddHHmmss(proProduct.getUpdateTime()));
                     // vo.set 格式化一些特定的字段比如时间类型 自定义多种返回类型 应对视图层的需要
@@ -101,6 +172,7 @@ public class ProProductController {
       return new ServiceResponse<ProProductVo>()
           .beginTransaction()
           .run(serviceResponse -> {
+
               // 保存数据 开启事务标记 验证服务是否执行成功 失败回滚分布式事务
               ProProduct proProduct = proProductService
                   .save(new ProParameter<>(request))
@@ -170,7 +242,6 @@ public class ProProductController {
       return new ServiceResponse<Integer>()
           .beginTransaction()
           .run(serviceResponse -> {
-
               // 获取调用服务返回结果 通过返回结果 进行业务判断 以及 手动控制 分布式事务回滚
               return proProductService
                   .update(new ProParameter<>(request))

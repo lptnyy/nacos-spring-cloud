@@ -1,5 +1,6 @@
 package com.nacos.backstage.controller;
 import com.alibaba.csp.sentinel.annotation.SentinelResource;
+import com.nacos.backstage.vo.ProductTypeSelectVo;
 import com.nacos.common.annotation.Authority;
 import com.nacos.common.method.ProParameter;
 import com.nacos.common.util.DateUtil;
@@ -100,40 +101,81 @@ public class ProProductTypeController {
           .exec();
     }
 
-  @PostMapping(value = "/getList")
-  @ApiOperation(value = "分页查询列表")
-  @Log(name = "产品分类 ", value = "分页查询列表", source = "admin-app")
-  @SentinelResource(value = "proProductType/getList")
-  public ServiceResponse<List<ProProductTypeVo>> getList(@RequestBody ProProductTypeRequest request) {
-    return new ServiceResponse<List<ProProductTypeVo>>()
-        .run(serviceResponse -> {
+    @PostMapping(value = "/getList")
+    @ApiOperation(value = "分页查询列表")
+    @Log(name = "产品分类 ", value = "分页查询列表", source = "admin-app")
+    @SentinelResource(value = "proProductType/getList")
+    public ServiceResponse<List<ProProductTypeVo>> getList(@RequestBody ProProductTypeRequest request) {
+      return new ServiceResponse<List<ProProductTypeVo>>()
+          .run(serviceResponse -> {
 
-          // 获取调用服务返回结果 通过返回结果 进行业务判断 以及 手动控制 分布式事务回滚
-          List<ProProductType> resultList = proProductTypeService.getList(new ProParameter<>(request))
-              .checkState()
-              .getObj();
+            // 获取调用服务返回结果 通过返回结果 进行业务判断 以及 手动控制 分布式事务回滚
+            List<ProProductType> resultList = proProductTypeService.getList(new ProParameter<>(request))
+                .checkState()
+                .getObj();
 
-          // 组装vo 返回数据 也可以不组装直接返回原始数据
-          List<ProProductTypeVo> returnList = resultList.stream()
-              .map(proProductType -> {
-                ProProductTypeVo proProductTypevo = new ProProductTypeVo();
-                BeanUtils.copyProperties(proProductType,proProductTypevo);
-                proProductTypevo.setCreateTime(DateUtil.getyyMMddHHmmss(proProductType.getCreateTime()));
-                // vo.set 格式化一些特定的字段比如时间类型 自定义多种返回类型 应对视图层的需要
-                return proProductTypevo;
-              })
-              .collect(Collectors.toList());
+            // 组装vo 返回数据 也可以不组装直接返回原始数据
+            List<ProProductTypeVo> returnList = resultList.stream()
+                .map(proProductType -> {
+                  ProProductTypeVo proProductTypevo = new ProProductTypeVo();
+                  BeanUtils.copyProperties(proProductType,proProductTypevo);
+                  proProductTypevo.setCreateTime(DateUtil.getyyMMddHHmmss(proProductType.getCreateTime()));
+                  // vo.set 格式化一些特定的字段比如时间类型 自定义多种返回类型 应对视图层的需要
+                  return proProductTypevo;
+                })
+                .collect(Collectors.toList());
 
-          List<ProProductTypeVo> asRetunList = new ArrayList<>();
-          ProProductTypeVo proProductTypeVo = new ProProductTypeVo();
-          proProductTypeVo.setTypeId(0);
-          proProductTypeVo.setName("根目录");
-          asRetunList.add(proProductTypeVo);
-          asRetunList.addAll(returnList);
-          return asRetunList;
-        })
-        .exec();
-  }
+            List<ProProductTypeVo> asRetunList = new ArrayList<>();
+            ProProductTypeVo proProductTypeVo = new ProProductTypeVo();
+            proProductTypeVo.setTypeId(0);
+            proProductTypeVo.setName("根目录");
+            asRetunList.add(proProductTypeVo);
+            asRetunList.addAll(returnList);
+            return asRetunList;
+          })
+          .exec();
+    }
+
+    @PostMapping(value = "/getTypes")
+    @ApiOperation(value = "获取单条信息")
+    @Log(name = "产品分类 ", value = "获取单条信息", source = "admin-app")
+    @SentinelResource(value = "proProductType/getTypes")
+    public ServiceResponse<List<ProductTypeSelectVo>> getTypes(@RequestBody ProProductTypeRequest request) {
+      return new ServiceResponse<List<ProductTypeSelectVo>>()
+          .run(serviceResponse -> {
+
+            // 获取调用服务返回结果 通过返回结果 进行业务判断 以及 手动控制 分布式事务回滚
+            List<ProProductType> proProductTypes = proProductTypeService
+                .getList(new ProParameter<>(request))
+                .checkState()
+                .getObj();
+
+            // 根据根目录 返回菜单项
+            List<ProductTypeSelectVo> resultList = proProductTypes.stream()
+                .filter(proProductType -> proProductType.getParentId().equals(0))
+                .map(proProductType -> {
+                  ProductTypeSelectVo productTypeSelectVo = new ProductTypeSelectVo();
+                  productTypeSelectVo.setLabel(proProductType.getName());
+                  productTypeSelectVo.setId(proProductType.getTypeId());
+                  productTypeSelectVo.setExpand(false);
+                  List<ProductTypeSelectVo> childrens = proProductTypes.stream()
+                      .filter(proProductType1 -> !proProductType1.getParentId().equals(0))
+                      .filter(proProductType1 -> proProductType1.getParentId().equals(proProductType.getTypeId()))
+                      .map(proProductType1 -> {
+                        ProductTypeSelectVo productTypeSelectVo1 = new ProductTypeSelectVo();
+                        productTypeSelectVo1.setLabel(proProductType1.getName());
+                        productTypeSelectVo1.setId(proProductType1.getTypeId());
+                        productTypeSelectVo1.setExpand(false);
+                        return productTypeSelectVo1;
+                      }).collect(Collectors.toList());
+                  productTypeSelectVo.setChildren(childrens);
+                  return productTypeSelectVo;
+                })
+                .collect(Collectors.toList());
+            return resultList;
+          })
+          .exec();
+    }
 
     @PostMapping(value = "/get")
     @ApiOperation(value = "获取单条信息")

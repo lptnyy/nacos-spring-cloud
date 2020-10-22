@@ -1,5 +1,4 @@
 package com.nacos.backstage.vo;
-
 import java.util.List;
 import lombok.Data;
 
