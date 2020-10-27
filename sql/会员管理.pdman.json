@@ -824,7 +824,7 @@
               "name": "image",
               "type": "ShortString",
               "remark": "",
-              "chnname": "列表展示图片",
+              "chnname": "展示图片",
               "notNull": true
             },
             {
@@ -874,6 +874,12 @@
               "type": "Integer",
               "remark": "",
               "chnname": "运费方式"
+            },
+            {
+              "name": "follow_num",
+              "type": "Integer",
+              "remark": "",
+              "chnname": "关注数"
             },
             {
               "name": "sort",
@@ -1293,6 +1299,98 @@
             }
           ],
           "chnname": "产品表默认设置"
+        },
+        {
+          "title": "pro_product_audit",
+          "fields": [
+            {
+              "name": "audit_id",
+              "type": "Integer",
+              "remark": "",
+              "chnname": "审核id",
+              "pk": true,
+              "notNull": true,
+              "autoIncrement": true
+            },
+            {
+              "name": "product_id",
+              "type": "Integer",
+              "remark": "",
+              "chnname": "产品id"
+            },
+            {
+              "name": "state",
+              "type": "Integer",
+              "remark": "",
+              "chnname": "审核状态"
+            },
+            {
+              "name": "message",
+              "type": "DefaultString",
+              "remark": "",
+              "chnname": "消息"
+            },
+            {
+              "name": "create_time",
+              "type": "DateTime",
+              "remark": "",
+              "chnname": "创建时间"
+            },
+            {
+              "name": "audit_time",
+              "type": "DateTime",
+              "remark": "",
+              "chnname": "审核时间"
+            }
+          ],
+          "indexs": [],
+          "headers": [
+            {
+              "fieldName": "chnname",
+              "relationNoShow": false
+            },
+            {
+              "fieldName": "name",
+              "relationNoShow": false
+            },
+            {
+              "fieldName": "type",
+              "relationNoShow": false
+            },
+            {
+              "fieldName": "dataType",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "remark",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "pk",
+              "relationNoShow": false
+            },
+            {
+              "fieldName": "notNull",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "autoIncrement",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "defaultValue",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "relationNoShow",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "uiHint",
+              "relationNoShow": true
+            }
+          ],
+          "chnname": "产品审核表"
         }
       ],
       "graphCanvas": {
@@ -1317,9 +1415,17 @@
             "shape": "table",
             "title": "pro_product_type",
             "moduleName": false,
-            "x": -100,
+            "x": -150,
             "y": 230,
             "id": "f78b1501"
+          },
+          {
+            "shape": "table",
+            "title": "pro_product_audit",
+            "moduleName": false,
+            "x": -160,
+            "y": 20,
+            "id": "06330cf7"
           }
         ],
         "edges": [
@@ -1336,7 +1442,7 @@
               },
               {
                 "x": 394.4443359375,
-                "y": 22.101351351351354
+                "y": 12.096153846153847
               }
             ],
             "sourceAnchor": 0,
@@ -1351,15 +1457,34 @@
             "controlPoints": [
               {
                 "x": 105.5556640625,
-                "y": 62.20945945945945
+                "y": 52.19871794871794
               },
               {
-                "x": 27.44921875,
+                "x": -22.55078125,
                 "y": 182.22058823529412
               }
             ],
             "sourceAnchor": 4,
             "targetAnchor": 1
+          },
+          {
+            "shape": "erdRelation",
+            "relation": "0,n:1",
+            "source": "06330cf7",
+            "target": "79a2f98f",
+            "id": "7e4144d6",
+            "controlPoints": [
+              {
+                "x": -35.890625,
+                "y": 2.38333333333334
+              },
+              {
+                "x": 105.5556640625,
+                "y": 12.096153846153847
+              }
+            ],
+            "sourceAnchor": 3,
+            "targetAnchor": 0
           }
         ]
       },
@@ -1385,18 +1510,477 @@
             "entity": "pro_product_type",
             "field": "type_id"
           }
+        },
+        {
+          "relation": "0,n:1",
+          "from": {
+            "entity": "pro_product_audit",
+            "field": "product_id"
+          },
+          "to": {
+            "entity": "pro_product",
+            "field": "product_id"
+          }
         }
       ]
     },
     {
-      "name": "pro_enterprise",
-      "chnname": "企业管理",
-      "entities": [],
+      "name": "pro_business",
+      "chnname": "商家管理",
+      "entities": [
+        {
+          "title": "pro_business",
+          "fields": [
+            {
+              "name": "business_id",
+              "type": "Integer",
+              "remark": "",
+              "chnname": "商家id",
+              "autoIncrement": true,
+              "pk": true,
+              "notNull": true
+            },
+            {
+              "name": "name",
+              "type": "DefaultString",
+              "remark": "",
+              "chnname": "商家名称"
+            },
+            {
+              "name": "abbreviation",
+              "type": "DefaultString",
+              "remark": "",
+              "chnname": "商家简称"
+            },
+            {
+              "name": "logo",
+              "type": "DefaultString",
+              "remark": "",
+              "chnname": "商家logo"
+            },
+            {
+              "name": "province",
+              "type": "DefaultString",
+              "remark": "",
+              "chnname": "省份"
+            },
+            {
+              "name": "city",
+              "type": "DefaultString",
+              "remark": "",
+              "chnname": "城市"
+            },
+            {
+              "name": "area",
+              "type": "DefaultString",
+              "remark": "",
+              "chnname": "区"
+            },
+            {
+              "name": "address",
+              "type": "DefaultString",
+              "remark": "",
+              "chnname": "地址"
+            },
+            {
+              "name": "longitude",
+              "type": "DefaultString",
+              "remark": "",
+              "chnname": "经度"
+            },
+            {
+              "name": "latitude",
+              "type": "DefaultString",
+              "remark": "",
+              "chnname": "维度"
+            },
+            {
+              "name": "introduce",
+              "type": "LongText",
+              "remark": "",
+              "chnname": "介绍"
+            },
+            {
+              "name": "type_id",
+              "type": "Integer",
+              "remark": "",
+              "chnname": "类型id"
+            },
+            {
+              "name": "state",
+              "type": "Integer",
+              "remark": "",
+              "chnname": "状态"
+            },
+            {
+              "name": "is_del",
+              "type": "Integer",
+              "remark": "",
+              "chnname": "删除标记"
+            },
+            {
+              "name": "imgs",
+              "type": "DefaultString",
+              "remark": "",
+              "chnname": "商家图库"
+            },
+            {
+              "name": "create_time",
+              "type": "DateTime",
+              "remark": "",
+              "chnname": "创建时间"
+            },
+            {
+              "name": "update_time",
+              "type": "DateTime",
+              "remark": "",
+              "chnname": "更新时间"
+            }
+          ],
+          "indexs": [],
+          "headers": [
+            {
+              "fieldName": "chnname",
+              "relationNoShow": false
+            },
+            {
+              "fieldName": "name",
+              "relationNoShow": false
+            },
+            {
+              "fieldName": "type",
+              "relationNoShow": false
+            },
+            {
+              "fieldName": "dataType",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "remark",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "pk",
+              "relationNoShow": false
+            },
+            {
+              "fieldName": "notNull",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "autoIncrement",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "defaultValue",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "relationNoShow",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "uiHint",
+              "relationNoShow": true
+            }
+          ],
+          "chnname": "商家信息表"
+        },
+        {
+          "title": "pro_business_type",
+          "fields": [
+            {
+              "name": "type_id",
+              "type": "Integer",
+              "remark": "",
+              "chnname": "类型id",
+              "pk": true,
+              "notNull": true,
+              "autoIncrement": true
+            },
+            {
+              "name": "name",
+              "type": "DefaultString",
+              "remark": "",
+              "chnname": "类型名称"
+            },
+            {
+              "name": "is_del",
+              "type": "Integer",
+              "remark": "",
+              "chnname": "删除标记"
+            },
+            {
+              "name": "create_time",
+              "type": "DateTime",
+              "remark": "",
+              "chnname": "创建时间"
+            }
+          ],
+          "indexs": [],
+          "headers": [
+            {
+              "fieldName": "chnname",
+              "relationNoShow": false
+            },
+            {
+              "fieldName": "name",
+              "relationNoShow": false
+            },
+            {
+              "fieldName": "type",
+              "relationNoShow": false
+            },
+            {
+              "fieldName": "dataType",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "remark",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "pk",
+              "relationNoShow": false
+            },
+            {
+              "fieldName": "notNull",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "autoIncrement",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "defaultValue",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "relationNoShow",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "uiHint",
+              "relationNoShow": true
+            }
+          ],
+          "chnname": "商家类型"
+        },
+        {
+          "title": "pro_business_audit",
+          "fields": [
+            {
+              "name": "audit_id",
+              "type": "Integer",
+              "remark": "",
+              "chnname": "审核id",
+              "pk": true,
+              "notNull": true,
+              "autoIncrement": true
+            },
+            {
+              "name": "business_id",
+              "type": "Integer",
+              "remark": "",
+              "chnname": "商户id"
+            },
+            {
+              "name": "name",
+              "type": "DefaultString",
+              "remark": "",
+              "chnname": "法人姓名"
+            },
+            {
+              "name": "id_number",
+              "type": "DefaultString",
+              "remark": "",
+              "chnname": "法人身份证号"
+            },
+            {
+              "name": "id_number_img",
+              "type": "DefaultString",
+              "remark": "",
+              "chnname": "法人正面图片"
+            },
+            {
+              "name": "business_license",
+              "type": "DefaultString",
+              "remark": "",
+              "chnname": "营业执照号码"
+            },
+            {
+              "name": "business_license_img",
+              "type": "DefaultString",
+              "remark": "",
+              "chnname": "营业执照图片"
+            },
+            {
+              "name": "state",
+              "type": "Integer",
+              "remark": "",
+              "chnname": "审核状态"
+            },
+            {
+              "name": "message",
+              "type": "DefaultString",
+              "remark": "",
+              "chnname": "审核消息"
+            },
+            {
+              "name": "create_time",
+              "type": "DateTime",
+              "remark": "",
+              "chnname": "创建时间"
+            },
+            {
+              "name": "audit_time",
+              "type": "DateTime",
+              "remark": "",
+              "chnname": "审核时间"
+            }
+          ],
+          "indexs": [],
+          "headers": [
+            {
+              "fieldName": "chnname",
+              "relationNoShow": false
+            },
+            {
+              "fieldName": "name",
+              "relationNoShow": false
+            },
+            {
+              "fieldName": "type",
+              "relationNoShow": false
+            },
+            {
+              "fieldName": "dataType",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "remark",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "pk",
+              "relationNoShow": false
+            },
+            {
+              "fieldName": "notNull",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "autoIncrement",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "defaultValue",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "relationNoShow",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "uiHint",
+              "relationNoShow": true
+            }
+          ],
+          "chnname": "商家审核表"
+        }
+      ],
       "graphCanvas": {
-        "nodes": [],
-        "edges": []
+        "nodes": [
+          {
+            "shape": "table",
+            "title": "pro_business",
+            "moduleName": false,
+            "x": 240,
+            "y": 240,
+            "id": "40fd2cd3"
+          },
+          {
+            "shape": "table",
+            "title": "pro_business_type",
+            "moduleName": false,
+            "x": 580,
+            "y": 130,
+            "id": "c3a4075a"
+          },
+          {
+            "shape": "table",
+            "title": "pro_business_audit",
+            "moduleName": false,
+            "x": -150,
+            "y": 200,
+            "id": "a52b4046"
+          }
+        ],
+        "edges": [
+          {
+            "shape": "erdRelation",
+            "relation": "0,n:1",
+            "source": "40fd2cd3",
+            "target": "c3a4075a",
+            "id": "1a3bb9f2",
+            "controlPoints": [
+              {
+                "x": 116.1357421875,
+                "y": 332.780303030303
+              },
+              {
+                "x": 455.890625,
+                "y": 122.41666666666667
+              }
+            ],
+            "sourceAnchor": 22,
+            "targetAnchor": 0
+          },
+          {
+            "shape": "erdRelation",
+            "relation": "0,n:1",
+            "source": "a52b4046",
+            "target": "40fd2cd3",
+            "id": "f35e4c89",
+            "controlPoints": [
+              {
+                "x": 13.4609375,
+                "y": 132.23000000000002
+              },
+              {
+                "x": 116.1357421875,
+                "y": 112.11363636363636
+              }
+            ],
+            "sourceAnchor": 3,
+            "targetAnchor": 0
+          }
+        ]
       },
-      "associations": []
+      "associations": [
+        {
+          "relation": "0,n:1",
+          "from": {
+            "entity": "pro_business",
+            "field": "type_id"
+          },
+          "to": {
+            "entity": "pro_business_type",
+            "field": "type_id"
+          }
+        },
+        {
+          "relation": "0,n:1",
+          "from": {
+            "entity": "pro_business_audit",
+            "field": "business_id"
+          },
+          "to": {
+            "entity": "pro_business",
+            "field": "business_id"
+          }
+        }
+      ]
     },
     {
       "name": "pro_order",

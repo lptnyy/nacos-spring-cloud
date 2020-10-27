@@ -62,6 +62,14 @@ public interface I${className}Service {
     ServiceResponse<Integer> update(@RequestBody ProParameter<${className}Request> proParameter);
 
     /**
+     * 批量修改数据
+     * @param proParameter
+     * @return
+     */
+     @RequestMapping(path = "/${className}/batchUpdate", method = RequestMethod.POST)
+     ServiceResponse<List<${className}>> batchUpdate(@RequestBody ProParameter<List<${className}Request>> proParameter)
+
+    /**
      * 保存数据
      * @param proParameter
      * @return

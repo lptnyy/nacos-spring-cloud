@@ -1,30 +1,30 @@
-package ${genpkg}.hystrix;
+package com.nacos.business.hystrix;
 import com.nacos.common.method.ProParameter;
 import com.nacos.common.util.ServiceResponse;
 import java.util.List;
 import java.lang.Integer;
 import org.springframework.stereotype.Component;
-import ${dtoClassPath};
-import ${requestClassPath};
-import ${serviceClassPath};
+import com.nacos.business.dto.ProBusinessType;
+import com.nacos.business.request.ProBusinessTypeRequest;
+import com.nacos.business.IProBusinessTypeService;
 
 /**
  * <p>
-    * ${tableComment}
+    * 商家类型
     * </p>
  *
  * @author 王振宇
- * @since ${generatorDate}
+ * @since 2020-10-27
  */
 @Component
 @SuppressWarnings("unchecked")
-public class ${className}ServiceHystrix implements I${className}Service {
+public class ProBusinessTypeServiceHystrix implements IProBusinessTypeService {
 
     /*
      * 获得单个信息
      * @return
      */
-    public ServiceResponse<${className}> get(ProParameter<${className}Request> proParameter) {
+    public ServiceResponse<ProBusinessType> get(ProParameter<ProBusinessTypeRequest> proParameter) {
         return ServiceResponse.getFAIL();
     }
 
@@ -32,7 +32,7 @@ public class ${className}ServiceHystrix implements I${className}Service {
      * 根据查询条件获取所有数据
      * @return
      */
-    public ServiceResponse<List<${className}>> getList(ProParameter<${className}Request> proParameter) {
+    public ServiceResponse<List<ProBusinessType>> getList(ProParameter<ProBusinessTypeRequest> proParameter) {
         return ServiceResponse.getFAIL();
     }
 
@@ -40,7 +40,7 @@ public class ${className}ServiceHystrix implements I${className}Service {
      * 分页查询所有数据
      * @return
      */
-    public ServiceResponse<List<${className}>> getPageList(ProParameter<${className}Request> proParameter) {
+    public ServiceResponse<List<ProBusinessType>> getPageList(ProParameter<ProBusinessTypeRequest> proParameter) {
         return ServiceResponse.getFAIL();
     }
 
@@ -48,7 +48,7 @@ public class ${className}ServiceHystrix implements I${className}Service {
      * ids数组In查询数据
      * @return
      */
-    public ServiceResponse<List<${className}>> findIdsList(ProParameter<${className}Request> proParameter) {
+    public ServiceResponse<List<ProBusinessType>> findIdsList(ProParameter<ProBusinessTypeRequest> proParameter) {
         return ServiceResponse.getFAIL();
     }
 
@@ -57,16 +57,13 @@ public class ${className}ServiceHystrix implements I${className}Service {
      * @param proParameter
      * @return
      */
-    public ServiceResponse<Integer> update(ProParameter<${className}Request> proParameter) {
+    public ServiceResponse<Integer> update(ProParameter<ProBusinessTypeRequest> proParameter) {
         return ServiceResponse.getFAIL();
     }
 
-    /**
-     * 批量修改数据
-     * @param proParameter
-     * @return
-     */
-    ServiceResponse<List<${className}>> batchUpdate(ProParameter<List<${className}Request>> proParameter) {
+    @Override
+    public ServiceResponse<List<ProBusinessType>> batchUpdate(
+        ProParameter<List<ProBusinessTypeRequest>> proParameter) {
         return ServiceResponse.getFAIL();
     }
 
@@ -75,7 +72,7 @@ public class ${className}ServiceHystrix implements I${className}Service {
      * @param proParameter
      * @return
      */
-    public ServiceResponse<${className}> save(ProParameter<${className}Request> proParameter) {
+    public ServiceResponse<ProBusinessType> save(ProParameter<ProBusinessTypeRequest> proParameter) {
         return ServiceResponse.getFAIL();
     }
 
@@ -84,7 +81,7 @@ public class ${className}ServiceHystrix implements I${className}Service {
      * @param proParameter
      * @return
      */
-    public ServiceResponse<Integer> delete(ProParameter<${className}Request> proParameter) {
+    public ServiceResponse<Integer> delete(ProParameter<ProBusinessTypeRequest> proParameter) {
         return ServiceResponse.getFAIL();
     }
 
@@ -93,7 +90,7 @@ public class ${className}ServiceHystrix implements I${className}Service {
      * @param proParameter
      * @return
      */
-    public ServiceResponse<Integer> idsDelete(ProParameter<${className}Request> proParameter) {
+    public ServiceResponse<Integer> idsDelete(ProParameter<ProBusinessTypeRequest> proParameter) {
         return ServiceResponse.getFAIL();
     }
 
@@ -102,7 +99,7 @@ public class ${className}ServiceHystrix implements I${className}Service {
      * @param proParameter
      * @return
      */
-     public ServiceResponse<List<${className}>> batchSave(ProParameter<List<${className}Request>> proParameter) {
+     public ServiceResponse<List<ProBusinessType>> batchSave(ProParameter<List<ProBusinessTypeRequest>> proParameter) {
          return ServiceResponse.getFAIL();
      }
 }

@@ -26,6 +26,8 @@
     <module>nacos-search-fegin</module>
       <module>nacos-product-server</module>
     <module>nacos-product-fegin</module>
+    <module>nacos-business-server</module>
+    <module>nacos-business-fegin</module>
   </modules>
   <properties>
     <mysql-connector-java.version>8.0.20</mysql-connector-java.version>

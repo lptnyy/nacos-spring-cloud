@@ -200,7 +200,7 @@ public class ${className}ServiceImpl implements I${className}Service {
        return new ServiceResponse<List<${className}>>()
             .beginTransaction()
             .run(serviceResponse -> {
-                List<${className}> roles = proParameter.getObj()
+                List<${className}> list = proParameter.getObj()
                    .stream()
                    .map(${smClassName}Request -> {
                        ${className} ${smClassName} = new ${className}();
@@ -208,7 +208,25 @@ public class ${className}ServiceImpl implements I${className}Service {
                        mapper.insert(${smClassName});
                        return ${smClassName};
                   }).collect(Collectors.toList());
-               return roles;
+               return list;
+            }).exec();
+     }
+
+    @Override
+    @Transactional
+    public ServiceResponse<List<${className}>> batchUpdate(ProParameter<List<${className}Request>> proParameter) {
+       return new ServiceResponse<List<${className}>>()
+            .beginTransaction()
+            .run(serviceResponse -> {
+                List<${className}> list = proParameter.getObj()
+                   .stream()
+                   .map(${smClassName}Request -> {
+                       ${className} ${smClassName} = new ${className}();
+                       BeanUtils.copyProperties(${smClassName}Request, ${smClassName});
+                       mapper.updateById(${smClassName});
+                       return ${smClassName};
+                  }).collect(Collectors.toList());
+               return list;
             }).exec();
      }
 
