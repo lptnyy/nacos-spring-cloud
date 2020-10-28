@@ -67,7 +67,7 @@ public interface I${className}Service {
      * @return
      */
      @RequestMapping(path = "/${className}/batchUpdate", method = RequestMethod.POST)
-     ServiceResponse<List<${className}>> batchUpdate(@RequestBody ProParameter<List<${className}Request>> proParameter)
+     ServiceResponse<List<${className}>> batchUpdate(@RequestBody ProParameter<List<${className}Request>> proParameter);
 
     /**
      * 保存数据

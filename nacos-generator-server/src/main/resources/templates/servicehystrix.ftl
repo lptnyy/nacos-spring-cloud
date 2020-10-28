@@ -66,7 +66,7 @@ public class ${className}ServiceHystrix implements I${className}Service {
      * @param proParameter
      * @return
      */
-    ServiceResponse<List<${className}>> batchUpdate(ProParameter<List<${className}Request>> proParameter) {
+    public ServiceResponse<List<${className}>> batchUpdate(ProParameter<List<${className}Request>> proParameter) {
         return ServiceResponse.getFAIL();
     }
 

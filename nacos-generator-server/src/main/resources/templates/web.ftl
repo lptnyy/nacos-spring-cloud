@@ -2,29 +2,29 @@
   <div>
     <Row>
       <Col span="24">
-        <Card :bordered="false">
+        <Card :bordered="false" class="cardDiv">
           <p slot="title">${tableComment}</p>
             <div class="search">
               <#list fields as field>
               <#if field.webSelectType == 'text'>
-              <Input class="input" v-model="${field.fieldName}" placeholder="${field.comment}"/>
+              <Input class="input floatDiv" v-model="${field.fieldName}" placeholder="${field.comment}"/>
               </#if>
               <#if field.webSelectType == 'select'>
-              <Select class="input" v-model="${field.fieldName}">
+              <Select class="input floatDiv" v-model="${field.fieldName}">
                 <Option value="0">需要编码</Option>
               </Select>
               </#if>
               <#if field.webSelectType == 'radio'>
-              <RadioGroup v-model="${field.fieldName}">
+              <RadioGroup class="input floatDiv" v-model="${field.fieldName}">
                 <Radio label="需要编码" disabled></Radio>
                 <Radio label="需要编码"></Radio>
               </RadioGroup>
               </#if>
               <#if field.webSelectType == 'time'>
-              <DatePicker v-model="${field.fieldName}" type="date" placeholder="${field.comment}"></DatePicker>
+              <DatePicker class="input floatDiv" v-model="${field.fieldName}" type="date" placeholder="${field.comment}"></DatePicker>
               </#if>
               <#if field.webSelectType == 'timeyyyymmdd'>
-              <DatePicker type="datetime" v-model="${field.fieldName}" placeholder="${field.comment}"></DatePicker>
+              <DatePicker class="input floatDiv" type="datetime" v-model="${field.fieldName}" placeholder="${field.comment}"></DatePicker>
               </#if>
               </#list>
               <Button class="add_button" @click="search" :disabled="!isRetrieve">查询</Button>
@@ -32,7 +32,7 @@
               <Button class="add_button" :disabled="!isDelete" @click="deleteBathBtnClick" type="warning">删除</Button>
               <Button class="add_button" :disabled="!isCreate" @click="addBtnClick" type="primary">添加</Button>
             </div>
-            <Table border @on-selection-change="tableOnSelect" ref="selection" :columns="columns" :data="tableData"></Table>
+            <Table class="tableDiv" border @on-selection-change="tableOnSelect" ref="selection" :columns="columns" :data="tableData"></Table>
             <Page class="page" @on-page-size-change="onPageSizeChange" show-total show-sizer @on-change="tableOnChange" :total="total" show-elevator />
         </Card>
       </Col>
@@ -325,10 +325,19 @@ export default {
 .search {
     margin-top: 10px;
     margin-bottom: 10px;
-    .input{
-        width: 150px;
-        margin-right: 10px;
+    .input {
+      width: 150px;
+      margin-right: 10px;
     }
+    .floatDiv {
+      float: left;
+    }
+}
+.cardDiv {
+  width: 100%;
+}
+.tableDiv {
+  width: 100%;
 }
 .add_button {
     margin-left: 10px;

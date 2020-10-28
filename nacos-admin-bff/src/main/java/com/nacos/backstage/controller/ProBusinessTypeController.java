@@ -70,6 +70,36 @@ public class ProBusinessTypeController {
           .exec();
     }
 
+    @PostMapping(value = "/getList")
+    @ApiOperation(value = "分页查询列表")
+    @Log(name = "商家类型 ", value = "查询列表", source = "admin-app")
+    @Authority(values = {"business_type_select"})
+    @SentinelResource(value = "proBusinessType/getList")
+    public ServiceResponse<List<ProBusinessTypeVo>> getList(@RequestBody ProBusinessTypeRequest request) {
+      return new ServiceResponse<List<ProBusinessTypeVo>>()
+          .run(serviceResponse -> {
+
+            // 获取调用服务返回结果 通过返回结果 进行业务判断 以及 手动控制 分布式事务回滚
+            request.setIsDel(0);
+            List<ProBusinessType> resultList = proBusinessTypeService.getList(new ProParameter<>(request))
+                .checkState()
+                .getObj();
+
+            // 组装vo 返回数据 也可以不组装直接返回原始数据
+            List<ProBusinessTypeVo> returnList = resultList.stream()
+                .map(proBusinessType -> {
+                  ProBusinessTypeVo proBusinessTypevo = new ProBusinessTypeVo();
+                  BeanUtils.copyProperties(proBusinessType,proBusinessTypevo);
+                  proBusinessTypevo.setCreateTime(DateUtil.getyyMMddHHmmss(proBusinessType.getCreateTime()));
+                  // vo.set 格式化一些特定的字段比如时间类型 自定义多种返回类型 应对视图层的需要
+                  return proBusinessTypevo;
+                })
+                .collect(Collectors.toList());
+            return returnList;
+          })
+          .exec();
+    }
+
     @PostMapping(value = "/get")
     @ApiOperation(value = "获取单条信息")
     @Log(name = "商家类型 ", value = "获取单条信息", source = "admin-app")

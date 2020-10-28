@@ -1625,6 +1625,18 @@
               "chnname": "商家图库"
             },
             {
+              "name": "user_name",
+              "type": "DefaultString",
+              "remark": "",
+              "chnname": "账号"
+            },
+            {
+              "name": "password",
+              "type": "DefaultString",
+              "remark": "",
+              "chnname": "密码"
+            },
+            {
               "name": "create_time",
               "type": "DateTime",
               "remark": "",
