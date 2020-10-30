@@ -53,18 +53,21 @@ public class ProBusinessVo {
     */
     @ApiModelProperty(value = "省份", name = "province")
     private String province;
+    private String provinceName;
 
    /**
     * 城市
     */
     @ApiModelProperty(value = "城市", name = "city")
     private String city;
+    private String cityName;
 
    /**
     * 区
     */
     @ApiModelProperty(value = "区", name = "area")
     private String area;
+    private String areaName;
 
    /**
     * 地址
@@ -95,12 +98,14 @@ public class ProBusinessVo {
     */
     @ApiModelProperty(value = "类型id", name = "typeId")
     private Integer typeId;
+    private String typeName;
 
    /**
     * 状态
     */
     @ApiModelProperty(value = "状态", name = "state")
     private Integer state;
+    private String stateName;
 
    /**
     * 商家图库

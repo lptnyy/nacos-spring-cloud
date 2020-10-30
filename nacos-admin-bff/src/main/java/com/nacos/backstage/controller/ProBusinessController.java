@@ -1,5 +1,7 @@
 package com.nacos.backstage.controller;
 import com.alibaba.csp.sentinel.annotation.SentinelResource;
+import com.nacos.business.IProBusinessTypeService;
+import com.nacos.business.request.ProBusinessTypeRequest;
 import com.nacos.common.annotation.Authority;
 import com.nacos.common.method.ProParameter;
 import com.nacos.common.util.DateUtil;
@@ -9,9 +11,21 @@ import com.nacos.business.IProBusinessService;
 import com.nacos.business.dto.ProBusiness;
 import com.nacos.business.request.ProBusinessRequest;
 import com.nacos.backstage.vo.ProBusinessVo;
+import com.nacos.common.util.ServicesCountDown;
+import com.nacos.system.IProAreaService;
+import com.nacos.system.IProCityService;
+import com.nacos.system.IProEnumService;
+import com.nacos.system.IProProvinceService;
+import com.nacos.system.dto.ProEnum;
+import com.nacos.system.request.ProAreaRequest;
+import com.nacos.system.request.ProCityRequest;
+import com.nacos.system.request.ProEnumRequest;
+import com.nacos.system.request.ProProvinceRequest;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -39,6 +53,21 @@ public class ProBusinessController {
     @Autowired
     IProBusinessService proBusinessService;
 
+    @Autowired
+    IProProvinceService proProvinceService;
+
+    @Autowired
+    IProCityService proCityService;
+
+    @Autowired
+    IProAreaService proAreaService;
+
+    @Autowired
+    IProBusinessTypeService proBusinessTypeService;
+
+    @Autowired
+    IProEnumService proEnumService;
+
     @PostMapping(value = "/getPageList")
     @ApiOperation(value = "分页查询列表")
     @Log(name = "商家信息表 ", value = "分页查询列表", source = "admin-app")
@@ -55,11 +84,88 @@ public class ProBusinessController {
                   .copyPage(serviceResponse)
                   .getObj();
 
+            // 并行调用接口返回数据 key 就是asName
+              Map<String,Map<String,String>> runsResult = new ServicesCountDown<Map<String,String>>()
+                  .addRun("provinces", ()->{
+                      // 获取省市区信息
+                      ProProvinceRequest proProvinceRequest = new ProProvinceRequest();
+                      Map<String,String> provinces = new HashMap<>();
+                      proProvinceService
+                          .getList(new ProParameter<>(proProvinceRequest))
+                          .checkState()
+                          .getObj()
+                          .forEach(proProvince -> {
+                            provinces.put(proProvince.getProvinceId(),proProvince.getName());
+                          });
+                      return provinces;
+                  })
+                  .addRun("city", ()-> {
+                      ProCityRequest proCityRequest = new ProCityRequest();
+                      Map<String,String> citys = new HashMap<>();
+                      proCityService
+                          .getList(new ProParameter<>(proCityRequest))
+                          .checkState()
+                          .getObj()
+                          .forEach(proCity -> {
+                            citys.put(proCity.getCityId(),proCity.getName());
+                          });
+                      return citys;
+                  })
+                  .addRun("area", ()-> {
+                      ProAreaRequest proAreaRequest = new ProAreaRequest();
+                      Map<String,String> areas = new HashMap<>();
+                      proAreaService
+                          .getList(new ProParameter<>(proAreaRequest))
+                          .checkState()
+                          .getObj()
+                          .forEach(proArea -> {
+                            areas.put(proArea.getAreaId(),proArea.getName());
+                          });
+                      return areas;
+                  }).addRun("types",()-> {
+                      ProBusinessTypeRequest businessTypeRequest = new ProBusinessTypeRequest();
+                      businessTypeRequest.setIsDel(0);
+                      Map<String,String> types = new HashMap<>();
+                      proBusinessTypeService
+                          .getList(new ProParameter<>(businessTypeRequest))
+                          .checkState()
+                          .getObj()
+                          .forEach(proBusinessType -> {
+                            types.put(proBusinessType.getTypeId().toString(),proBusinessType.getName());
+                          });
+                      return types;
+                  }).addRun("enum", ()-> {
+                      ProEnumRequest proEnumRequest = new ProEnumRequest();
+                      proEnumRequest.setType("business_state");
+                      ServiceResponse<List<ProEnum>> enumResponse = proEnumService.getList(new ProParameter<>(proEnumRequest));
+                      enumResponse.checkState();
+                      Map<String,String> enumMaps = new HashMap<>();
+                      enumResponse.getObj().forEach(proEnum -> {
+                        enumMaps.put(proEnum.getValuestr(),proEnum.getKeystr());
+                      });
+                      return enumMaps;
+                  })
+                  .runs()
+                  .checkValues() // 验证返回数据
+                  .reusltValues();
+
+              // 获取并行调用返回的结果
+              Map<String,String> provinces = runsResult.get("provinces");
+              Map<String,String> city = runsResult.get("city");
+              Map<String,String> area = runsResult.get("area");
+              Map<String,String> types = runsResult.get("types");
+              Map<String,String> enums = runsResult.get("enum");
+
               // 组装vo 返回数据 也可以不组装直接返回原始数据
               List<ProBusinessVo> returnList = resultList.stream()
                 .map(proBusiness -> {
                     ProBusinessVo proBusinessvo = new ProBusinessVo();
                     BeanUtils.copyProperties(proBusiness,proBusinessvo);
+                    proBusinessvo.setProvinceName(provinces.get(proBusiness.getProvince()));
+                    proBusinessvo.setCityName(city.get(proBusiness.getCity()));
+                    proBusinessvo.setAreaName(area.get(proBusiness.getArea()));
+                    proBusinessvo.setTypeName(types.get(proBusiness.getTypeId().toString()));
+                    proBusinessvo.setStateName(enums.get(proBusiness.getState().toString()));
                     proBusinessvo.setCreateTime(DateUtil.getyyMMddHHmmss(proBusiness.getCreateTime()));
                     proBusinessvo.setUpdateTime(DateUtil.getyyMMddHHmmss(proBusiness.getUpdateTime()));
                     // vo.set 格式化一些特定的字段比如时间类型 自定义多种返回类型 应对视图层的需要
