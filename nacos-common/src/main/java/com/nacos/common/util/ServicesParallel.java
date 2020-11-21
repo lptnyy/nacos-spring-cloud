@@ -9,7 +9,11 @@ import java.util.concurrent.Future;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
-public class ServicesThreadLocal<T> {
+/**
+ * 并行调用接口
+ * @param <T>
+ */
+public class ServicesParallel<T> {
   Map<String,T> reusltMps = new HashMap<>();
   HashMap<String,ServiceThread<T>> runs = new HashMap<>();
   static final int nThreads = Runtime.getRuntime().availableProcessors();
@@ -22,12 +26,12 @@ public class ServicesThreadLocal<T> {
    * @param threadSize
    * @return
    */
-  public ServicesThreadLocal<T> init(int threadSize){
+  public ServicesParallel<T> init(int threadSize){
     pool = Executors.newFixedThreadPool(threadSize);
     return this;
   }
 
-  public ServicesThreadLocal<T> runs() throws InterruptedException {
+  public ServicesParallel<T> runs() throws InterruptedException {
     if (pool == null) {
       pool = Executors.newFixedThreadPool(nThreads);
     }
@@ -58,7 +62,7 @@ public class ServicesThreadLocal<T> {
     }
   }
 
-  public ServicesThreadLocal<T> addRun(String asName, ThreadRun<T> threadRun) {
+  public ServicesParallel<T> addRun(String asName, ThreadRun<T> threadRun) {
     runs.put(asName,new ServiceThread<T>().setRun(threadRun, getHttpServletRequest()));
     return this;
   }
@@ -67,7 +71,7 @@ public class ServicesThreadLocal<T> {
    * 验证返回数据 如果有null值 直接抛出异常
    * @return
    */
-  public ServicesThreadLocal<T> checkValues() throws Exception {
+  public ServicesParallel<T> checkValues() throws Exception {
     for(Object result: reusltMps.values()) {
       if (result == null) {
         throw new Exception("返回的数据有null值");

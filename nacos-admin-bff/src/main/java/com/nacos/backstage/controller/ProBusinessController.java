@@ -11,7 +11,7 @@ import com.nacos.business.IProBusinessService;
 import com.nacos.business.dto.ProBusiness;
 import com.nacos.business.request.ProBusinessRequest;
 import com.nacos.backstage.vo.ProBusinessVo;
-import com.nacos.common.util.ServicesThreadLocal;
+import com.nacos.common.util.ServicesParallel;
 import com.nacos.system.IProAreaService;
 import com.nacos.system.IProCityService;
 import com.nacos.system.IProEnumService;
@@ -85,7 +85,7 @@ public class ProBusinessController {
                   .getObj();
 
             // 并行调用接口返回数据 key 就是asName
-              Map<String,Map<String,String>> runsResult = new ServicesThreadLocal<Map<String,String>>()
+              Map<String,Map<String,String>> runsResult = new ServicesParallel<Map<String,String>>()
                   .addRun("provinces", ()->{
                       // 获取省市区信息
                       ProProvinceRequest proProvinceRequest = new ProProvinceRequest();

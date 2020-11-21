@@ -83,7 +83,7 @@ public class ProAferConfiguration implements ProAfter {
             }
             return result;
         } catch (Throwable throwable) {
-            return ServiceResponse.getAuthFAIL();
+            return ServiceResponse.getFAIL();
         }
     }
 }
