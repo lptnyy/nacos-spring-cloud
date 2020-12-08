@@ -5,9 +5,12 @@ import com.nacos.common.method.ProParameter;
 import com.nacos.common.util.DateUtil;
 import com.nacos.common.util.ServiceResponse;
 import com.nacos.common.annotation.Log;
+import com.nacos.product.IProProductInfoService;
 import com.nacos.product.IProProductService;
 import com.nacos.product.IProProductTypeService;
 import com.nacos.product.dto.ProProduct;
+import com.nacos.product.dto.ProProductInfo;
+import com.nacos.product.request.ProProductInfoRequest;
 import com.nacos.product.request.ProProductRequest;
 import com.nacos.backstage.vo.ProProductVo;
 import com.nacos.product.request.ProProductTypeRequest;
@@ -43,6 +46,9 @@ public class ProProductController {
 
     @Autowired
     IProProductService proProductService;
+
+    @Autowired
+    IProProductInfoService proProductInfoService;
 
     @Autowired
     IProEnumService proEnumService;
@@ -113,6 +119,7 @@ public class ProProductController {
               Map<Integer, String> integralSts = new HashMap<>();
               proEnumRequest = new ProEnumRequest();
               proEnumRequest.setType("integral_sts");
+
               proEnumService.getList(new ProParameter<>(proEnumRequest))
                   .checkState()
                   .getObj()
@@ -154,8 +161,17 @@ public class ProProductController {
                   .checkState()
                   .getObj();
 
+              // 获取详情信息
+              ProProductInfoRequest proProductInfoRequest = new ProProductInfoRequest();
+              proProductInfoRequest.setProductId(proProduct.getProductId());
+              ProProductInfo proProductInfo = proProductInfoService.get(new ProParameter<>(proProductInfoRequest))
+                  .checkState()
+                  .getObj();
+
               // 组装返回的vo
               ProProductVo proProductVo = new ProProductVo();
+              proProductVo.setIntroduce(proProductInfo.getIntroduce());
+              proProductVo.setImages(proProductInfo.getImgs());
               BeanUtils.copyProperties(proProduct,proProductVo);
               return proProductVo;
           })
@@ -180,7 +196,15 @@ public class ProProductController {
                   .checkState()
                   .getObj();
 
-              // 获取返回数据
+              // 保存详情数据
+              ProProductInfoRequest proProductInfoRequest = new ProProductInfoRequest();
+              proProductInfoRequest.setImgs(request.getImages());
+              proProductInfoRequest.setProductId(proProduct.getProductId());
+              proProductInfoRequest.setIntroduce(request.getIntroduce());
+              proProductInfoService.save(new ProParameter<>(proProductInfoRequest))
+                  .checkState();
+
+              // 获取返回数据9
               ProProductVo proProductVo = new ProProductVo();
               BeanUtils.copyProperties(proProduct,proProductVo);
               return proProductVo;
@@ -222,6 +246,7 @@ public class ProProductController {
       return new ServiceResponse<Integer>()
           .beginTransaction()
           .run(serviceResponse -> {
+
               // 获取调用服务返回结果 通过返回结果 进行业务判断 以及 手动控制 分布式事务回滚
               return proProductService
                   .delete(new ProParameter<>(request))
@@ -242,13 +267,46 @@ public class ProProductController {
       return new ServiceResponse<Integer>()
           .beginTransaction()
           .run(serviceResponse -> {
+
               // 获取调用服务返回结果 通过返回结果 进行业务判断 以及 手动控制 分布式事务回滚
-              return proProductService
+              Integer resultNum = proProductService
                   .update(new ProParameter<>(request))
                   .beginTransaction()
                   .checkState()
                   .getObj();
+
+              // 保存详情数据
+              ProProductInfoRequest proProductInfoRequest = new ProProductInfoRequest();
+              proProductInfoRequest.setImgs(request.getImages());
+              proProductInfoRequest.setProductId(request.getProductId());
+              proProductInfoRequest.setIntroduce(request.getIntroduce());
+              proProductInfoService.update(new ProParameter<>(proProductInfoRequest))
+                  .checkState();
+
+              return resultNum;
           })
           .exec();
     }
+
+  @PostMapping(value = "/updateState")
+  @ApiOperation(value = "修改")
+  @Log(name = "产品管理", value = "修改", source = "admin-app")
+  @Authority(values = {"product_update"})
+  @SentinelResource(value = "proProduct/updateState")
+  @GlobalTransactional
+  public ServiceResponse<Integer> updateState(@RequestBody ProProductRequest request) {
+    return new ServiceResponse<Integer>()
+        .beginTransaction()
+        .run(serviceResponse -> {
+
+          // 获取调用服务返回结果 通过返回结果 进行业务判断 以及 手动控制 分布式事务回滚
+          Integer resultNum = proProductService
+              .update(new ProParameter<>(request))
+              .beginTransaction()
+              .checkState()
+              .getObj();
+          return resultNum;
+        })
+        .exec();
+  }
 }

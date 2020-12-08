@@ -58,7 +58,7 @@
 
 <script>
 import Tables from '_c/tables'
-import { get${className}PageList, delete${className}, update${className}, save${className}, ids${className}Delete } from '@/api/${smClassName}'
+import { get${className}PageList, delete${className}, update${className}, save${className}, ids${className}Delete, get${className}Info } from '@/api/${smClassName}'
 import userStore from '@/store/module/user'
 
 export default {
@@ -191,18 +191,38 @@ export default {
     infoBtnClick (index) {
       this.title = '编辑${tableComment}'
       let tableRow = this.tableData[index]
+      var params = {}
       <#list fields as field>
-      this.formInline.${field.fieldName} = tableRow.${field.fieldName}<#if field.type == "Integer"> + ''</#if>
+        <#if field.columnKey == "pri">
+      params.${field.fieldName} = tableRow.${field.fieldName}
+        </#if>
       </#list>
+      get${className}Info(params)
+        .then(res => {
+          tableRow = res.data.obj
+          <#list fields as field>
+          this.formInline.${field.fieldName} = tableRow.${field.fieldName}<#if field.type == "Integer"> + ''</#if>
+          </#list>
+        })
       this.addFlag = true
       this.disabled = true
     },
     editBtnClick (index) {
       this.title = '编辑${tableComment}'
       let tableRow = this.tableData[index]
+      var params = {}
       <#list fields as field>
-      this.formInline.${field.fieldName} = tableRow.${field.fieldName}<#if field.type == "Integer"> + ''</#if>
+        <#if field.columnKey == "pri">
+      params.${field.fieldName} = tableRow.${field.fieldName}
+        </#if>
       </#list>
+      get${className}Info(params)
+        .then(res => {
+          tableRow = res.data.obj
+          <#list fields as field>
+          this.formInline.${field.fieldName} = tableRow.${field.fieldName}<#if field.type == "Integer"> + ''</#if>
+          </#list>
+        })
       this.addFlag = true
       this.disabled = false
     },

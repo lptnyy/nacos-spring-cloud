@@ -1,4 +1,5 @@
 package com.nacos.backstage.vo;
+import com.nacos.product.dto.ProProductInfo;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
@@ -155,4 +156,14 @@ public class ProProductVo {
     */
     @ApiModelProperty(value = "in 查询操作 批量删除", name = "ids")
     private List<Integer> ids;
+
+    /**
+     * 产品介绍
+     */
+    private String introduce;
+
+    /**
+     * 产品图片库
+     */
+    private String images;
 }

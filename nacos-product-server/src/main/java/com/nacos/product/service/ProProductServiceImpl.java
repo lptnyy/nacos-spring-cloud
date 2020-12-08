@@ -41,8 +41,8 @@ public class ProProductServiceImpl implements IProProductService {
               if(request.getProductId() != null){
                 lambdaQueryWrapper.eq(ProProduct::getProductId,request.getProductId());
               }
-              if(request.getEnterpriseId() != null){
-                lambdaQueryWrapper.eq(ProProduct::getEnterpriseId,request.getEnterpriseId());
+              if(request.getBusinessId() != null){
+                lambdaQueryWrapper.eq(ProProduct::getBusinessId,request.getBusinessId());
               }
               if(request.getTypeId() != null){
                 lambdaQueryWrapper.eq(ProProduct::getTypeId,request.getTypeId());
@@ -102,8 +102,8 @@ public class ProProductServiceImpl implements IProProductService {
               if(request.getProductId() != null){
                 lambdaQueryWrapper.eq(ProProduct::getProductId,request.getProductId());
               }
-              if(request.getEnterpriseId() != null){
-                lambdaQueryWrapper.eq(ProProduct::getEnterpriseId,request.getEnterpriseId());
+              if(request.getBusinessId() != null){
+                lambdaQueryWrapper.eq(ProProduct::getBusinessId,request.getBusinessId());
               }
               if(request.getTypeId() != null){
                 lambdaQueryWrapper.eq(ProProduct::getTypeId,request.getTypeId());
@@ -165,8 +165,8 @@ public class ProProductServiceImpl implements IProProductService {
               if(request.getProductId() != null){
                 lambdaQueryWrapper.eq(ProProduct::getProductId,request.getProductId());
               }
-              if(request.getEnterpriseId() != null){
-                lambdaQueryWrapper.eq(ProProduct::getEnterpriseId,request.getEnterpriseId());
+              if(request.getBusinessId() != null){
+                lambdaQueryWrapper.eq(ProProduct::getBusinessId,request.getBusinessId());
               }
               if(request.getTypeId() != null){
                 lambdaQueryWrapper.eq(ProProduct::getTypeId,request.getTypeId());
@@ -234,8 +234,8 @@ public class ProProductServiceImpl implements IProProductService {
             if(request.getProductId() != null){
                queryWrapper.in(ProProduct::getProductId,request.getIds());
             }
-            if(request.getEnterpriseId() != null){
-               queryWrapper.in(ProProduct::getEnterpriseId,request.getIds());
+            if(request.getBusinessId() != null){
+               queryWrapper.in(ProProduct::getBusinessId,request.getIds());
             }
             if(request.getTypeId() != null){
                queryWrapper.in(ProProduct::getTypeId,request.getIds());
@@ -342,8 +342,8 @@ public class ProProductServiceImpl implements IProProductService {
               if(request.getProductId() != null){
                 lambdaQueryWrapper.eq(ProProduct::getProductId,request.getProductId());
               }
-              if(request.getEnterpriseId() != null){
-                lambdaQueryWrapper.eq(ProProduct::getEnterpriseId,request.getEnterpriseId());
+              if(request.getBusinessId() != null){
+                lambdaQueryWrapper.eq(ProProduct::getBusinessId,request.getBusinessId());
               }
               if(request.getTypeId() != null){
                 lambdaQueryWrapper.eq(ProProduct::getTypeId,request.getTypeId());
@@ -405,8 +405,8 @@ public class ProProductServiceImpl implements IProProductService {
                if(request.getProductId() != null){
                   queryWrapper.in(ProProduct::getProductId,request.getIds());
                }
-               if(request.getEnterpriseId() != null){
-                  queryWrapper.in(ProProduct::getEnterpriseId,request.getIds());
+               if(request.getBusinessId() != null){
+                  queryWrapper.in(ProProduct::getBusinessId,request.getIds());
                }
                if(request.getTypeId() != null){
                   queryWrapper.in(ProProduct::getTypeId,request.getIds());

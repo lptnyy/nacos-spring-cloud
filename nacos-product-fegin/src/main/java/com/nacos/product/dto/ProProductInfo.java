@@ -1,6 +1,5 @@
 package com.nacos.product.dto;
 import java.io.Serializable;
-import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableName;
@@ -13,7 +12,7 @@ import java.util.Date;
 
 /**
  * <p>
-    * 产品详情 
+    * 产品详情
     * </p>
  *
  * @author 王振宇
@@ -29,7 +28,7 @@ public class ProProductInfo implements Serializable {
    /**
     * 产品id
     */
-    @TableId(value = "product_id", type = IdType.AUTO)
+    @TableId(value = "product_id")
     private Integer productId;
 
    /**

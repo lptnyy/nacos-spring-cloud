@@ -1,12 +1,24 @@
 import axios from '@/libs/api.request'
 
 /**
- * 查询
+ * 分页查询列表
  * @param {} params
  */
 export const get${className}PageList = (params) => {
   return axios.request({
     url: '${gateway}/${smClassName}/getPageList',
+    method: 'post',
+    data: params
+  })
+}
+
+/**
+ * 查询详情信息
+ * @param {} params
+ */
+export const get${className}Info = (params) => {
+  return axios.request({
+    url: '${gateway}/${smClassName}/get',
     method: 'post',
     data: params
   })

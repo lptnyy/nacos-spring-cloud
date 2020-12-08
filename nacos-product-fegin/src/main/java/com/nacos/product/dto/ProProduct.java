@@ -35,8 +35,8 @@ public class ProProduct implements Serializable {
    /**
     * 企业id
     */
-    @TableField(value = "enterprise_id")
-    private Integer enterpriseId;
+    @TableField(value = "business_id")
+    private Integer businessId;
 
    /**
     * 分类id
@@ -115,6 +115,12 @@ public class ProProduct implements Serializable {
     */
     @TableField(value = "sort")
     private Integer sort;
+
+    /**
+     * 来源
+     */
+    @TableField(value = "source")
+    private Integer source;
 
    /**
     * 更新时间

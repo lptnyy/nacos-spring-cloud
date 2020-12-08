@@ -28,6 +28,7 @@
     <module>nacos-product-fegin</module>
     <module>nacos-business-server</module>
     <module>nacos-business-fegin</module>
+    <module>nacos-rabbit-server</module>
   </modules>
   <properties>
     <mysql-connector-java.version>8.0.20</mysql-connector-java.version>

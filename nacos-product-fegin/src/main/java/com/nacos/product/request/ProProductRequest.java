@@ -5,9 +5,6 @@ import java.lang.Integer;
 import com.nacos.common.page.RequestPage;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.lang.Integer;
-import java.lang.String;
-import java.util.Date;
 
 /**
  * <p>
@@ -32,7 +29,7 @@ public class ProProductRequest extends RequestPage {
     * 企业id
     */
     @ApiModelProperty(value = "企业id", name = "enterpriseId")
-    private Integer enterpriseId;
+    private Integer businessId;
 
    /**
     * 分类id
@@ -57,6 +54,12 @@ public class ProProductRequest extends RequestPage {
     */
     @ApiModelProperty(value = "列表展示图片", name = "image")
     private String image;
+
+    /**
+     * 列表展示图片
+     */
+    @ApiModelProperty(value = "产品图库", name = "images")
+    private String images;
 
    /**
     * 赞数
@@ -123,6 +126,12 @@ public class ProProductRequest extends RequestPage {
     */
     @ApiModelProperty(value = "创建时间", name = "createTime")
     private String createTime;
+
+    /**
+     * 产品介绍
+     */
+    @ApiModelProperty(value = "产品介绍", name = "introduce")
+    private String introduce;
 
    /**
     * in 查询操作
