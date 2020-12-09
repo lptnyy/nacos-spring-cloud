@@ -1,5 +1,4 @@
 package com.nacos.common.respones;
-
 import java.util.List;
 import lombok.Data;
 

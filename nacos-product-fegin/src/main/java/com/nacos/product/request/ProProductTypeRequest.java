@@ -5,9 +5,6 @@ import java.lang.Integer;
 import com.nacos.common.page.RequestPage;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.lang.Integer;
-import java.lang.String;
-import java.util.Date;
 
 /**
  * <p>

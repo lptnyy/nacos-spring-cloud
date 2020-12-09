@@ -9,7 +9,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @EnableSwagger2
 @ComponentScans({
     @ComponentScan("com.nacos.common.exception"), // 载入全局异常管理
-    @ComponentScan("com.nacos.common.feign") // 解决 服务调用之间传递 oauth2 头信息
+    @ComponentScan("com.nacos.common.feign")
 })
 public class RabbitApplication {
   public static void main(String[] args) {
